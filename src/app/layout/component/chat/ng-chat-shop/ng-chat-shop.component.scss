@@ -1,0 +1,175 @@
+
+#ng-chat-shop {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+
+    .chat-container {
+        width: 240px;
+        height: 360px;
+        border-width: 1px;
+        border-style: solid;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+        margin-right: 30px;
+        margin-bottom: 60px;
+        background-color: white;
+
+        .chat-shop-message-container {
+            display: flex;
+            padding-left: 20px;
+            padding-top: 10px;
+            border-bottom: solid rgb(165, 165, 165) 1px;
+            vertical-align: middle;
+            cursor: default;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .shop-message-container {
+                display: table;
+                margin-bottom: 10px;
+                width: 150px;
+                height: 30px;
+
+                .message-container {
+                    display: table-cell;
+                    vertical-align: middle;
+
+                    span {
+                        display: block;
+                        margin-left: 10px;
+                        margin-top: 0;
+                    }
+
+                    .message-con {
+                        display: flex;
+                        align-items: center;
+
+                        span {
+                            display: flex;
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+
+            .shop-message-container-i {
+                display: table;
+                vertical-align: middle;
+                height: 30px;
+                padding-right: 10px;
+                padding-left: 0;
+                cursor: pointer;
+
+                i {
+                    display: table-cell;
+                    vertical-align: middle;
+                    font-size: 0.6rem;
+                }
+            }
+        }
+
+        .chat-shop-content-container {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: 261px;
+            background-color: rgb(235, 255, 255);
+            overflow:auto;
+
+            .chat-fecha-container {
+                text-align: center;
+                margin-top: 5px;
+                margin-bottom: 10px;
+
+                .chat-fecha{
+                    font-size: 8px;
+                    color: rgb(110, 110, 110);
+                    margin: auto;
+                }
+            }
+
+            .chat-left-container {
+                text-align: left;
+                margin-top: 5px;
+                margin-bottom: 5px;
+
+                .chat-message-left-container {
+                    background-color: white;
+                    padding: 5px;
+                    display: inline-block;
+                    max-width: 160px;
+                    margin: auto;
+                    -moz-border-radius: 5px;
+                    -webkit-border-radius: 5px;
+    
+                    .chat-message-left {
+                        font-size: 11px;
+                        font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    }
+                }
+            }
+
+            .chat-right-container {
+                text-align: right;
+                margin-top: 5px;
+                margin-bottom: 5px;
+
+                .chat-message-right-container {
+                    background-color: rgb(56, 143, 107);
+                    color: white;
+                    padding: 5px;
+                    display: inline-block;
+                    max-width: 160px;
+                    margin: auto;
+                    -moz-border-radius: 5px;
+                    -webkit-border-radius: 5px;
+
+                    .chat-message-right {
+                        font-size: 11px;
+                        font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    }
+                }
+            }
+        }
+
+        .chat-shop-send-container {
+            background-color: white;
+
+            input[type=text]{
+                font-size: 12px;
+                height: 45px;
+                border: 0;
+            }
+        }
+    }
+
+    .message {
+        font-size: 0.7rem;
+        font-weight: bold;
+        color: rgb(0, 51, 3);
+    }
+
+    .message-det {
+        font-size: 0.6rem;
+        color: rgb(33, 116, 39);
+        margin-top: 5px !important;
+    }
+}
+
+
+.fake-textarea {
+    border: 1px solid black;
+    width: 30rem;
+    padding: .5rem;
+    min-height: 3rem;
+}
+.fake-textarea:empty::before {
+    position: absolute;
+    content: "Escribe aquí...";
+}
+#description {
+    display: none;
+}

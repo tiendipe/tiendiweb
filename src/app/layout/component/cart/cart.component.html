@@ -1,0 +1,22 @@
+<div class="mb-2">
+    <button style="width: 45px; height: 45px; display: flex; justify-content: center; " pButton pRipple type="button"
+        class="p-button-rounded p-button-lg p-button-raised" 
+        [ngClass]="{
+            'p-button-secondary p-button-text whitebackground': !buttonActive ,
+            'p-button-help '     : buttonActive,
+            'p-button-secondary':  true
+        }" icon="material-icons-outlined" (click)="op.show($event); buttonActive = !buttonActive;">
+        <i class="material-icons-outlined">shopping_cart</i>
+    </button>
+
+    <p-overlayPanel id="panel" #op [style]="{ width: '300px', padding: 'unset' }">
+        <ng-template pTemplate style="width: 0px">
+            <app-cart-summary [scroll]=true></app-cart-summary>
+            <div class="flex justify-content-center background">
+                <button pButton pRipple type="button" class="p-button-text p-button-rounded p-button-secondary font-bold mb-2" style="color: #9C27B0;" (click)="openSideBag()">
+                    Ir a bolsa de compras
+                </button>
+            </div>
+        </ng-template>
+    </p-overlayPanel>
+</div>

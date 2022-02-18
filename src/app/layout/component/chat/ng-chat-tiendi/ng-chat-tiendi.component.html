@@ -1,0 +1,27 @@
+<app-ng-chat-info 
+    *ngIf="chatShopWindows == 3"
+    (onBackChatShopListClicked)="onChatShopWindowsNavigateTo($event)">
+</app-ng-chat-info>
+
+<app-ng-chat-shop #chatWindow
+    *ngIf="chatShopWindows == 2"
+    [window]="window"
+    [userId]="userId"
+    (onBackChatShopListClicked)="onChatShopWindowsNavigateTo($event)"
+    (onMessagesSeen)="onWindowMessagesSeen($event)"
+    (onMessageSent)="onWindowMessageSent($event)"
+    (onChatWindowClosed)="onChatShopWindowsNavigateTo($event)"
+    (onLoadHistoryTriggered)="fetchMessageHistory($event)">
+</app-ng-chat-shop>
+
+<app-ng-chat-shop-list
+    *ngIf="chatShopWindows == 1"
+    [participants]="participants"
+    [participantsResponse]="participantsResponse"
+    (onChatShopClicked)="onShopClickedFromShopList($event)">
+</app-ng-chat-shop-list>
+
+<app-ng-chat-closed
+    [chatShopWindows]="chatShopWindows"
+    (onToggleChatClicked)="onChatShopWindowsNavigateTo($event)">
+</app-ng-chat-closed>

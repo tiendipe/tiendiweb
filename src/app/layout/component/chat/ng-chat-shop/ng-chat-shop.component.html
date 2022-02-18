@@ -1,0 +1,53 @@
+<!-- CHAT TIENDA -->
+<div id="ng-chat-shop">
+	<div class="chat-container absolute bottom-0 right-0 border-round">
+		<div class="chat-shop-message-container">
+			<div class="shop-message-container-i" (click)="onBackChatShopList()">
+				<i class="pi pi-chevron-left"></i>
+			</div>
+			<img src="../../../assets/perfil-tiendi-icono-invertido.png" alt="tiendi" />
+			<div class="shop-message-container">
+				<div class="message-container">
+					<span class="message">Mini Market</span>
+					<span class="message-det">Pedido Nro. 647680</span>
+				</div>
+			</div>
+		</div>
+
+        <div #chatMessages class="chat-shop-content-container">
+            <div class="chat-fecha-container">
+				<span class="chat-fecha">Hoy a las 10:00 am.</span>
+			</div>
+            <div *ngIf="window.isLoadingHistory">
+                <div class="loader">Loading history...</div>
+            </div>
+            <div *ngFor="let message of window.messages; let i = index">
+                <ng-container [ngSwitch]="message.type">
+                    <ng-container [ngSwitch]="message.type">
+                        <div [ngClass]="{'chat-left-container': true, 'chat-right-container': message.fromId == userId}">
+                            <div *ngSwitchCase="MessageType.Text" [ngClass]="{'chat-message-left-container': true, 'chat-message-right-container': message.fromId == userId}">
+                                <span 
+                                    [ngClass]="{'chat-message-left': true, 'chat-message-right': message.fromId == userId}"
+                                    [innerHtml]="message.message | emojify:emojisEnabled | linkfy:linkfyEnabled"
+                                ></span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+
+		<div class="chat-shop-send-container">
+			<div class="p-inputgroup">
+				<input type="text" pInputText class="p-inputtext-sm"
+					[ngModel]="window.newMessage | emojify:emojisEnabled"
+					(ngModelChange)="window.newMessage=$event"
+					placeholder="Escribe un mensaje"
+					(keydown)="onChatInputTyped($event)"
+                />
+				<button pButton type="button" label="Enviar"
+					class="p-button-success p-button-text p-button-sm"></button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"image": "../../../assets/images/tela_araña.png",
+            "title": "Diferentes medios de pago",
+            "subtitle": "Compra seguro"
+		},
+		{
+			"id": "1001",
+			"image": "../../../assets/images/gusano.png",
+            "title": "Diferentes medios de pago",
+            "subtitle": "Compra seguro"
+		},
+		{
+			"id": "1002",
+			"image": "../../../assets/images/huella_gato.png",
+            "title": "Diferentes medios de pago",
+            "subtitle": "Compra seguro"
+		}
+	]
+}

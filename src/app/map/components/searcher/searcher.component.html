@@ -1,0 +1,101 @@
+<div
+  style="background-color: white"
+  class="p-3 card border-round ml-7 mt-7 border-round"
+>
+  <div class="text-900 font-medium line-height-2" style="font-size: 1.46rem">
+    Encuentra lo que estás buscando,<br><span class="font-bold"
+      >más cerca de lo que crees</span
+    >
+  </div>
+  <span class="p-input-icon-left w-full py-2 p-input-filled">
+    <i class="pi pi-search cyan"></i>
+    <input
+      class="w-full noborder borderbutton p-inputtext-lg"
+      type="text"
+      pInputText
+      placeholder="Search"
+    />
+  </span>
+  <div class="flex justify-content-center">
+    <app-carousel-map [products]="products" [width]="350"></app-carousel-map>
+  </div>
+
+  <div class="flex justify-content-center w-full">
+    <button
+      *ngIf="!subscribe"
+      (click)="subscribe = true"
+      pButton
+      pRipple
+      type="button"
+      label="Suscríbete"
+      class="p-button-text p-button-sm p-button-rounded"
+    ></button>
+    <div *ngIf="subscribe && !email" class="flex flex-row w-full">
+      <input
+        style="border-color: #45d0bd"
+        type="text"
+        pInputText
+        placeholder="Ingresa tu correo electrónico"
+        class = "p-inputtext-sm w-8 mr-3"
+        [(ngModel)] = "textemail"
+      />
+      <button
+        [ngClass] = "{'disabledbutton': textemail == '', 'activebutton': textemail != ''}"
+        pButton
+        pRipple
+        type="button"
+        label="Suscribirme"
+        class="p-button-rounded p-button-sm w-4"
+        (click) = "email = true"
+      ></button>
+    </div>
+    <button
+      *ngIf="email"
+      pButton
+      pRipple
+      type="button"
+      label="Gracias por suscribirte"
+      icon = "pi pi-check"
+      class="p-button-text p-button-sm p-button-rounded cyan"
+    ></button>
+
+  </div>
+
+  <!-- Botones y listas -->
+  <!-- <div class="flex flex-row">
+    <div *ngFor="let test of tests">
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="{{ test.name }}"
+        class="
+          p-button-sm
+          mx-1
+          p-button-outlined p-button-rounded p-button-primary
+        "
+      ></button>
+    </div>
+  </div>
+
+  <div *ngFor = "let test of tests" class = "mt-2">
+  <div class = "flex flex-row align-items-center">
+    <div>
+      <img src="../../../../assets/mastercard.png" style="height: 3rem; width: 3rem; border-radius: 9999px; object-fit: contain;">
+    </div>
+    <div class = "flex flex-column ml-2 ">
+      <div class = "text-900 text-sm">Nombre de la tienda</div>
+      <div class = "orange text-xs">Desde 5 peso</div>
+    </div>
+    <div class = "flex  ml-auto gray text-xs">a 1km</div>
+    <div>
+      <div class = "ml-2">
+        <button pButton pRipple type="button" icon="pi pi-arrow-right" class="p-button-rounded p-button-text p-button-sm cyan"></button>
+      </div>
+
+    </div>
+  </div>
+  <p-divider></p-divider>
+  </div> -->
+  <!-- Botones y listas -->
+</div>

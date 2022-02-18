@@ -1,0 +1,26 @@
+export const TableDataTienda = [
+  {
+    IDTienda: '1',
+    IDUsuario: 'HLOPEZ',
+    Nombre: 'TIENDA DEMO',
+    SitioWeb: '',
+    Descripcion: 'DEMO',
+    Estado: '1',
+    UsuarioCreacion: '',
+    FechaCreacion: '',
+    UsuarioActualizacion: 'HLOPEZ',
+    FechaActualizacion: '15/05/2021',
+  },
+  {
+    IDTienda: '2',
+    IDUsuario: 'HLOPEZ',
+    Nombre: 'LOPEZ',
+    SitioWeb: '',
+    Descripcion: 'aaa',
+    Estado: '1',
+    UsuarioCreacion: 'HLOPEZ',
+    FechaCreacion: '12/08/2021',
+    UsuarioActualizacion: '',
+    FechaActualizacion: '',
+  },
+];

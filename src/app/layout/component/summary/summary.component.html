@@ -1,0 +1,45 @@
+<div class="flex flex-column p-2" style="background-color: #f8faf9">
+    <p-card class="py-1 px-4">
+        <div class="font-bold text-xl text-900 px-3">
+            Resumen del pedido: 3 productos
+        </div>
+        <div class="px-3" *ngFor="let product of products">
+            <div class="flex flex-row align-items-center">
+                <img class="h-1 w-1 m-3" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
+                <div class="flex flex-column flex-wrap w-7">
+                    <div class="text-sm gray">Marca</div>
+                    <div class="">{{ product.name }}</div>
+                    <div class="text-sm gray">unidades</div>
+                </div>
+                <div class="flex flex-column w-3">
+                    <div class="font-bold text-right">{{ product.price }}</div>
+                    <div class="text-sm line-through gray text-right">
+                        {{ product.price + 120 }}
+                    </div>
+                </div>
+            </div>
+            <p-divider></p-divider>
+        </div>
+        <div class="flex w-full justify-content-end">
+            <div class="flex flex-column justify-content-end w-4">
+                <div class="text-lg font-bold flex flex-row ">
+                    <div class="text-lg font-bold text-right w-6">Subtotal </div>
+                    <div class="text-right w-6 pr-3">$4,999</div>
+                </div>
+                <p-divider></p-divider>
+                <div class="text-lg font-bold gray flex flex-row">
+                    <div class="text-lg font-bold text-right w-6">Despacho </div>
+                    <div class="text-right w-6 pr-3">$0</div>
+                </div>
+                <p-divider></p-divider>
+                <div class="text-lg font-bold purple flex flex-row">
+                    <div class="text-lg font-bold text-right w-6">
+                        Subtotal
+                    </div>
+                    <div class="text-right w-6 pr-3">$4,999</div>
+                </div>
+            </div>
+        </div>
+    </p-card>
+    <div class="flex justify-content-center pt-3 pb-2"></div>
+</div>

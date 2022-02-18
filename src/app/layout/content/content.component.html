@@ -1,0 +1,24 @@
+
+<app-breadcrumb [items]="items"></app-breadcrumb>
+<app-carousel [hidden]="showProductList" [CategoryID]="CategoryID" (onEmitProductID)="emitProductID($event)"></app-carousel>
+<div class="flex flex-row" *ngIf="showProductList">
+    <div class="w-3 p-3">
+        <app-slidemenu [items]="items"></app-slidemenu>
+    </div>
+    <div class="w-9 p-3">
+        <app-products-filter></app-products-filter>
+        <app-products-list [products]="products"></app-products-list>
+    </div>
+</div>
+
+<p-sidebar [(visible)]="visibleSideBag" (onHide)="onClearOutlet()" position="right" [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
+    <app-bag *ngIf="visibleSideBag"></app-bag>
+</p-sidebar>
+
+<p-sidebar [(visible)]="visibleSideBarLeft" (onHide)="onClearOutlet()" position="left" [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
+    <router-outlet name='left'></router-outlet>
+</p-sidebar>
+
+<p-sidebar [(visible)]="visibleSideBarRight" (onHide)="onClearOutlet()" position="right" [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
+    <router-outlet name='right'></router-outlet>
+</p-sidebar>

@@ -1,0 +1,45 @@
+
+<!-- VENDE CON NOSOTROS -->
+<div id="ng-chat-info">
+	<div class="chat-container absolute bottom-0 right-0 border-round">
+		<div class="chat-shop-message-container">
+			<div class="shop-message-container-i" (click)="onBackChatShopList()">
+				<i class="pi pi-chevron-left"></i>
+			</div>
+			<img src="../../../assets/perfil-tiendi-icono-invertido.png" alt="tiendi">
+			<div class="shop-message-container">
+				<div class="message-container">
+					<span class="message">Tiendi</span>
+					<span class="message-det">Vende con nosotros</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="chat-shop-form-container">
+			<div class="p-grid p-fluid chat-form-container">
+				<span class="title">¿Quieres vender con nosotros?</span>
+				<div class="p-col-12">
+					<div class="p-inputgroup">
+						<span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+						<input type="text" pInputText class="p-inputtext-sm w-full" placeholder="¿Como te llamas?">
+					</div>
+				</div>
+				<div class="p-col-12">
+					<div class="p-inputgroup">
+						<span class="p-inputgroup-addon"><i class="pi pi-inbox"></i></span>
+						<input type="text" pInputText class="p-inputtext-sm w-full" placeholder="Ingresa tu correo electrónico">
+					</div>
+				</div>
+				<div class="p-col-12">
+					<div class="p-inputgroup">
+						<span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+						<input type="text" pInputText class="p-inputtext-sm w-full" placeholder="Ingresa tu nro. de teléfono">
+					</div>
+				</div>
+				<div class="p-col-12">
+					<p-toggleButton (onChange)="onSend($event)" [disabled]="!checked" [(ngModel)]="checked" onLabel="Nosotros te llamamos" offLabel="Gracias!" class="p-button-sm p-button-rounded"></p-toggleButton>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

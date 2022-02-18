@@ -1,0 +1,56 @@
+<div class="flex flex-row align-items-center my-2 px-5">
+    <!-- <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-secondary p-button-text"></button> -->
+    <div class="text-2xl w-6 font-bold text-900 textcenter">
+        Mis pedidos
+    </div>
+    <span class="p-input-icon-left w-6" style="background-color: #eceff1">
+        <i class="pi pi-search pr-1" style="color: #046b5e"></i>
+        <input class="w-full" placeholder="Ingresa el nro. de pedido" type="text" style="background-color: #eceff1"
+            pInputText />
+    </span>
+</div>
+<div class="px-5 py-4 min-h-screen" style="background-color: #f8faf9">
+    <p-card class="m-2" *ngFor="let order of orders">
+
+        <div class="px-3">
+            <div class="inline-block font-bold text-xs p-1 w-auto" [ngClass]="{
+                'unsent': order.status === 'Sin Enviar',
+                'refused': order.status === 'Rechazado',
+                'confirmed': order.status === 'Confirmado',
+                'delievered': order.status === 'Entregado'
+                }">{{ order.status }}</div>
+            <div class="flex flex-row">
+                <div class="flex flex-row w-11">
+                    <div class="flex flex-column w-full">
+                        <div class="w-8 text-lg font-semibold">{{ order.store }}</div>
+                        <div class="w-5 text-sm" style="color: #959595">
+                            {{ order.no }}
+                        </div>
+                    </div>
+
+                    <div class="flex flex-column justify-content-end w-full">
+                        <div class="flex w-full text-lg font-bold text-right justify-content-end">
+                            S/ {{ order.total }}
+                        </div>
+                        <div class="flex w-full text-sm text-right justify-content-end" style="color: #959595">
+                            {{ order.products }} productos
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-column w-1">
+                    <button pButton pRipple type="button" icon="pi pi-arrow-right"
+                        class="p-button-rounded p-button-secondary p-button-text " style="color: #0CC2A9;"
+                        (click)="openSummary()"></button>
+                </div>
+            </div>
+        </div>
+    </p-card>
+
+    <div class="flex justify-content-center pt-3 pb-2">
+        <button pButton pRipple type="button" class="p-button-text p-button-rounded p-button-secondary font-bold"
+            style="color: #00695c" (click)="visibleSideBar = true">
+            Ver más pedidos
+        </button>
+    </div>
+
+</div>

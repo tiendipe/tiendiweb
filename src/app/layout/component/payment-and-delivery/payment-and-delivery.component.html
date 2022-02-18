@@ -1,0 +1,42 @@
+<div class="background">
+    <h3 class="px-5 text-900">Forma de despacho</h3>
+    <div class="px-5">
+        <p-card>
+            <div class="flex flex-row justify-content-center">
+                <button pButton pRipple type="button" label="Recojo en tienda"
+                    class="p-button-secondary mx-3 w-6"></button>
+                <button pButton pRipple type="button" label="Despacho a domicilio"
+                    class="p-button-outlined p-button-secondary mx-3 w-6" style="background-color: #ECEFF1"></button>
+            </div>
+
+            <div class="flex flex-row align-items-center pt-3 px-3">
+                <i class="material-icons-outlined purple w-1"> place </i>
+                <div class="flex flex-column w-11">
+                    <div class="text-sm font-bold">Dirección de recojo</div>
+                    <div class="text-base">Some Direction</div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    <h3 class="px-5 text-900">Medio de pago</h3>
+    <div class="px-5">
+        <p-card>
+            <div class="flex flex-row">
+                <div class=" flex justify-content-center w-4">
+                    <button pButton pRipple type="button" label="Efectivo"
+                        class="p-button-secondary w-full ml-4 mr-2"></button>
+                </div>
+                <div class=" flex justify-content-center w-4">
+                    <button pButton pRipple type="button" label="Transferencia"
+                        class="p-button-secondary w-full mx-2"></button>
+                </div>
+                <div class=" flex justify-content-center w-4">
+                    <button pButton pRipple type="button" label="Pago con tarjeta"
+                        class="p-button-secondary w-full mr-4 ml-2"></button>
+                </div>
+            </div>
+            <div class="font-italic px-4 pt-4 pb-2 text-900">Mensaje informativo</div>
+        </p-card>
+    </div>
+    <app-summary></app-summary>
+</div>

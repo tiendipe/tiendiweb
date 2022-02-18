@@ -1,0 +1,62 @@
+<p-toolbar class="">
+  <div class="w-full flex flex-row">
+    <div>
+      <img
+        class="w-8rem h-auto ml-4"
+        src="../../../../assets/logotipo-tiendi-horizontal.png"
+        alt=""
+      />
+    </div>
+    <div class="mt-auto mb-auto ml-auto">
+      <button
+        pButton
+        pRipple
+        type="button"
+        style="color: #00695c"
+        label="Sobre nosotros"
+        class="p-button-text font-bold mx-2 p-button-success"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        style="color: #00695c"
+        label="Como funciona"
+        class="p-button-text font-bold mx-2 p-button-success"
+      ></button>
+      <button
+        style="color: #46d0be; border-color: #46d0be"
+        pButton
+        pRipple
+        type="button"
+        label="¿Quieres vender?"
+        class="p-button-outlined p-button-rounded mx-2"
+      ></button>
+      <button
+        style="color: white; background-color: #fd6435"
+        pButton
+        pRipple
+        type="button"
+        class="p-button-rounded p-button-warning p-button-text mx-2"
+        icon="material-icons-outlined"
+        label="Ingresar"
+        (click)="ingresarClick()"
+      >
+        <i class="material-icons-outlined">account_circle</i>
+      </button>
+    </div>
+  </div>
+</p-toolbar>
+<p-sidebar
+  [(visible)]="display"
+  styleClass="p-sidebar-sm"
+  position="right"
+  [baseZIndex]="10000"
+>
+
+<router-outlet name="segoutlet"></router-outlet>
+
+  <!-- <app-index></app-index> -->
+  <!-- <app-signin></app-signin> -->
+  <!-- <app-register></app-register> -->
+</p-sidebar>

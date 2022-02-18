@@ -1,0 +1,17 @@
+<div class = "pt-3">
+    <app-header (onOpenSideMyOrders)="openSideBarRight()" (onEmitCategoryID)="showProductsByCategoryID($event)"></app-header>
+</div>
+<div class="flex justify-content-end w-full pr-6 absolute" style="top: 5.5rem;">
+    <app-cart (onOpenSideBag)="openSideBag()"></app-cart>
+</div>
+<app-content [hidden]="showProductDetail" (onEmitProductID)="onShowDetailProduct($event)"></app-content>
+
+<app-detail *ngIf="showProductDetail"></app-detail>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+
+<app-ng-chat-tiendi [adapter]="adapter" [userId]="userId"></app-ng-chat-tiendi>
+
+<p-toast></p-toast>

@@ -1,0 +1,10 @@
+{
+    "data":[
+        {
+            "previewImageSrc": "src/assets/perfil-tiendi-logo-vertical.png",
+            "thumbnailImageSrc": "src/assets/perfil-tiendi-logo-vertical.png",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        }
+    ]
+}

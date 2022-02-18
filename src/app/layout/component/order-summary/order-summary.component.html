@@ -1,0 +1,35 @@
+<div class="flex align-items-center flex-row px-3 bg-white my-1">
+    <div class="flex flex-column w-1">
+        <button pButton pRipple type="button" icon="pi pi-arrow-left"
+            class="p-button-rounded p-button-secondary p-button-text" style="color: #0cc2a9"
+            (click)="onBackMyOrders()"></button>
+    </div>
+    <div class="text-2xl w-6 flex align-content-center font-bold text-900" style="vertical-align: center">
+        <b>Pedido No: 123</b>
+    </div>
+</div>
+<app-summary></app-summary>
+<div class="px-5">
+    <div class="font-bold">Despacho</div>
+    <div class="flex flex-row align-items-center">
+        <div>
+            <span class="material-icons green p-3">store</span>
+        </div>
+        <div class="flex flex-column">
+            <div class="text-sm font-semibold p-1">Recojo en tienda</div>
+            <div class="text-sm font-semibold p-1">Dirección</div>
+        </div>
+    </div>
+</div>
+
+<div class="px-5">
+    <div class="font-bold">Despacho</div>
+    <div class="flex flex-row align-items-center">
+        <div class="flex flex-row">
+            <span class="material-icons green p-3">credit_card</span>
+            <div class="flex align-items-center text-sm font-semibold p-1">
+                <div>Pago con tarjeta</div>
+            </div>
+        </div>
+    </div>
+</div>

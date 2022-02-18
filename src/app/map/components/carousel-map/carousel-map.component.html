@@ -1,0 +1,22 @@
+<div id="ng-carousel-map" [style.width.px]="width">
+    <p-carousel [value]="products" [autoplayInterval]="3000" [numVisible]="1" [numScroll]="1" [circular]="true" orientation="horizontal" 
+                indicatorsContentClass="indicatorsContent-override" 
+                indicatorStyleClass="indicators-override" 
+                contentClass="navigators-override">
+        <ng-template pTemplate="header">
+        </ng-template>
+        <ng-template let-product pTemplate="item">
+            <div class="product-item">
+                <div class="product-item-content">
+                    <div>
+                        <!-- <h4 class="p-mb-1">{{product.name}}</h4> -->
+                        <img class="product-image" [src]="product.image">
+                        <span class="product-text font-bold">{{product.title}}</span>
+                        <span class="product-text">{{product.subtitle}}</span>
+                        <!-- <span style="display: block;">${{product.price}}</span> -->
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

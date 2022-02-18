@@ -1,0 +1,13 @@
+i {
+    height: unset;
+    width: unset;
+    font-size: 20px;
+}
+
+:host ::ng-deep .p-checkbox .p-checkbox-box {
+    width: 20px !important;
+    height: 20px !important;
+  }
+:host ::ng-deep .p-checkbox .p-checkbox-box .p-checkbox-icon {
+    font-size: 8px !important;
+}

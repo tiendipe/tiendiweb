@@ -1,0 +1,75 @@
+<div class="text-xl text-900 font-bold mb-2">Regístrate</div>
+<div style="color: #546772" class="text-sm">
+  ¿Ya tienes una cuenta?
+  <a class="orange">Inicia sesión aquí</a>
+</div>
+<div class="flex flex-row mt-3">
+  <p-dropdown
+    class="mr-3 background noborder"
+    style="background-color: #f8faf9; border: 0 !important"
+    [options]="Docs"
+    optionLabel="name"
+  ></p-dropdown>
+  <input
+    style="border-color: #45d0bd"
+    type="text"
+    pInputText
+    placeholder="Ingresa nro. de documento"
+  />
+</div>
+<div class="p-input-filled w-full py-2">
+  <input class="noborder w-full" type="text" pInputText placeholder="Nombres" />
+</div>
+<div class="flex flex-row py-2 w-full">
+  <div class="w-6 p-input-filled">
+    <input
+      class="max-w-full mr-1 noborder"
+      type="text"
+      pInputText
+      placeholder="Apellido Materno"
+    />
+  </div>
+  <div class="w-6 p-input-filled">
+    <input
+      class="max-w-full ml-1 noborder"
+      type="text"
+      pInputText
+      placeholder="Apellido Paterno"
+    />
+  </div>
+</div>
+<div class="w-full py-2">
+  <span class="p-input-icon-left w-full p-input-filled">
+    <i class="pi pi-envelope"></i>
+    <input
+      class="w-full noborder"
+      type="text"
+      pInputText
+      placeholder="Correo electrónico"
+    />
+  </span>
+</div>
+<div class="w-full py-2">
+  <span class="p-input-icon-left w-full p-input-filled">
+    <i class="pi pi-phone"></i>
+    <input
+      class="w-full noborder"
+      type="text"
+      pInputText
+      placeholder="Teléfono"
+    />
+  </span>
+</div>
+<p-checkbox inputId="binary" styleClass="p-checkbox-sm"></p-checkbox>
+<label class="gray text-xs ml-2 mb-1 text-900" for="binary"
+  >Acepto los <a class="orange">términos y condiciones</a></label>
+<div class="mt-3 flex justify-content-center w-full">
+  <button
+    style="background-color: #00bfa5"
+    pButton
+    pRipple
+    type="button"
+    label="Ingresar"
+    class="w-6 p-button-rounded ml-auto font-bold text-sm"
+  ></button>
+</div>

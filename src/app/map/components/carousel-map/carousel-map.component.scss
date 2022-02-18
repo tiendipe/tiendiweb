@@ -1,0 +1,39 @@
+
+#ng-carousel-map {
+    .product-item {
+        .product-item-content {
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .product-text {
+            display: block;
+        }
+    }
+}
+
+:host ::ng-deep .indicators-override {
+    width: 9px !important;
+    border-radius: 15px !important;
+}
+
+:host ::ng-deep .indicatorsContent-override {
+    li.p-highlight > button {
+        background-color: orangered !important;
+    }
+}
+
+:host ::ng-deep .navigators-override {
+    .p-carousel-container .p-carousel-prev span {
+        font-size: 10px;
+    }
+
+    .p-carousel-container .p-carousel-next span {
+        font-size: 10px;
+    }
+}
+
