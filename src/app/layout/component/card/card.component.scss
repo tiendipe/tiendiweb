@@ -15,4 +15,16 @@
     .card-content {
         width: 300px;
     }
+  .tag_price{
+    display: none;
+  }
+  .desc_ {
+    display: flex;
+    align-items: center;
+    color: #f44336;
+    .tag_price{
+      background-color: #f44336;
+      display: inline-block;
+    }
+  }
 }

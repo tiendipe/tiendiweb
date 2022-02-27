@@ -44,7 +44,7 @@ export class CategoryComponent implements OnInit {
     this._categoryService
       .getCategory(pIDTienda)
       .then((res) => {
-        debugger;
+        //debugger;
         this.categories = res.Data;
         console.log(this.categories);
       })

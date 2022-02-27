@@ -1,5 +1,8 @@
 #carousel-product {
-    .content-carousel {
-        background-color: #f8faf9
+  background-color: #f8faf9 !important;
+  .content-carousel {
+    ::ng-deep .p-carousel-item{
+      flex: none !important;
     }
+  }
 }

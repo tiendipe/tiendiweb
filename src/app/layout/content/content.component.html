@@ -1,5 +1,5 @@
 
-<app-breadcrumb [items]="items"></app-breadcrumb>
+<app-breadcrumb [items]="items" class="hidden"></app-breadcrumb>
 <app-carousel [hidden]="showProductList" [CategoryID]="CategoryID" (onEmitProductID)="emitProductID($event)"></app-carousel>
 <div class="flex flex-row" *ngIf="showProductList">
     <div class="w-3 p-3">

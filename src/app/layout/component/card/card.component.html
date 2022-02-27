@@ -7,9 +7,9 @@
                 </div>
                 <img class="h-full w-full" (click)="emitProductID(1)" src="../../../../assets/perfil-tiendi-icono.png" alt="" />
             </div>
-            <div class="text-xs gray pt-1">{{ producto.MarcaDes }}</div>
+            <div class="text-xs gray pt-1"><b> {{ producto.MarcaDes }}Marca</b></div>
             <div class="text-base pt-1">{{ producto.Nombre }}</div>
-            <div class="font-bold pt-1">${{ producto.Precio }}</div>
+            <div class="font-bold pt-1 price_box desc_"> <b> ${{ producto.Precio }}</b> <div class="p-tag tag_price p-1 ml-2">10%</div>  </div>
             <div class="flex flex-row justify-content-center mt-4">
                 <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-help p-button-text p-button-sm mr-auto"></button>
                 <p class="w-5 p-inputtext-sm text-center quantity" type="text" pInputText>
@@ -19,7 +19,7 @@
             </div>
             <div class="pt-3 flex justify-content-center">
                 <button pButton pRipple type="button" [icon]="iconAdd" [label]="labelAdd" [ngClass]="classAdd"
-                    class="p-button-outlined p-button-rounded p-button-help w-full" (click)="onAdd()">
+                    class="p-button-outlined p-button-help w-full" (click)="onAdd()">
                 </button>
             </div>
         </div>

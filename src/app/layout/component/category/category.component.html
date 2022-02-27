@@ -1,10 +1,10 @@
 <div class="py-3 pl-1 w-full">
     <button pButton pRipple type="button"
-        class="p-button-outlined p-button-rounded p-button-secondary mr-5 p-button-sm" (click)="emitCategoryID(1)">
+        class="p-button-outlined p-button-rounded p-button-secondary mr-3 p-button-sm iniBtn" (click)="emitCategoryID(1)">
         <i class="pi pi-bars"></i>
     </button>
-    <button pButton *ngFor="let category of categories" pRipple type="button" [label]="category.Nombre"
-        class="p-button-outlined p-button-rounded p-button-secondary mx-1 p-button-sm" (click)="emitCategoryID(category.IDCategoria)">
-        <i class="pi pi-dollar mr-1"></i>
+    <button pButton *ngFor="let category of categories; let i = index" pRipple type="button" [label]="category.Nombre" [class]="'bt_'+i"
+        class="p-button-outlined p-button-rounded p-button-secondary mx-1 p-button-sm itemBtn" (click)="emitCategoryID(category.IDCategoria)">
+        <i class="pi pi-inbox mr-1"></i>
     </button>
 </div>

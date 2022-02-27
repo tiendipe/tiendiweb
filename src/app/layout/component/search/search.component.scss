@@ -1,0 +1,26 @@
+.srch-btn{
+  border-radius: 10px !important;
+  background-color: #ECEFF1;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  i{
+    position: relative;
+    display: block;
+    left: 0;
+    margin-right: 20px;
+    top: 3px;
+  }
+  input{
+    height: 65px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    outline:none;
+    width: 100%;
+    box-shadow: none;
+    &::placeholder{
+      font-size: 20px;
+    }
+  }
+}

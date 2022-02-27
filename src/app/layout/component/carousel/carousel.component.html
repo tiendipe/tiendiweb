@@ -2,7 +2,7 @@
     <div class="py-3 pl-5 text-sm font-bold darkgray">OFERTAS DEL DÍA</div>
     <p-carousel [value]="productos" [numVisible]="6" [numScroll]="1" [circular]="true">
         <ng-template let-producto pTemplate="item">
-            <div class="flex justify-conotent-center">
+            <div class="flex justify-content-center">
                 <app-card class="px-2" [producto]="producto" (onEmitProductID)="emitProductID($event)"></app-card>
             </div>
         </ng-template>
