@@ -1,5 +1,6 @@
+import { IAuditoria } from "./auditoria";
 
-export interface IProducto{
+export interface IProducto extends IAuditoria {
     IDProducto: number;
     IDCategoria: number;
     IDTienda: number;
@@ -11,10 +12,4 @@ export interface IProducto{
     IDMarca: string;
     MarcaDes: string;
     Tags: string;
-    Estado: boolean;
-    EstadoDes: string;
-    UsuarioCreacion: string;
-    FechaCreacion: Date;
-    UsuarioActualizacion: string;
-    FechaActualizacion: Date;
 }

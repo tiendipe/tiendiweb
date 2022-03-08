@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../../../interfaces/product';
-import { IProducto } from '../card/shared/producto';
+import { IProducto } from '../../../interfaces/producto';
 
 @Component({
     selector: 'app-products-list',
@@ -8,7 +7,7 @@ import { IProducto } from '../card/shared/producto';
     styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-    @Input() products: Product[] = [];
+    @Input() products: IProducto[] = [];
     producto: IProducto;
     visibleSidebar: boolean = false;
 
@@ -16,5 +15,4 @@ export class ProductsListComponent implements OnInit {
 
     ngOnInit(): void {
     }
-
 }

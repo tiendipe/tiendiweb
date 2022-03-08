@@ -1,26 +1,32 @@
-export const TableDataTienda = [
+import { ITienda } from "../interfaces/tienda";
+
+export const TableDataTienda : ITienda[] = [
   {
-    IDTienda: '1',
+    IDTienda: 1,
     IDUsuario: 'HLOPEZ',
     Nombre: 'TIENDA DEMO',
     SitioWeb: '',
     Descripcion: 'DEMO',
-    Estado: '1',
+    Feriado: true,
+    Estado: true,
+    EstadoDes: 'Activo',
     UsuarioCreacion: '',
-    FechaCreacion: '',
+    FechaCreacion: new Date(),
     UsuarioActualizacion: 'HLOPEZ',
-    FechaActualizacion: '15/05/2021',
+    FechaActualizacion: new Date('15/05/2021'),
   },
   {
-    IDTienda: '2',
+    IDTienda: 2,
     IDUsuario: 'HLOPEZ',
     Nombre: 'LOPEZ',
     SitioWeb: '',
     Descripcion: 'aaa',
-    Estado: '1',
+    Feriado: true,
+    Estado: true,
+    EstadoDes: 'Activo',
     UsuarioCreacion: 'HLOPEZ',
-    FechaCreacion: '12/08/2021',
+    FechaCreacion: new Date('12/08/2021'),
     UsuarioActualizacion: '',
-    FechaActualizacion: '',
+    FechaActualizacion: new Date(),
   },
 ];

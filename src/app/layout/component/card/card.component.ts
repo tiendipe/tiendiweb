@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { IProducto } from './shared/producto';
+import { IProducto } from '../../../interfaces/producto';
 
 @Component({
     selector: 'app-card',

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { DataService, ErrorService } from '../../../shared/service';
-import { TableDataCategory } from '../../../../data/category.data';
+import { TableDataCategoria } from '../../../../data/category.data';
 import { Categoria } from './category.model';
 
 @Injectable()
@@ -36,7 +36,7 @@ export class CategoryService {
     return new Promise((resolve, reject) => {
       // this._dataService.execGetJson(this.methodGetAllURL, parameters)
       of({
-        Data: TableDataCategory.map((categoria) => new Categoria(categoria)),
+        Data: TableDataCategoria.map((categoria) => new Categoria(categoria)),
         Status: 1,
         Message: [],
       }).subscribe((res: any) => {

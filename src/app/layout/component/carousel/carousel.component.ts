@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CONSTANT } from '../../shared/service';
-import { IProducto } from '../card/shared/producto';
+import { IProducto } from '../../../interfaces/producto';
 import { ProductService } from './shared/carousel.service';
 
 @Component({
