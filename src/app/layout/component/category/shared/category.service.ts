@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { DataService, ErrorService } from '../../../shared/service';
 import { TableDataCategoria } from '../../../../data/category.data';
-import { Categoria } from './category.model';
+import { Categoria } from 'src/app/interfaces/categoria';
 
 @Injectable()
 export class CategoryService {
