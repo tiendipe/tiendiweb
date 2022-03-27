@@ -1,8 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
-import { TableDataProducto } from 'src/app/data/product.data';
+import { TableDataProducto } from 'src/app/data/producto.data';
 import { IProducto } from 'src/app/interfaces/producto';
+import { ProductoService } from 'src/app/services/producto.service';
+import { CONSTANT } from '../shared/service';
+import { ContentService } from './content.service';
 
 @Component({
   selector: 'app-content',
@@ -30,16 +33,20 @@ export class ContentComponent implements OnInit {
     { label: 'Nombre de la sub-categoría' },
   ];
 
-  products: IProducto[] = TableDataProducto;
+  productos: IProducto[];
 
-  constructor(private _router: Router) {}
+  constructor(
+    private _contentService: ContentService,
+    private _productoService: ProductoService
+  ) {}
 
   ngOnInit(): void {
-    console.log('content');
+    this.CategoryID = 1; //TODO se selecciona el primero por defecto
+    this.onShowProductsByCategoryID(CONSTANT.IDTienda.tiendaUno, this.CategoryID);
   }
 
   onClearOutlet(): void {
-    this._router.navigate(['/ecommerce/'], { skipLocationChange: true });
+    this._contentService.navigateToList();
   }
 
   public onOpenSideBarLeft(): void {
@@ -54,12 +61,36 @@ export class ContentComponent implements OnInit {
     this.visibleSideBag = true;
   }
 
-  public onShowProductsByCategoryID(CategoryID: number): void {
-    if (CategoryID > 0) this.showProductList = false;
+  public onShowProductsByCategoryID(pTiendaID: number, pCategoryID: number): void {
+    debugger;
+    if (pCategoryID > 0) {
+      this.showProductList = false;
+      this.loadProductos(pTiendaID, pCategoryID);
+    }
     else this.showProductList = true;
   }
 
   emitProductID(ProductID: number): void {
     this.onEmitProductID.emit(ProductID);
+  }
+
+  /**
+   * Carga de productos
+   * @param pIDTienda
+   * @param pIDCategoria
+   * @memberof ContentComponent
+   */
+  loadProductos(pIDTienda: number, pIDCategoria: number): void {
+    this._productoService
+      .getProducto(pIDTienda, pIDCategoria)
+      .then((res) => {
+        debugger;
+        this.productos = res.Data;
+      })
+      .catch(() => {
+        this._productoService.showMessageError(
+          CONSTANT.MESSAGE.errorListar + ' Productos'
+        );
+      });
   }
 }

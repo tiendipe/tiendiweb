@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { IProducto } from '../../interfaces/producto';
-import { TableDataProducto } from 'src/app/data/product.data';
+import { TableDataProducto } from 'src/app/data/producto.data';
 
 @Component({
   selector: 'app-list',

@@ -1,8 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
-import { CONSTANT } from '../../shared/service';
+import { ICategoria } from 'src/app/interfaces/categoria';
+import { CategoriaService } from 'src/app/services/categoria.service';
 import { CategoryService } from './shared/category.service';
-import { Categoria } from './shared/category.model';
 
 @Component({
   selector: 'app-category',
@@ -12,14 +12,17 @@ import { Categoria } from './shared/category.model';
 export class CategoryComponent implements OnInit {
   @Output() onEmitCategoryID: EventEmitter<number> = new EventEmitter();
   private _unsubscribeAll: Subject<any>;
-  categories: Categoria[];
+  @Input() categorias: ICategoria[];
+  categoriaIDSelected: number;
 
   /**
-   *Creates an instance of CategoryComponent.
-   * @param {CategoryService} _categoryService
-   * @memberof CategoryComponent
+   * Creates an instance of CategoryComponent.
+   * @param _categoriaService
+   * @param _categoryService
    */
-  constructor(private _categoryService: CategoryService) {
+  constructor(
+    private _categoriaService: CategoriaService,
+    private _categoryService: CategoryService) {
     // Set the private defaults
     this._unsubscribeAll = new Subject();
   }
@@ -28,7 +31,7 @@ export class CategoryComponent implements OnInit {
    * @memberof CategoryComponent
    */
   ngOnInit(): void {
-    this.loadCategory(1);
+    this.categoriaIDSelected = 1; //TODO se selecciona el primero por defecto
   }
 
   /**
@@ -40,28 +43,14 @@ export class CategoryComponent implements OnInit {
     this._unsubscribeAll.complete();
   }
 
-  loadCategory(pIDTienda: number): void {
-    this._categoryService
-      .getCategory(pIDTienda)
-      .then((res) => {
-        //debugger;
-        this.categories = res.Data;
-        console.log(this.categories);
-      })
-      .catch(() => {
-        this._categoryService.showMessageError(
-          CONSTANT.MESSAGE.errorListar + ' Categorías'
-        );
-      });
-  }
-
   /**
    * Emit category selected
    * @param {number} CategoryID
    * @memberof CategoryComponent
    */
-  emitCategoryID(CategoryID: number): void {
-    this.onEmitCategoryID.emit(CategoryID);
+  emitCategoryID(pCategoryID: number): void {
+    this.categoriaIDSelected = pCategoryID
+    this.onEmitCategoryID.emit(pCategoryID);
   }
 
   /**

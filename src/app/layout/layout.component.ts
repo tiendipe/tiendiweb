@@ -3,40 +3,45 @@ import { ChatAdapter } from './component/chat/core/chat-adapter';
 import { Theme } from './component/chat/core/theme.enum';
 import { DemoAdapter } from './component/chat/shared/demo-adapter';
 import { ContentComponent } from './content/content.component';
+import { CONSTANT } from './shared/service';
 
 @Component({
-    selector: 'app-layout',
-    templateUrl: './layout.component.html',
-    styleUrls: ['./layout.component.scss']
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-    @ViewChild(ContentComponent) contentComponent!: ContentComponent;
-    showProductDetail: boolean = false;
+  @ViewChild(ContentComponent) contentComponent!: ContentComponent;
+  showProductDetail: boolean = false;
 
-    title = 'tiendichat';
-    public userId = 999;
-    theme: Theme = Theme.Dark;
-    public adapter: ChatAdapter = new DemoAdapter();
+  title = 'tiendichat';
+  public userId = 999;
+  theme: Theme = Theme.Dark;
+  public adapter: ChatAdapter = new DemoAdapter();
 
-    constructor() { }
+  constructor() {}
 
-    ngOnInit(): void {
-        console.log('layout');
-    }
+  ngOnInit(): void {
+    console.log('layout');
+  }
 
-    openSideBarRight(): void {
-        this.contentComponent.onOpenSideBarRight();
-    }
+  openSideBarRight(): void {
+    this.contentComponent.onOpenSideBarRight();
+  }
 
-    openSideBag(): void {
-        this.contentComponent.onOpenSideBag();
-    }
+  openSideBag(): void {
+    this.contentComponent.onOpenSideBag();
+  }
 
-    showProductsByCategoryID(CategoryID: number): void {
-        this.contentComponent.onShowProductsByCategoryID(CategoryID);
-    }
+  showProductsByCategoryID(CategoryID: number): void {
+    console.log('app-layout - ' + CategoryID);
+    this.contentComponent.onShowProductsByCategoryID(
+      CONSTANT.IDTienda.tiendaUno,
+      CategoryID
+    );
+  }
 
-    onShowDetailProduct(ProductID: number): void {
-        this.showProductDetail = true;
-    }
+  onShowDetailProduct(ProductID: number): void {
+    this.showProductDetail = true;
+  }
 }

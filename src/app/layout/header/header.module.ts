@@ -6,8 +6,7 @@ import { LogoModule } from '../component/logo/logo.module';
 import { CategoryModule } from '../component/category/category.module';
 import { UserModule } from '../component/user/user.module';
 import { CartModule } from '../component/cart/cart.module';
-
-
+import { CategoriaService } from 'src/app/services/categoria.service';
 
 @NgModule({
     declarations: [
@@ -23,6 +22,9 @@ import { CartModule } from '../component/cart/cart.module';
     ],
     exports: [
         HeaderComponent
+    ],
+    providers: [
+      CategoriaService
     ]
 })
 export class HeaderModule { }

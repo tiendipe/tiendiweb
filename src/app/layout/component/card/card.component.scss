@@ -1,28 +1,28 @@
 #card-product {
-    .p-card .p-card-content{
-        padding: 0.5rem 1rem;
-        margin-bottom: 0.5rem;
-    }
+  .p-card .p-card-content {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+  }
 
-    .quantity {
-        background-color: #eceff1
-    }
+  .quantity {
+    background-color: #eceff1;
+  }
 
-    .selected-product {
-        background-color: #F3E5F5 !important;
-    }
+  .selected-product {
+    background-color: #f3e5f5 !important;
+  }
 
-    .card-content {
-        width: 300px;
-    }
-  .tag_price{
+  .card-content {
+    width: 300px;
+  }
+  .tag_price {
     display: none;
   }
   .desc_ {
     display: flex;
     align-items: center;
     color: #f44336;
-    .tag_price{
+    .tag_price {
       background-color: #f44336;
       display: inline-block;
     }

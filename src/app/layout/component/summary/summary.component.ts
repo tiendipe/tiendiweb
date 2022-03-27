@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { TableDataProducto } from 'src/app/data/product.data';
+import { TableDataProducto } from 'src/app/data/producto.data';
 import { IProducto } from 'src/app/interfaces/producto';
 
 @Component({

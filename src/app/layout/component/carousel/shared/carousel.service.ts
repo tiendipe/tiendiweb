@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { TableDataProducto } from 'src/app/data/product.data';
+import { TableDataProducto } from 'src/app/data/producto.data';
 import { DataService, ErrorService } from '../../../shared/service';
 import { Producto } from 'src/app/interfaces/producto';
 
@@ -16,40 +16,7 @@ export class ProductService {
    * @memberof ProductService
    */
   constructor(
-    private _errorService: ErrorService,
-    private _dataService: DataService
   ) {}
 
-  /**
-   * Get product
-   * @param {number} pIDTienda
-   * @returns {Promise<any>}
-   * @memberof ProductService
-   */
-  getProduct(pIDTienda: number, pIDCategoria: number): Promise<any> {
-    let parameters = new HttpParams();
-    parameters = parameters.append('pIDTienda', String(pIDTienda));
-    parameters = parameters.append('pIDCategoria', String(pIDCategoria));
 
-    return new Promise((resolve, reject) => {
-      // this._dataService.execGetJson(this.methodGetAllURL, parameters)
-      of({
-        Data: TableDataProducto.map((producto) => new Producto(producto)),
-        Status: 1,
-        Message: [],
-      }).subscribe((res: any) => {
-        this._errorService.getResultMessage(res);
-        resolve(res);
-      }, reject);
-    });
-  }
-
-  /**
-   * Show Message Error
-   * @param {*} message
-   * @memberof ProductService
-   */
-  showMessageError(message: string) {
-    this._errorService.showMessageError(message);
-  }
 }

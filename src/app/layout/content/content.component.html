@@ -1,15 +1,15 @@
 
 <app-breadcrumb [items]="items" class="hidden"></app-breadcrumb>
-<app-carousel [hidden]="showProductList" [CategoryID]="CategoryID" (onEmitProductID)="emitProductID($event)"></app-carousel>
-<div class="flex flex-row" *ngIf="showProductList">
+<app-carousel [productos]="productos" (onEmitProductID)="emitProductID($event)"></app-carousel>
+<!-- <div class="flex flex-row" *ngIf="showProductList">
     <div class="w-3 p-3">
         <app-slidemenu [items]="items"></app-slidemenu>
     </div>
     <div class="w-9 p-3">
         <app-products-filter></app-products-filter>
-        <app-products-list [products]="products"></app-products-list>
+        <app-products-list [products]="productos"></app-products-list>
     </div>
-</div>
+</div> -->
 
 <p-sidebar [(visible)]="visibleSideBag" (onHide)="onClearOutlet()" position="right" [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
     <app-bag *ngIf="visibleSideBag"></app-bag>
