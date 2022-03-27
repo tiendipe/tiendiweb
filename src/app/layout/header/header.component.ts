@@ -11,6 +11,7 @@ import { CONSTANT } from '../shared/service';
 export class HeaderComponent implements OnInit {
   @Output() onOpenSideMyOrders: EventEmitter<any> = new EventEmitter();
   @Output() onEmitCategoryID: EventEmitter<any> = new EventEmitter();
+  @Output() onEmitSearchProducts: EventEmitter<any> = new EventEmitter();
   categorias: ICategoria[];
 
   constructor(private _categoriaService: CategoriaService) {}
@@ -40,5 +41,9 @@ export class HeaderComponent implements OnInit {
           CONSTANT.MESSAGE.errorListar + ' Categorías'
         );
       });
+  }
+
+  onSearchProducts(pFiltro: string){
+    this.onEmitSearchProducts.emit(pFiltro);
   }
 }

@@ -35,9 +35,16 @@ export class LayoutComponent implements OnInit {
 
   showProductsByCategoryID(CategoryID: number): void {
     console.log('app-layout - ' + CategoryID);
-    this.contentComponent.onShowProductsByCategoryID(
+    this.contentComponent.onProductsByCategoryID(
       CONSTANT.IDTienda.tiendaUno,
       CategoryID
+    );
+  }
+
+  onSearchProducts(pFiltro: string){
+    this.contentComponent.onProductsBySearch(
+      CONSTANT.IDTienda.tiendaUno,
+      pFiltro
     );
   }
 

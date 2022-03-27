@@ -44,6 +44,25 @@ export class ProductoService {
     });
   }
 
+  getProductoSearch(pIDTienda: number, pFiltro: string): Promise<any> {
+    let parameters = new HttpParams();
+    parameters = parameters.append('pIDTienda', String(pIDTienda));
+    parameters = parameters.append('pFiltro', pFiltro);
+
+    return new Promise((resolve, reject) => {
+      // this._dataService.execGetJson(this.methodGetAllURL, parameters)
+      of({
+        Data: TableDataProducto.map((Productoo) => new Producto(Productoo)).filter(x => x.IDTienda == pIDTienda && x.Nombre.includes(pFiltro)),
+        Status: 1,
+        Message: [],
+      }).subscribe((res: any) => {
+        debugger;
+        this._errorService.getResultMessage(res);
+        resolve(res);
+      }, reject);
+    });
+  }
+
   /**
    * Show Message Error
    * @param message

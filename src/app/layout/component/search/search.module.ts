@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search.component';
-import {InputTextModule} from 'primeng/inputtext';
-
-
-
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    SearchComponent
-  ],
+  declarations: [SearchComponent],
   imports: [
     CommonModule,
-        InputTextModule,
-
+    InputTextModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  exports: [
-    SearchComponent
-  ]
+  exports: [SearchComponent],
 })
-export class SearchModule { }
+export class SearchModule {}

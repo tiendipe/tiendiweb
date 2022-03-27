@@ -42,7 +42,7 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.CategoryID = 1; //TODO se selecciona el primero por defecto
-    this.onShowProductsByCategoryID(CONSTANT.IDTienda.tiendaUno, this.CategoryID);
+    this.onProductsByCategoryID(CONSTANT.IDTienda.tiendaUno, this.CategoryID);
   }
 
   onClearOutlet(): void {
@@ -61,13 +61,16 @@ export class ContentComponent implements OnInit {
     this.visibleSideBag = true;
   }
 
-  public onShowProductsByCategoryID(pTiendaID: number, pCategoryID: number): void {
-    debugger;
+  public onProductsByCategoryID(pTiendaID: number, pCategoryID: number): void {
     if (pCategoryID > 0) {
       this.showProductList = false;
       this.loadProductos(pTiendaID, pCategoryID);
     }
     else this.showProductList = true;
+  }
+
+  public onProductsBySearch(pTiendaID: number, pFiltro: string): void {
+      this.loadProductosSearch(pTiendaID, pFiltro);
   }
 
   emitProductID(ProductID: number): void {
@@ -85,6 +88,19 @@ export class ContentComponent implements OnInit {
       .getProducto(pIDTienda, pIDCategoria)
       .then((res) => {
         debugger;
+        this.productos = res.Data;
+      })
+      .catch(() => {
+        this._productoService.showMessageError(
+          CONSTANT.MESSAGE.errorListar + ' Productos'
+        );
+      });
+  }
+
+  loadProductosSearch(pIDTienda: number, pFiltro: string): void {
+    this._productoService
+      .getProductoSearch(pIDTienda, pFiltro)
+      .then((res) => {
         this.productos = res.Data;
       })
       .catch(() => {
