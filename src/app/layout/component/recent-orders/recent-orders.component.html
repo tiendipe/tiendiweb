@@ -1,75 +1,77 @@
 <!-- <div class="px-3 bg-white">
     <div class="font-bold text-lg py-3">Pedidos recientes</div>
 </div> -->
-<div class="px-3 bg-white">
-    <div *ngIf="hidderButtonSummary" class="font-bold text-lg py-3 text-900">Pedidos recientes</div>
-    <div *ngIf="!hidderButtonSummary" class="flex flex-row w-full align-items-center">
-        <div class="font-bold text-2xl py-3 text-900">
-            Mis pedidos
-        </div>
-        <div class="ml-auto">
-            <span class="p-input-icon-left">
-                <i style="color: #00695C; font-weight: 600;" class="pi pi-search"></i>
-                <input class="background p-inputtext-sm" type="text" pInputText placeholder="Search" />
-            </span>
+<div id="recent-order-wrap">    
+    <div class="px-3 bg-white top-card-order">
+        <div *ngIf="hidderButtonSummary" class="font-bold text-base py-3 text-900">Pedidos recientes</div>
+        <div *ngIf="!hidderButtonSummary" class="flex flex-row w-full align-items-center">
+            <div class="font-bold text-base py-3 text-900">
+                Mis pedidos
+            </div>
+            <div class="ml-auto">
+                <span class="p-input-icon-left">
+                    <i style="color: #00695C; font-weight: 600;" class="pi pi-search"></i>
+                    <input class="background p-inputtext-sm" type="text" pInputText placeholder="Search" />
+                </span>
+            </div>
         </div>
     </div>
-</div>
-<div class="flex flex-column p-2" style="background-color: #f8faf9">
-    <p-card class="py-1 px-2" *ngFor="let order of orders">
-        <div class="w-full px-3 flex align-items-center">
-            <div class="w-full">
-                <div class="inline-block font-bold text-xs p-1 w-auto" [ngClass]="{
-                    unsent: order.status === 'Sin Enviar',
-                    refused: order.status === 'Rechazado',
-                    confirmed: order.status === 'Confirmado',
-                    delievered: order.status === 'Entregado'
-                }">
-                    {{ order.status }}
-                </div>
-                <div class="flex flex-row">
-                    <div class="w-full">
-                        <div class="flex flex-row">
-                            <div class="w-8 text-lg font-semibold">{{ order.store }}</div>
-                            <div class="w-4 text-lg font-bold text-right">
-                                S/ {{ order.total }}
-                            </div>
-                        </div>
-                        <div class="flex flex-row">
-                            <div class="w-8 text-sm" style="color: #959595">
-                                {{ order.no }}
-                            </div>
-                            <div class="w-6 text-sm text-right" style="color: #959595">
-                                {{ order.products }} productos
-                            </div>
-
-                            <!-- <div
-                [hidden]="hidderButtonSummary"
-                (click)="openSideOrderSummary()"
-                >
-                    >>>>
-                </div> -->
-                        </div>
+    <div class="flex flex-column p-2 bottom-card-order" style="background-color: #f8faf9">
+        <p-card class="py-1 px-2" *ngFor="let order of orders">
+            <div class="w-full px-3 flex align-items-center">
+                <div class="w-full">
+                    <div class="inline-block font-bold text-xs p-1 w-auto mb-1" [ngClass]="{
+                        unsent: order.status === 'Sin Enviar',
+                        refused: order.status === 'Rechazado',
+                        confirmed: order.status === 'Confirmado',
+                        delievered: order.status === 'Entregado'
+                    }">
+                        {{ order.status }}
                     </div>
-                    <div *ngIf="!hidderButtonSummary" class="flex flex-column w-1 aling-items-center">
-                        <button pButton pRipple type="button" icon="pi pi-arrow-right"
-                            class="p-button-rounded p-button-secondary p-button-text m-1" style="color: #0cc2a9"
-                            (click)="openSideOrderSummary()"></button>
+                    <div class="flex flex-row">
+                        <div class="w-full">
+                            <div class="flex flex-row mb-1">
+                                <div class="w-8 text-sm font-semibold">{{ order.store }}</div>
+                                <div class="w-4 text-sm font-bold text-right">
+                                    S/ {{ order.total }}
+                                </div>
+                            </div>
+                            <div class="flex flex-row">
+                                <div class="w-8 text-xs" style="color: #959595">
+                                    {{ order.no }}
+                                </div>
+                                <div class="w-6 text-xs text-right" style="color: #959595">
+                                    {{ order.products }} productos
+                                </div>
+
+                                <!-- <div
+                    [hidden]="hidderButtonSummary"
+                    (click)="openSideOrderSummary()"
+                    >
+                        >>>>
+                    </div> -->
+                            </div>
+                        </div>
+                        <div *ngIf="!hidderButtonSummary" class="flex flex-column w-1 aling-items-center">
+                            <button pButton pRipple type="button" icon="pi pi-arrow-right"
+                                class="p-button-rounded p-button-secondary p-button-text m-1" style="color: #0cc2a9"
+                                (click)="openSideOrderSummary()"></button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </p-card>
+        <div class="flex justify-content-center pt-3 pb-2">
+            <button *ngIf="hidderButtonSummary" pButton pRipple type="button"
+                class="p-button-text p-button-rounded p-button-secondary font-bold btn-historial text-xs"
+                (click)="openSideMyOrders()">
+                Ver Historial
+            </button>
+            <button *ngIf="!hidderButtonSummary" pButton pRipple type="button"
+                class="p-button-text p-button-rounded p-button-secondary font-bold btn-historial text-xs" style=""
+                (click)="openSideMyOrders()">
+                Ver más pedidos
+            </button>
         </div>
-    </p-card>
-    <div class="flex justify-content-center pt-3 pb-2">
-        <button *ngIf="hidderButtonSummary" pButton pRipple type="button"
-            class="p-button-text p-button-rounded p-button-secondary font-bold" style="color: #00695c"
-            (click)="openSideMyOrders()">
-            Ver Historial
-        </button>
-        <button *ngIf="!hidderButtonSummary" pButton pRipple type="button"
-            class="p-button-text p-button-rounded p-button-secondary font-bold" style="color: #00695c"
-            (click)="openSideMyOrders()">
-            Ver más pedidos
-        </button>
     </div>
 </div>

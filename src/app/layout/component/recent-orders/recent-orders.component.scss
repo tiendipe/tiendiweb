@@ -1,3 +1,19 @@
-.p-card .p-card-content {
-    padding: .5rem 0;
+#recent-order-wrap{
+	border-radius: 10px;
+	.p-card{
+	    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+	}
+	.p-card .p-card-content {
+	    padding: .5rem 0;
+	}
+	.btn-historial{
+		background-color: rgb(236,240,240);
+		color: #00695c;
+	}
+	.bottom-card-order{
+		border-radius: 0 0 10px 10px;
+	}
+	.top-card-order{
+		border-radius: 10px 10px 0 0; 
+	}
 }

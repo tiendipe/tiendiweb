@@ -1,8 +1,14 @@
 #carousel-product {
   background-color: #f8faf9 !important;
-  .content-carousel {
-    ::ng-deep .p-carousel-item{
-      flex: none !important;
-    }
+  ::ng-deep .p-carousel-item{
+  	flex: none;
+  }
+  ::ng-deep .p-carousel-items-container{
+  	padding: 10px 0;
+  }
+  ::ng-deep .p-carousel .p-carousel-content .p-carousel-prev, 
+  ::ng-deep .p-carousel .p-carousel-content .p-carousel-next{
+  	background-color: #9C27B0;
+  	color: #fff;
   }
 }

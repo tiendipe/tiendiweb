@@ -18,7 +18,7 @@
         (click)="op.show($event)">
         <i class="material-icons-outlined">local_shipping</i>
     </button>
-    <p-overlayPanel #op [style]="{ width: '300px', padding: 'unset' }">
+    <p-overlayPanel #op [style]="{ width: '300px', padding: 'unset', borderRadius: '10px'}">
         <ng-template pTemplate style="width: 0px">
             <app-recent-orders [hidderButtonSummary]="true" (onOpenSideMyOrders)="openSideMyOrders()"> </app-recent-orders>
         </ng-template>

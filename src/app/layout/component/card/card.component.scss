@@ -1,4 +1,11 @@
 #card-product {
+    .p-card{
+      box-shadow: none;
+      &:hover{
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important
+
+      }
+    }
     .p-card .p-card-content{
         padding: 0.5rem 1rem;
         margin-bottom: 0.5rem;
@@ -7,9 +14,22 @@
     .quantity {
         background-color: #eceff1
     }
+    .quantity_val{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+    }
 
     .selected-product {
-        background-color: #F3E5F5 !important;
+        background-color: #9C27B0 !important;
+        color: #fff;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        span{
+          flex:0;          
+        }
     }
 
     .card-content {
