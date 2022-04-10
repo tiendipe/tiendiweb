@@ -8,6 +8,7 @@ import { SlidemenuModule } from '../component/slidemenu/slidemenu.module';
 import { ProductsFilterModule } from '../component/products-filter/products-filter.module';
 import { CarouselModule } from '../component/carousel/carousel.module';
 import { BagModule } from '../component/bag/bag.module';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,9 @@ import { BagModule } from '../component/bag/bag.module';
     ],
     exports: [
         ContentComponent
-    ]
+    ],
+    providers: [
+      ProductoService
+  ]
 })
 export class ContentModule { }

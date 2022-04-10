@@ -7,6 +7,8 @@ export interface IProducto extends IAuditoria {
     Nombre: string;
     Descripcion: string;
     Precio: number;
+    Descuento: number;
+    PrecioDescuento: number;
     IDUnidadMedida: number;
     UnidadMedidaDes: string;
     IDMarca: string;
@@ -21,6 +23,8 @@ export class Producto implements IProducto {
   Nombre: string;
   Descripcion: string;
   Precio: number;
+  Descuento: number;
+  PrecioDescuento: number;
   IDUnidadMedida: number;
   UnidadMedidaDes: string;
   IDMarca: string;
@@ -42,6 +46,8 @@ export class Producto implements IProducto {
     this.Nombre = producto.Nombre;
     this.Descripcion = producto.Descripcion;
     this.Precio = producto.Precio;
+    this.Descuento = producto.Descuento;
+    this.PrecioDescuento = producto.PrecioDescuento;
     this.IDUnidadMedida = producto.IDUnidadMedida;
     this.UnidadMedidaDes = producto.UnidadMedidaDes;
     this.IDMarca = producto.IDMarca;

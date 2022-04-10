@@ -1,1 +1,9 @@
-<i class="pi  favorite-icon" [ngClass]=" {'selected-favorite': selected, 'pi-heart': !selected,'pi-heart-fill': selected}" (click)="onSelected()"></i>
+<i
+  class="pi favorite-icon"
+  [ngClass]="{
+    'selected-favorite': selected,
+    'pi-heart': !selected,
+    'pi-heart-fill': selected
+  }"
+  (click)="onSelected()"
+></i>

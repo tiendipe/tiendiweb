@@ -1,10 +1,23 @@
 <div class="py-3 pl-1 w-full">
-    <button pButton pRipple type="button"
-        class="p-button-outlined p-button-rounded p-button-secondary mr-3 p-button-sm iniBtn" (click)="emitCategoryID(1)">
-        <i class="pi pi-bars"></i>
-    </button>
-    <button pButton *ngFor="let category of categories; let i = index" pRipple type="button" [label]="category.Nombre" [class]="'bt_'+i"
-        class="p-button-outlined p-button-rounded p-button-secondary mx-1 p-button-sm itemBtn" (click)="emitCategoryID(category.IDCategoria)">
-        <i class="pi pi-inbox mr-1"></i>
-    </button>
+  <button
+    pButton
+    pRipple
+    type="button"
+    class="p-button-outlined p-button-rounded p-button-secondary mr-3 p-button-sm iniBtn"
+    (click)="emitCategoryID(1)"
+  >
+    <i class="pi pi-bars"></i>
+  </button>
+  <button
+    pButton
+    *ngFor="let categoria of categorias; let i = index"
+    pRipple
+    type="button"
+    [label]="categoria.Nombre"
+    class="p-button-outlined p-button-rounded p-button-secondary mx-1 p-button-sm itemBtn"
+    (click)="emitCategoryID(categoria.IDCategoria)"
+    [class.btn_active] = "categoriaIDSelected == categoria.IDCategoria"
+  >
+    <i class="pi pi-inbox mr-1"></i>
+  </button>
 </div>

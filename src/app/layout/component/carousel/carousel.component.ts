@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CONSTANT } from '../../shared/service';
 import { IProducto } from '../../../interfaces/producto';
-import { ProductService } from './shared/carousel.service';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
     selector: 'app-carousel',
@@ -11,9 +11,9 @@ import { ProductService } from './shared/carousel.service';
 })
 export class CarouselComponent implements OnInit {
     @Output() onEmitProductID: EventEmitter<number> = new EventEmitter();
-    productos: IProducto[];
-    @Input() CategoryID: number;
-    pCategoryID: Observable<number>;
+    @Input() productos: IProducto[];
+    // @Input() CategoryID: number;
+    // pCategoryID: Observable<number>;
 
     /**
      * Creates an instance of CarouselComponent.
@@ -21,7 +21,7 @@ export class CarouselComponent implements OnInit {
      * @memberof CarouselComponent
      */
     constructor(
-        private _productService: ProductService
+        private _productoService: ProductoService
     ) { }
 
     /**
@@ -29,7 +29,8 @@ export class CarouselComponent implements OnInit {
      * @memberof CarouselComponent
      */
     ngOnInit(): void {
-        this.loadProducts(1, 1);
+        // this.loadProducts(1, this.CategoryID);
+        // console.log('app-carousel ' + this.CategoryID);
         // this.pCategoryID.subscribe(()=>{
         //     console.log("carousel - " + this.pCategoryID);
         // });
@@ -44,17 +45,17 @@ export class CarouselComponent implements OnInit {
         this.onEmitProductID.emit(ProductID);
     }
 
-    /**
-     * Load products
-     * @param {number} pIDTienda
-     * @param {number} pIDCategoria
-     * @memberof CarouselComponent
-     */
-    loadProducts(pIDTienda: number, pIDCategoria: number): void{
-        this._productService.getProduct(pIDTienda, pIDCategoria).then((res) => {
-            this.productos = res.Data;
-        }).catch(() => {
-            this._productService.showMessageError(CONSTANT.MESSAGE.errorListar + ' Productos');
-        });
-    }
+    // /**
+    //  * Load products
+    //  * @param {number} pIDTienda
+    //  * @param {number} pIDCategoria
+    //  * @memberof CarouselComponent
+    //  */
+    // loadProducts(pIDTienda: number, pIDCategoria: number): void{
+    //     this._productoService.getProducto(pIDTienda, pIDCategoria).then((res) => {
+    //         this.productos = res.Data;
+    //     }).catch(() => {
+    //         this._productoService.showMessageError(CONSTANT.MESSAGE.errorListar + ' Productos');
+    //     });
+    // }
 }

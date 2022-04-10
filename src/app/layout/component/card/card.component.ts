@@ -44,4 +44,13 @@ export class CardComponent implements OnInit {
         }
         this.aggregated = !this.aggregated;
     }
+
+    onMoreUnid(){
+        this.quantity = this.quantity + 1;
+    }
+
+    onLessUnid(){
+      if(this.quantity > 1)
+        this.quantity = this.quantity - 1;
+    }
 }

@@ -1,10 +1,24 @@
-<div class="max-w-full flex align-items-center p-3 ml-3 border-round" style="background-color: white">
-    <button pButton pRipple type="button" icon="pi pi-filter" label="Filtrar"
-        class="p-button-outlined p-button-rounded p-button-help" (click)="visibleSidebar = true"></button>
-    <div class="font-bold mx-6">48 productos encontrados</div>
-    <div class="flex flex-row align-content-center justify-content-end ml-auto">
-        <div class="mx-3 pt-2">Ordenar por</div>
-        <p-dropdown placeholder="Selecciona una opción" [options]="options" [(ngModel)]="selectedOption"
-            optionLabel="name"></p-dropdown>
-    </div>
+<div
+  class="max-w-full flex align-items-center p-3 ml-3 border-round"
+  style="background-color: white"
+>
+  <button
+    pButton
+    pRipple
+    type="button"
+    icon="pi pi-filter"
+    label="Filtrar"
+    class="p-button-outlined p-button-rounded p-button-help"
+    (click)="visibleSidebar = true"
+  ></button>
+  <div class="font-bold mx-6">48 productos encontrados</div>
+  <div class="flex flex-row align-content-center justify-content-end ml-auto">
+    <div class="mx-3 pt-2">Ordenar por</div>
+    <p-dropdown
+      placeholder="Selecciona una opción"
+      [options]="options"
+      [(ngModel)]="selectedOption"
+      optionLabel="name"
+    ></p-dropdown>
+  </div>
 </div>

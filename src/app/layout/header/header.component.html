@@ -1,16 +1,19 @@
-<div class = "flex flex-row pl-3" >
-    <app-logo class = "mx-3"></app-logo>
+<div class="flex flex-row pl-3">
+  <app-logo class="mx-3"></app-logo>
 
-    <div class = "flex flex-column align-content-start w-12">
-        <div class = "w-8">
-            <app-search></app-search>
-        </div>
-        <div>
-            <app-category (onEmitCategoryID)="emitCategoryID($event)"></app-category>
-        </div>
+  <div class="flex flex-column align-content-start w-12">
+    <div class="w-8">
+      <app-search (searchProducts)="onSearchProducts($event)"></app-search>
     </div>
+    <div>
+      <app-category
+        (onEmitCategoryID)="emitCategoryID($event)"
+        [categorias]="categorias"
+      ></app-category>
+    </div>
+  </div>
 
-    <div class = "flex justify-content-end w-6 mt-3">
-        <app-user (onOpenSideMyOrders)="openSideMyOrders()"></app-user>
-    </div>
+  <div class="flex justify-content-end w-6 mt-3">
+    <app-user (onOpenSideMyOrders)="openSideMyOrders()"></app-user>
+  </div>
 </div>
