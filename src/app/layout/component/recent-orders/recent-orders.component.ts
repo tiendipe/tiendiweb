@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { Order } from '../../../interfaces/order';
+import { Pedido } from 'src/app/interfaces/pedido';
+// import { Order } from '../../../interfaces/order';
 
 @Component({
     selector: 'app-recent-orders',
@@ -12,38 +13,38 @@ import { Order } from '../../../interfaces/order';
 export class RecentOrdersComponent implements OnInit {
     @Output() onOpenSideMyOrders: EventEmitter<any> = new EventEmitter();
     @Input() hidderButtonSummary: boolean = false;
-    
-    orders: Order[] = [
-        {
-            status: 'Sin Enviar',
-            store: 'Oxxo',
-            total: 10,
-            no: 21651,
-            products: 3
-        },
-        {
-            status: 'Rechazado',
-            store: '7Eleven',
-            total: 10,
-            no: 21651,
-            products: 3
-        },
-        {
-            status: 'Confirmado',
-            store: 'Yepas',
-            total: 10,
-            no: 21651,
-            products: 3
-        },
-        {
-            status: 'Entregado',
-            store: 'Netos',
-            total: 10,
-            no: 21651,
-            products: 3
-        }
+    @Input() pedidos: Pedido[];
 
-    ]
+    // orders: Order[] = [
+    //     {
+    //         status: 'Sin Enviar',
+    //         store: 'Oxxo',
+    //         total: 10,
+    //         no: 21651,
+    //         products: 3
+    //     },
+    //     {
+    //         status: 'Rechazado',
+    //         store: '7Eleven',
+    //         total: 10,
+    //         no: 21651,
+    //         products: 3
+    //     },
+    //     {
+    //         status: 'Confirmado',
+    //         store: 'Yepas',
+    //         total: 10,
+    //         no: 21651,
+    //         products: 3
+    //     },
+    //     {
+    //         status: 'Entregado',
+    //         store: 'Netos',
+    //         total: 10,
+    //         no: 21651,
+    //         products: 3
+    //     }
+    // ]
 
     constructor(private _router: Router) { }
 

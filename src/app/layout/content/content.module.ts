@@ -11,24 +11,18 @@ import { BagModule } from '../component/bag/bag.module';
 import { ProductoService } from 'src/app/services/producto.service';
 
 @NgModule({
-    declarations: [
-        ContentComponent
-    ],
-    imports: [
-        CommonModule,
-        PrimengModule,
-        ProductsListModule,
-        ProductsFilterModule,
-        BreadcrumbModule,
-        SlidemenuModule,
-        BagModule,
-        CarouselModule
-    ],
-    exports: [
-        ContentComponent
-    ],
-    providers: [
-      ProductoService
-  ]
+  declarations: [ContentComponent],
+  imports: [
+    CommonModule,
+    PrimengModule,
+    ProductsListModule,
+    ProductsFilterModule,
+    BreadcrumbModule,
+    SlidemenuModule,
+    BagModule,
+    CarouselModule,
+  ],
+  exports: [ContentComponent],
+  providers: [ProductoService],
 })
-export class ContentModule { }
+export class ContentModule {}

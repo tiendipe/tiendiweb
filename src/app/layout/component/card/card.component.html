@@ -1,30 +1,40 @@
 <div id="card-product" class="flex justify-content-center mx-2 w-full">
-    <p-card class="card-content cursor-pointer">
-        <div class="flex flex-column">
-            <div class="flex justify-content-end static">
-                <div class="absolute pt-1 pr-1">
-                    <app-favorite></app-favorite>
-                </div>
-                <img class="h-full w-full" (click)="emitProductID(1)" src="../../../../assets/perfil-tiendi-icono.png" alt="" />
-            </div>
-            <div class="text-xs gray pt-1 mb-1"><b> {{ producto.MarcaDes }} Marca</b></div>
-            <div class="text-sm pt-1">{{ producto.Nombre }}</div>
-            <div class="text-xs pt-1 price_box price_ gray"> {{ producto.Descripcion}}</div>
-            <div class="font-bold pt-1 price_box desc_"> <b> S/ {{ producto.PrecioDescuento.toFixed(2) }}</b> <div class="p-tag tag_price p-1 ml-2">{{producto.Descuento}}%</div>  </div>
-            <div class="font-bold pt-1 price_box price_ black"> S/ {{ producto.Precio.toFixed(2) }}</div>
-            <div class="text-xs pt-1 price_box price_ gray hidden"> s/. 20.00</div>
-            <div class="flex flex-row justify-content-center mt-4">
-                <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-help p-button-text p-button-sm mr-auto"></button>
-                <p class="w-4 p-input text-xs text-center quantity quantity_val" type="text" pInputText>
-                    {{ quantity }} unid
-                </p>
-                <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-text p-button-sm ml-auto"></button>
-            </div>
-            <div class="pt-3 flex justify-content-center">
-                <button pButton pRipple type="button" [icon]="iconAdd" [label]="labelAdd" [ngClass]="classAdd"
-                    class="p-button-outlined p-button-help w-full" (click)="onAdd()">
-                </button>
-            </div>
+  <p-card class="card-content cursor-pointer">
+    <div class="flex flex-column">
+      <div class="flex justify-content-end static">
+        <div class="absolute pt-1 pr-1">
+          <app-favorite [selected]="producto.Favorito"></app-favorite>
         </div>
-    </p-card>
+        <img class="h-full w-full" (click)="emitProductID(1)" src="../../../../assets/perfil-tiendi-icono.png" alt="" />
+      </div>
+      <div class="text-xs gray pt-1 mb-1">
+        <b> {{ producto.MarcaDes }}</b>
+      </div>
+      <div class="text-sm pt-1">{{ producto.Nombre }}</div>
+      <div class="text-xs pt-1 price_box price_ gray">
+        {{ producto.Descripcion }}
+      </div>
+      <div *ngIf="producto.PrecioDescuento > 0" class="font-bold pt-1 price_box desc_">
+        <b> S/ {{ producto.PrecioDescuento.toFixed(2) }}</b>
+        <div class="p-tag tag_price p-1 ml-2">{{ producto.Descuento }}%</div>
+      </div>
+      <div [ngClass]="{ 'font-bold': producto.PrecioDescuento == 0 }" class="font-bold pt-1 price_box price_ black">
+        S/ {{ producto.Precio.toFixed(2) }}
+      </div>
+      <div class="flex flex-row justify-content-center mt-4">
+        <button pButton pRipple type="button" icon="pi pi-minus"
+          class="p-button-rounded p-button-help p-button-text p-button-sm mr-auto" (click)="onLessUnid()"></button>
+        <p class="w-4 p-input text-xs text-center quantity quantity_val" type="text" pInputText>
+          {{ quantity }} unid
+        </p>
+        <button pButton pRipple type="button" icon="pi pi-plus"
+          class="p-button-rounded p-button-help p-button-text p-button-sm ml-auto" (click)="onMoreUnid()"></button>
+      </div>
+      <div class="pt-3 flex justify-content-center">
+        <i class="pi pi-shopping-cart w-2 shopping-icon" *ngIf="aggregated" (click)="onRemove()"></i>
+        <button pButton pRipple type="button" [icon]="iconAdd" [label]="labelAdd" [ngClass]="classAdd"
+          class="p-button-outlined p-button-help w-full" (click)="onAdd()"></button>
+      </div>
+    </div>
+  </p-card>
 </div>

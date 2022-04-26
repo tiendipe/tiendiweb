@@ -61,4 +61,16 @@ export const TableDataCategoria: ICategoria[] = [
     UsuarioActualizacion: 'HLOPEZ',
     FechaActualizacion: new Date('12/08/2021'),
   },
+  {
+    IDCategoria: 1,
+    IDTienda: 2,
+    Nombre: 'TEST11',
+    Descripcion: 'TEST11',
+    Estado: true,
+    EstadoDes: 'Activo',
+    UsuarioCreacion: 'HLOPEZ',
+    FechaCreacion: new Date('12/08/2021'),
+    UsuarioActualizacion: 'HLOPEZ',
+    FechaActualizacion: new Date('12/08/2021'),
+  },
 ];

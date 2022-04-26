@@ -1,13 +1,13 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { Categoria } from 'src/app/interfaces/categoria';
-import { TableDataCategoria } from '../data/categoria.data';
+import { Pedido } from 'src/app/interfaces/pedido';
+import { TableDataPedido } from '../data/pedido.data';
 import { DataService, ErrorService } from '../layout/shared/service';
 
 @Injectable()
-export class CategoriaService {
-  // methodGetAllURL: string = 'categoria/GetAll';
+export class PedidoService {
+  // methodGetAllURL: string = 'Pedido/GetAll';
 
   /**
    * Creates an instance of CategriaService.
@@ -16,22 +16,24 @@ export class CategoriaService {
    */
   constructor(
     private _dataService: DataService,
-    private _errorService: ErrorService,
+    private _errorService: ErrorService
   ) {}
 
   /**
-   * get Categoria
+   * get Pedido
    * @param pIDTienda
    * @returns {Promise<any>}
    */
-  getCategoria(pIDTienda: number): Promise<any> {
+  getPedido(pIDComprador: number): Promise<any> {
     let parameters = new HttpParams();
-    parameters = parameters.append('pIDTienda', String(pIDTienda));
+    parameters = parameters.append('pIDTienda', String(pIDComprador));
 
     return new Promise((resolve, reject) => {
       // this._dataService.execGetJson(this.methodGetAllURL, parameters)
       of({
-        Data: TableDataCategoria.map((categoria) => new Categoria(categoria)).filter(x => x.IDTienda == pIDTienda),
+        Data: TableDataPedido.map((pedido) => new Pedido(pedido)).filter(
+          (x) => x.IDComprador == pIDComprador
+        ),
         Status: 1,
         Message: [],
       }).subscribe((res: any) => {

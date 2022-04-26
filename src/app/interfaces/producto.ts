@@ -14,6 +14,7 @@ export interface IProducto extends IAuditoria {
     IDMarca: string;
     MarcaDes: string;
     Tags: string;
+    Favorito: boolean;
 }
 
 export class Producto implements IProducto {
@@ -30,6 +31,7 @@ export class Producto implements IProducto {
   IDMarca: string;
   MarcaDes: string;
   Tags: string;
+  Favorito: boolean;
   Estado: boolean;
   EstadoDes: string;
   UsuarioCreacion: string;
@@ -53,6 +55,7 @@ export class Producto implements IProducto {
     this.IDMarca = producto.IDMarca;
     this.MarcaDes = producto.MarcaDes;
     this.Tags = producto.Tags;
+    this.Favorito = producto.Favorito;
     this.Estado = producto.Estado;
     this.EstadoDes = producto.EstadoDes;
     this.UsuarioCreacion = producto.UsuarioCreacion;

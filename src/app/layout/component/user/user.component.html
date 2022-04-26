@@ -20,7 +20,7 @@
     </button>
     <p-overlayPanel #op [style]="{ width: '300px', padding: 'unset', borderRadius: '10px'}">
         <ng-template pTemplate style="width: 0px">
-            <app-recent-orders [hidderButtonSummary]="true" (onOpenSideMyOrders)="openSideMyOrders()"> </app-recent-orders>
+            <app-recent-orders [pedidos]="pedidos" [hidderButtonSummary]="true" (onOpenSideMyOrders)="openSideMyOrders()"> </app-recent-orders>
         </ng-template>
     </p-overlayPanel>
 
