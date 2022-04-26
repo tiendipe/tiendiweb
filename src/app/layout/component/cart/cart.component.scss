@@ -19,3 +19,16 @@ i {
 .whitebackground{
     background-color: white !important;
 }
+.button_cart{
+	width: 45px; 
+	height: 45px !important;  
+	display: flex; 
+	justify-content: center;
+}
+.car_button_float{
+	position: relative;
+	top: 30px;
+}
+.btn_card{
+	background-color: #ecf0f0 !important;
+}
