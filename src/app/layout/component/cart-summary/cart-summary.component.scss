@@ -16,3 +16,26 @@
 .p-card {
     height: 150px;
 }
+.base-sumary,
+.top-card-order{
+	border-radius: 10px;
+}
+::ng-deep .bottom_card{
+	border-radius: 0 0 10px 10px
+
+}
+
+.btn_sum{
+	background-color: #eceff1;
+	border: none;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.sumary_card{
+	::ng-deep .p-card{
+		border-radius: 10px;
+		box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+	}
+}
