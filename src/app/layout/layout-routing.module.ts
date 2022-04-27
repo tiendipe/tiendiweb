@@ -7,11 +7,12 @@ import { BagComponent } from './component/bag/bag.component';
 // import { CartSummaryComponent } from './component/cart-summary/cart-summary.component';
 // import { PaymentAndDeliveryComponent } from './component/payment-and-delivery/payment-and-delivery.component';
 import { DetailComponent } from './detail/detail.component';
-import { RecentOrdersComponent } from './component/recent-orders/recent-orders.component';
+import { RecentOrderComponent } from './component/recent-order/recent-order.component';
 import { OrderSummaryComponent } from './component/order-summary/order-summary.component';
 import { TermsAndConditionsComponent } from './component/terms-and-conditions/terms-and-conditions.component';
 import { CartSummaryComponent } from './component/cart-summary/cart-summary.component';
 import { PaymentAndDeliveryComponent } from './component/payment-and-delivery/payment-and-delivery.component';
+import { RecentOrderMoreComponent } from './component/recent-order-more/recent-order-more.component';
 
 const routes: Routes = [
     {
@@ -53,10 +54,10 @@ const routes: Routes = [
 
 
             {
-                path: 'sidemyorders',
+                path: 'siderecentordermore',
                 outlet: 'right',
-                component: RecentOrdersComponent,
-                loadChildren: () => import('./component/recent-orders/recent-orders.module').then((m) => m.RecentOrdersModule)
+                component: RecentOrderMoreComponent,
+                loadChildren: () => import('./component/recent-order-more/recent-order-more.module').then((m) => m.RecentOrderMoreModule)
             },
             {
                 path: 'sideordersummary',

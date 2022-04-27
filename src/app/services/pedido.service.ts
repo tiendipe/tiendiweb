@@ -24,7 +24,7 @@ export class PedidoService {
    * @param pIDTienda
    * @returns {Promise<any>}
    */
-  getPedido(pIDComprador: number): Promise<any> {
+  getPedido(pIDComprador: number, limit: number, pFilter: string = ""): Promise<any> {
     let parameters = new HttpParams();
     parameters = parameters.append('pIDTienda', String(pIDComprador));
 
@@ -32,10 +32,11 @@ export class PedidoService {
       // this._dataService.execGetJson(this.methodGetAllURL, parameters)
       of({
         Data: TableDataPedido.map((pedido) => new Pedido(pedido)).filter(
-          (x) => x.IDComprador == pIDComprador
-        ),
+          (x) => x.IDComprador == pIDComprador && x.Numero.includes((pFilter == ""? x.Numero: pFilter))
+        ).slice(0, limit),
         Status: 1,
         Message: [],
+        NumberOfRecords: 8
       }).subscribe((res: any) => {
         this._errorService.getResultMessage(res);
         resolve(res);

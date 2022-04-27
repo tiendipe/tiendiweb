@@ -15,7 +15,8 @@ export class SearchComponent implements OnInit {
 
   onSearchProducts(event){
     debugger;
-    this.searchProducts.emit(event.key);
+    if(event.key == 'Enter')
+      this.searchProducts.emit(event.target.value);
   }
 
 }

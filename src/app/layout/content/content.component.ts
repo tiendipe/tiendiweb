@@ -101,6 +101,7 @@ export class ContentComponent implements OnInit {
     this._productoService
       .getProductoSearch(pIDTienda, pFiltro)
       .then((res) => {
+        debugger;
         this.productos = res.Data;
       })
       .catch(() => {

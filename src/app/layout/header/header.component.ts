@@ -9,7 +9,7 @@ import { CONSTANT } from '../shared/service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Output() onOpenSideMyOrders: EventEmitter<any> = new EventEmitter();
+  @Output() onOpenSideRecentOrderMore: EventEmitter<any> = new EventEmitter();
   @Output() onEmitCategoryID: EventEmitter<any> = new EventEmitter();
   @Output() onEmitSearchProducts: EventEmitter<any> = new EventEmitter();
   categorias: ICategoria[];
@@ -20,8 +20,8 @@ export class HeaderComponent implements OnInit {
     this.loadCategoria(CONSTANT.IDTienda.tiendaUno);
   }
 
-  openSideMyOrders(): void {
-    this.onOpenSideMyOrders.emit();
+  openSideRecentOrderMore(): void {
+    this.onOpenSideRecentOrderMore.emit();
   }
 
   emitCategoryID(CategoryID: number): void {

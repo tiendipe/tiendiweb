@@ -49,10 +49,13 @@ export class ProductoService {
     parameters = parameters.append('pIDTienda', String(pIDTienda));
     parameters = parameters.append('pFiltro', pFiltro);
 
+    // let expresion = new RegExp(`${pFiltro}.*`, "i");
+
     return new Promise((resolve, reject) => {
       // this._dataService.execGetJson(this.methodGetAllURL, parameters)
       of({
-        Data: TableDataProducto.map((Productoo) => new Producto(Productoo)).filter(x => x.IDTienda == pIDTienda && x.Nombre.includes(pFiltro)),
+        Data: TableDataProducto.map((Productoo) => new Producto(Productoo)).filter(x => x.IDTienda == pIDTienda && x.Nombre.includes((pFiltro == ""? x.Nombre: pFiltro))),
+        // Data: TableDataProducto.map((Productoo) => new Producto(Productoo)).filter(x => x.IDTienda == pIDTienda && expresion.test(x.Nombre)),
         Status: 1,
         Message: [],
       }).subscribe((res: any) => {

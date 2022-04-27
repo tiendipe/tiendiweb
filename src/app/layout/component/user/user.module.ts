@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import { PrimengModule } from '../../../primeng/primeng.module';
-import { RecentOrdersModule } from '../recent-orders/recent-orders.module';
+import { RecentOrderModule } from '../recent-order/recent-order.module';
 import { OrdersModule } from '../orders/orders.module';
 import { SummaryModule } from '../summary/summary.module';
 import { OrderSummaryModule } from '../order-summary/order-summary.module';
@@ -13,7 +13,7 @@ import { PedidoService } from 'src/app/services/pedido.service';
   imports: [
     CommonModule,
     PrimengModule,
-    RecentOrdersModule,
+    RecentOrderModule,
     OrdersModule,
     SummaryModule,
     OrderSummaryModule,

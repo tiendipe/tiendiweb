@@ -1,17 +1,13 @@
-<!-- <div class="px-3 bg-white">
-    <div class="font-bold text-lg py-3">Pedidos recientes</div>
-</div> -->
 <div id="recent-order-wrap">
   <div class="px-3 bg-white top-card-order">
-    <div *ngIf="hidderButtonSummary" class="font-bold text-base py-3 text-900">Pedidos recientes</div>
-    <div *ngIf="!hidderButtonSummary" class="flex flex-row w-full align-items-center">
+    <div class="flex flex-row w-full align-items-center">
       <div class="font-bold text-base py-3 text-900">
         Mis pedidos
       </div>
       <div class="ml-auto">
         <span class="p-input-icon-left">
           <i style="color: #00695C; font-weight: 600;" class="pi pi-search"></i>
-          <input class="background p-inputtext-sm" type="text" pInputText placeholder="Search" />
+          <input class="background p-inputtext-sm" type="text" pInputText placeholder="Search" (keypress)="onSearchRecentOrder($event)"/>
         </span>
       </div>
     </div>
@@ -43,16 +39,9 @@
                 <div class="w-6 text-xs text-right" style="color: #959595">
                   {{ pedido.PedidoDetalle.length }} productos
                 </div>
-
-                <!-- <div
-                    [hidden]="hidderButtonSummary"
-                    (click)="openSideOrderSummary()"
-                    >
-                        >>>>
-                    </div> -->
               </div>
             </div>
-            <div *ngIf="!hidderButtonSummary" class="flex flex-column w-1 aling-items-center">
+            <div class="flex flex-column w-1 aling-items-center">
               <button pButton pRipple type="button" icon="pi pi-arrow-right"
                 class="p-button-rounded p-button-secondary p-button-text m-1" style="color: #0cc2a9"
                 (click)="openSideOrderSummary()"></button>
@@ -61,15 +50,10 @@
         </div>
       </div>
     </p-card>
-    <div class="flex justify-content-center pt-3 pb-2">
-      <button *ngIf="hidderButtonSummary" pButton pRipple type="button"
+    <div *ngIf="showOrderMore" class="flex justify-content-center pt-3 pb-2">
+      <button pButton pRipple type="button"
         class="p-button-text p-button-rounded p-button-secondary font-bold btn-historial text-xs"
-        (click)="openSideMyOrders()">
-        Ver Historial
-      </button>
-      <button *ngIf="!hidderButtonSummary" pButton pRipple type="button"
-        class="p-button-text p-button-rounded p-button-secondary font-bold btn-historial text-xs" style=""
-        (click)="openSideMyOrders()">
+        (click)="onAddRecentOrder()">
         Ver más pedidos
       </button>
     </div>

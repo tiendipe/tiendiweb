@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { OverlayPanel } from 'primeng/overlaypanel';
 import { Pedido } from 'src/app/interfaces/pedido';
 import { PedidoService } from 'src/app/services/pedido.service';
@@ -13,7 +20,7 @@ import { SessionInfo } from '../../shared/session/session.service';
 })
 export class UserComponent implements OnInit {
   @ViewChild('op') overlayPanel!: OverlayPanel;
-  @Output() onOpenSideMyOrders: EventEmitter<any> = new EventEmitter();
+  @Output() onOpenSideRecentOrderMore: EventEmitter<any> = new EventEmitter();
   pedidos: Pedido[];
 
   constructor(
@@ -26,20 +33,20 @@ export class UserComponent implements OnInit {
   }
 
   //TODO: Hacer que abra del sidepanel con la url
-  openSideMyOrders() {
-    this.onOpenSideMyOrders.emit();
+  openSideRecentOrderMore() {
+    this.onOpenSideRecentOrderMore.emit();
     this.overlayPanel.hide();
   }
 
   loadPedidos(pIDComprador: number): void {
     this._pedidoService
-      .getPedido(pIDComprador)
+      .getPedido(pIDComprador, 4)
       .then((res) => {
-        this.pedidos = res.Data.slice(0, 4);
+        this.pedidos = res.Data;
       })
       .catch(() => {
         this._pedidoService.showMessageError(
-          CONSTANT.MESSAGE.errorListar + ' Productos'
+          CONSTANT.MESSAGE.errorListar + ' Pedidos'
         );
       });
   }

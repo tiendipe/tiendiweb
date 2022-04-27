@@ -1,17 +1,11 @@
 <div class="pt-3">
-  <app-header
-    (onOpenSideMyOrders)="openSideBarRight()"
-    (onEmitCategoryID)="showProductsByCategoryID($event)"
-    (onEmitSearchProducts)="onSearchProducts($event)"
-  ></app-header>
+  <app-header (onOpenSideRecentOrderMore)="openSideBarRight()" (onEmitCategoryID)="showProductsByCategoryID($event)"
+    (onEmitSearchProducts)="onSearchProducts($event)"></app-header>
 </div>
 <div class="flex justify-content-end w-full pr-6 absolute" style="top: 5.5rem">
   <app-cart (onOpenSideBag)="openSideBag()"></app-cart>
 </div>
-<app-content
-  [hidden]="showProductDetail"
-  (onEmitProductID)="onShowDetailProduct($event)"
-></app-content>
+<app-content [hidden]="showProductDetail" (onEmitProductID)="onShowDetailProduct($event)"></app-content>
 
 <app-detail *ngIf="showProductDetail"></app-detail>
 

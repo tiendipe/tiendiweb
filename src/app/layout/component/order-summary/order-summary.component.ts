@@ -10,9 +10,9 @@ export class OrderSummaryComponent implements OnInit {
     constructor(private _router: Router) { }
 
     ngOnInit(): void {}
-    
+
     onBackMyOrders(): void {
-        this._router.navigate(['/ecommerce/', { outlets: { right: ['sidemyorders'] } }], {skipLocationChange: true});
+        this._router.navigate(['/ecommerce/', { outlets: { right: ['siderecentordermore'] } }], {skipLocationChange: true});
         console.log(this._router.url)
     }
 }
