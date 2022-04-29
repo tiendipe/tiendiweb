@@ -4,9 +4,9 @@ import { UserComponent } from './user.component';
 import { PrimengModule } from '../../../primeng/primeng.module';
 import { RecentOrderModule } from '../recent-order/recent-order.module';
 import { OrdersModule } from '../orders/orders.module';
-import { SummaryModule } from '../summary/summary.module';
 import { OrderSummaryModule } from '../order-summary/order-summary.module';
 import { PedidoService } from 'src/app/services/pedido.service';
+import { RecentOrderDetailModule } from '../recent-order-detail/recent-order-detail.module';
 
 @NgModule({
   declarations: [UserComponent],
@@ -15,7 +15,7 @@ import { PedidoService } from 'src/app/services/pedido.service';
     PrimengModule,
     RecentOrderModule,
     OrdersModule,
-    SummaryModule,
+    RecentOrderDetailModule,
     OrderSummaryModule,
   ],
   exports: [UserComponent],

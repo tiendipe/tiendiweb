@@ -12,8 +12,16 @@ export const TableDataPedido: IPedido[] = [
     SubTotal: 200.0,
     IGV: 36.0,
     Total: 236.04,
+    DespachoMonto: 0,
     IDEstado: 1,
     IDEstadoDes: 'Entregado',
+    Despacho: {
+      TipoDes: 'Recojo en tienda',
+      Direccion: 'Av. Huaylas 2081 Chorrillos, Lima - Lima',
+    },
+    FormaPago: {
+      TipoDes: 'Pago con tarjeta',
+    },
     PedidoDetalle: [
       {
         IDPedidoDetalle: 1,
@@ -21,8 +29,13 @@ export const TableDataPedido: IPedido[] = [
         IDProducto: 1,
         IDUnidad: 1,
         Cantidad: 2.0,
-        Precio: 100.0,
+        Precio: 100.00,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
       {
         IDPedidoDetalle: 2,
@@ -32,6 +45,11 @@ export const TableDataPedido: IPedido[] = [
         Cantidad: 1.0,
         Precio: 100.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
     ],
     Estado: true,
@@ -50,28 +68,46 @@ export const TableDataPedido: IPedido[] = [
     IDFormaPago: 1,
     IDFormaEntrega: 1,
     SubTotal: 150.0,
+    DespachoMonto: 10,
     IGV: 18.0,
-    Total: 168.0,
+    Total: 178.0,
     IDEstado: 2,
     IDEstadoDes: 'Confirmado',
+    Despacho: {
+      TipoDes: 'Recojo en tienda',
+      Direccion: 'Av. Cueva 211 Pueblo libre, Lima - Lima',
+    },
+    FormaPago: {
+      TipoDes: 'Pago en efectivo',
+    },
     PedidoDetalle: [
       {
-        IDPedidoDetalle: 2,
+        IDPedidoDetalle: 1,
         IDPedido: 2,
         IDProducto: 1,
         IDUnidad: 1,
         Cantidad: 2.0,
         Precio: 100.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
       {
-        IDPedidoDetalle: 1,
+        IDPedidoDetalle: 2,
         IDPedido: 2,
         IDProducto: 2,
         IDUnidad: 1,
         Cantidad: 1.0,
         Precio: 50.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
     ],
     Estado: true,
@@ -92,8 +128,16 @@ export const TableDataPedido: IPedido[] = [
     SubTotal: 100.0,
     IGV: 18.0,
     Total: 118.60,
+    DespachoMonto: 0,
     IDEstado: 3,
     IDEstadoDes: 'Sin Enviar',
+    Despacho: {
+      TipoDes: 'Recojo en tienda',
+      Direccion: 'Av. Los Alisos 123 Los Olivos, Lima - Lima',
+    },
+    FormaPago: {
+      TipoDes: 'Pago con tarjeta',
+    },
     PedidoDetalle: [
       {
         IDPedidoDetalle: 1,
@@ -103,6 +147,11 @@ export const TableDataPedido: IPedido[] = [
         Cantidad: 1.0,
         Precio: 100.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
     ],
     Estado: true,
@@ -123,8 +172,16 @@ export const TableDataPedido: IPedido[] = [
     SubTotal: 170.0,
     IGV: 18.0,
     Total: 188.0,
+    DespachoMonto: 0,
     IDEstado: 3,
     IDEstadoDes: 'Rechazado',
+    Despacho: {
+      TipoDes: 'Recojo en tienda',
+      Direccion: 'Av. Pardo 123 Miraflores, Lima - Lima',
+    },
+    FormaPago: {
+      TipoDes: 'Pago contra entrega',
+    },
     PedidoDetalle: [
       {
         IDPedidoDetalle: 1,
@@ -134,6 +191,11 @@ export const TableDataPedido: IPedido[] = [
         Cantidad: 1.0,
         Precio: 180.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
     ],
     Estado: true,
@@ -154,8 +216,16 @@ export const TableDataPedido: IPedido[] = [
     SubTotal: 170.0,
     IGV: 18.0,
     Total: 188.0,
+    DespachoMonto: 0,
     IDEstado: 3,
     IDEstadoDes: 'Rechazado',
+    Despacho: {
+      TipoDes: 'Recojo en tienda',
+      Direccion: 'Av. Lima 2081 Lince, Lima - Lima',
+    },
+    FormaPago: {
+      TipoDes: 'Pago con tarjeta',
+    },
     PedidoDetalle: [
       {
         IDPedidoDetalle: 1,
@@ -165,6 +235,11 @@ export const TableDataPedido: IPedido[] = [
         Cantidad: 1.0,
         Precio: 180.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
     ],
     Estado: true,
@@ -185,8 +260,16 @@ export const TableDataPedido: IPedido[] = [
     SubTotal: 170.0,
     IGV: 18.0,
     Total: 188.0,
+    DespachoMonto: 0,
     IDEstado: 3,
     IDEstadoDes: 'Rechazado',
+    Despacho: {
+      TipoDes: 'Recojo en tienda',
+      Direccion: 'Av. Huaylas 2081 Chorrillos, Lima - Lima',
+    },
+    FormaPago: {
+      TipoDes: 'Pago en efectivo',
+    },
     PedidoDetalle: [
       {
         IDPedidoDetalle: 1,
@@ -196,6 +279,11 @@ export const TableDataPedido: IPedido[] = [
         Cantidad: 1.0,
         Precio: 180.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
     ],
     Estado: true,
@@ -216,8 +304,16 @@ export const TableDataPedido: IPedido[] = [
     SubTotal: 170.0,
     IGV: 18.0,
     Total: 188.0,
+    DespachoMonto: 0,
     IDEstado: 3,
     IDEstadoDes: 'Rechazado',
+    Despacho: {
+      TipoDes: 'Recojo en tienda',
+      Direccion: 'Av. Huaylas 1231 Lurin, Lima - Lima',
+    },
+    FormaPago: {
+      TipoDes: 'Pago con tarjeta',
+    },
     PedidoDetalle: [
       {
         IDPedidoDetalle: 1,
@@ -227,6 +323,11 @@ export const TableDataPedido: IPedido[] = [
         Cantidad: 1.0,
         Precio: 180.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
     ],
     Estado: true,
@@ -247,8 +348,16 @@ export const TableDataPedido: IPedido[] = [
     SubTotal: 170.0,
     IGV: 18.0,
     Total: 188.0,
+    DespachoMonto: 0,
     IDEstado: 3,
     IDEstadoDes: 'Rechazado',
+    Despacho: {
+      TipoDes: 'Recojo en tienda',
+      Direccion: 'Av. Supe 291 José Galvez, Lima - Lima',
+    },
+    FormaPago: {
+      TipoDes: 'Pago en efectivo',
+    },
     PedidoDetalle: [
       {
         IDPedidoDetalle: 1,
@@ -258,6 +367,11 @@ export const TableDataPedido: IPedido[] = [
         Cantidad: 1.0,
         Precio: 180.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
     ],
     Estado: true,
@@ -278,8 +392,16 @@ export const TableDataPedido: IPedido[] = [
     SubTotal: 170.0,
     IGV: 18.0,
     Total: 188.0,
+    DespachoMonto: 0,
     IDEstado: 3,
     IDEstadoDes: 'Rechazado',
+    Despacho: {
+      TipoDes: 'Recojo en tienda',
+      Direccion: 'Av. Lima 123 Chorrillos, Lima - Lima',
+    },
+    FormaPago: {
+      TipoDes: 'Pago con tarjeta',
+    },
     PedidoDetalle: [
       {
         IDPedidoDetalle: 1,
@@ -289,6 +411,11 @@ export const TableDataPedido: IPedido[] = [
         Cantidad: 1.0,
         Precio: 180.0,
         Comentario: '',
+        Nombre: 'Nombre',
+        Descripcion: 'Descrioción',
+        MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 10.00
       },
     ],
     Estado: true,

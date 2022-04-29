@@ -1,5 +1,7 @@
 import { IAuditoria } from './auditoria';
-import { PedidoDetalle } from './pedido-detalle';
+import { IDespacho } from './despacho';
+import { IFormaPago } from './forma-pago';
+import { IPedidoDetalle } from './pedido-detalle';
 
 export interface IPedido extends IAuditoria {
   IDTienda: number;
@@ -12,9 +14,12 @@ export interface IPedido extends IAuditoria {
   SubTotal: number;
   IGV: number;
   Total: number;
+  DespachoMonto: number;
   IDEstado: number;
   IDEstadoDes: string;
-  PedidoDetalle: PedidoDetalle[];
+  Despacho: IDespacho;
+  FormaPago: IFormaPago;
+  PedidoDetalle: IPedidoDetalle[];
 }
 
 export class Pedido implements IPedido {
@@ -28,9 +33,12 @@ export class Pedido implements IPedido {
   SubTotal: number;
   IGV: number;
   Total: number;
+  DespachoMonto: number;
   IDEstado: number;
   IDEstadoDes: string;
-  PedidoDetalle: PedidoDetalle[];
+  Despacho: IDespacho;
+  FormaPago: IFormaPago;
+  PedidoDetalle: IPedidoDetalle[];
   Estado: boolean;
   EstadoDes: string;
   UsuarioCreacion: string;
@@ -51,8 +59,11 @@ export class Pedido implements IPedido {
     this.SubTotal = pedido.SubTotal;
     this.IGV = pedido.IGV;
     this.Total = pedido.Total;
+    this.DespachoMonto = pedido.DespachoMonto;
     this.IDEstado = pedido.IDEstado;
     this.IDEstadoDes = pedido.IDEstadoDes;
+    this.Despacho = pedido.Despacho;
+    this.FormaPago = pedido.FormaPago;
     this.PedidoDetalle = pedido.PedidoDetalle;
     this.Estado = pedido.Estado;
     this.EstadoDes = pedido.EstadoDes;

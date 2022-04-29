@@ -60,7 +60,7 @@ const routes: Routes = [
                 loadChildren: () => import('./component/recent-order-more/recent-order-more.module').then((m) => m.RecentOrderMoreModule)
             },
             {
-                path: 'sideordersummary',
+                path: 'sideordersummary/:IDPedido',
                 outlet: 'right',
                 component: OrderSummaryComponent,
                 loadChildren: () => import('./component/order-summary/order-summary.module').then((m) => m.OrderSummaryModule)

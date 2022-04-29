@@ -27,9 +27,9 @@ export class RecentOrderMoreComponent implements OnInit {
     this.loadPedidos(this._sessionInfo.getCodUser());
   }
 
-  openSideOrderSummary(): void {
+  openSideOrderSummary(IDPedido: number): void {
     this._router.navigate(
-      ['/ecommerce/', { outlets: { right: ['sideordersummary'] } }],
+      ['/ecommerce/', { outlets: { right: ['sideordersummary', IDPedido] } }],
       { skipLocationChange: true }
     );
     console.log(this._router.url);

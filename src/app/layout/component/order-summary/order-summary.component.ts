@@ -1,18 +1,37 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { IPedido } from 'src/app/interfaces/pedido';
+import { PedidoService } from 'src/app/services/pedido.service';
+import { TiendiUtil } from '../../shared/util';
 
 @Component({
-    selector: 'app-order-summary',
-    templateUrl: './order-summary.component.html',
-    styleUrls: ['./order-summary.component.scss']
+  selector: 'app-order-summary',
+  templateUrl: './order-summary.component.html',
+  styleUrls: ['./order-summary.component.scss'],
 })
 export class OrderSummaryComponent implements OnInit {
-    constructor(private _router: Router) { }
+  pedidos$: Observable<IPedido[]> = this._pedidoService.pedidos$.asObservable();
+  pedidos: IPedido[] = this._pedidoService.pedidos;
+  IDPedido: number;
+  pedido: IPedido;
 
-    ngOnInit(): void {}
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _pedidoService: PedidoService
+  ) {}
 
-    onBackMyOrders(): void {
-        this._router.navigate(['/ecommerce/', { outlets: { right: ['siderecentordermore'] } }], {skipLocationChange: true});
-        console.log(this._router.url)
-    }
+  ngOnInit(): void {
+    this.IDPedido = TiendiUtil.nullValueNumber(this._route.snapshot.params['IDPedido']);
+    this.pedido = this.pedidos.find((x) => x.IDPedido == this.IDPedido);
+  }
+
+  onBackRecentOrderMore(): void {
+    this._router.navigate(
+      ['/ecommerce/', { outlets: { right: ['siderecentordermore'] } }],
+      { skipLocationChange: true }
+    );
+    console.log(this._router.url);
+  }
 }

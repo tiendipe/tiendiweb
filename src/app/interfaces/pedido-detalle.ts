@@ -6,6 +6,12 @@ export interface IPedidoDetalle {
   Cantidad: number;
   Precio: number;
   Comentario: string;
+
+  Nombre: string;
+  Descripcion: string;
+  MarcaDes: string;
+  UnidadMedidaDes: string;
+  Descuento: number;
 }
 
 export class PedidoDetalle implements IPedidoDetalle {
@@ -17,6 +23,12 @@ export class PedidoDetalle implements IPedidoDetalle {
   Precio: number;
   Comentario: string;
 
+  Nombre: string;
+  Descripcion: string;
+  MarcaDes: string;
+  UnidadMedidaDes: string;
+  Descuento: number;
+
   constructor(pedidodetalle?) {
     this.IDPedidoDetalle = pedidodetalle.IDPedidoDetalle;
     this.IDPedido = pedidodetalle.IDPedido;
@@ -25,5 +37,11 @@ export class PedidoDetalle implements IPedidoDetalle {
     this.Cantidad = pedidodetalle.Cantidad;
     this.Precio = pedidodetalle.Precio;
     this.Comentario = pedidodetalle.Comentario;
+
+    this.Nombre = pedidodetalle.Nombre;
+    this.Descripcion = pedidodetalle.Descripcion;
+    this.MarcaDes = pedidodetalle.MarcaDes;
+    this.UnidadMedidaDes = pedidodetalle.UnidadMedidaDes;
+    this.Descuento = pedidodetalle.Descuento;
   }
 }

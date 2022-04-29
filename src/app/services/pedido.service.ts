@@ -1,12 +1,14 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { Pedido } from 'src/app/interfaces/pedido';
+import { BehaviorSubject, of } from "rxjs";
+import { Pedido, IPedido } from 'src/app/interfaces/pedido';
 import { TableDataPedido } from '../data/pedido.data';
 import { DataService, ErrorService } from '../layout/shared/service';
 
 @Injectable()
 export class PedidoService {
+  pedidos$: BehaviorSubject<IPedido[]>;
+  pedidos: IPedido[];
   // methodGetAllURL: string = 'Pedido/GetAll';
 
   /**
@@ -17,7 +19,9 @@ export class PedidoService {
   constructor(
     private _dataService: DataService,
     private _errorService: ErrorService
-  ) {}
+  ) {
+    this.pedidos$ = new  BehaviorSubject<IPedido[]>([]);
+  }
 
   /**
    * get Pedido
@@ -39,6 +43,8 @@ export class PedidoService {
         NumberOfRecords: 8
       }).subscribe((res: any) => {
         this._errorService.getResultMessage(res);
+        this.pedidos$.next(res.Data);
+        this.pedidos = res.Data;
         resolve(res);
       }, reject);
     });
