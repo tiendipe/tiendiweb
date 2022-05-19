@@ -4,6 +4,18 @@ i {
     font-size: 20px;
 }
 
+.wrp_pedido {
+	::ng-deep.p-card{
+		border-radius: 10px;
+	    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+	}
+}
 .p-card .p-card-content {
     padding: .5rem 0;
+}
+.boder_bt{
+	border-bottom: 1px solid rgba(221,221,221,.5);
+}
+.Subtotal_box{
+	width: 100%;
 }

@@ -50,7 +50,7 @@ export class RecentOrderMoreComponent implements OnInit {
       .getPedido(pIDComprador, this.limit, pFiler)
       .then((res) => {
         this.pedidos = res.Data;
-        debugger;
+        //debugger;
         if( this.limit < res.NumberOfRecords)
           this.showOrderMore = true;
         else

@@ -11,9 +11,38 @@
 		color: #00695c;
 	}
 	.bottom-card-order{
-		border-radius: 0 0 10px 10px;
+		background-color: #f8faf9;
+		padding: 30px 40px !important;
+		.button_arrow{
+			padding: 0;
+			color: #0cc2a9;
+			background-color: transparent;
+			border: none;
+		}
+		.label-info-top{
+			font-size: 9px !important;
+		}
 	}
 	.top-card-order{
-		border-radius: 10px 10px 0 0;
+		padding: 30px 40px !important;
+		.search-box-top{
+			span{
+				i{
+					color: #00695C; 
+					font-size: 12px;
+					font-weight: bold;
+					margin-top: -5px;
+				}
+				.inputSearch{
+					border-color: transparent !important;
+					background-color: #f3f5f6 !important;
+					width: 280px;
+					border-radius: 5px;
+					&::placeholder{
+						font-size: 14px;
+					}
+				}
+			}
+		}
 	}
 }
