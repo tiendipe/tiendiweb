@@ -1,11 +1,18 @@
-<div class="flex align-items-center flex-row px-3 bg-white my-1">
+<div class="flex align-items-center flex-row p-3 bg-white my-1">
   <div class="flex flex-column w-1">
     <button pButton pRipple type="button" icon="pi pi-arrow-left"
       class="p-button-rounded p-button-secondary p-button-text" style="color: #0cc2a9"
       (click)="onBackRecentOrderMore()"></button>
   </div>
-  <div class="text-2xl w-6 flex align-content-center font-bold text-900" style="vertical-align: center">
-    <b>Pedido No: {{pedido.Numero}}</b>
+  <div class="flex align-content-center top_pedido_box justify-content-between">
+  	<span class="pedido_text text-xl font-bold">
+  		Pedido No: {{pedido.Numero}}
+  	</span>
+  	<button>
+  		<span class="text-base">
+  			Repetir pedido
+  		</span>
+  	</button>
   </div>
   <div>
     Repetir Pedido
