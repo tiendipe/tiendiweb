@@ -52,6 +52,7 @@ export class CardComponent implements OnInit {
       this.labelAdd = 'Agregar';
       this.iconAdd = '';
       this.classAdd = '';
+      this.quantity = 1;
     }
     this.aggregated = false;
   }

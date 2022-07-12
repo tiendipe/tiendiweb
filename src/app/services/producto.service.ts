@@ -26,7 +26,7 @@ export class ProductoService {
    * @param pIDCategoria
    * @returns {Promise<any>}
    */
-  getProducto(pIDTienda: number, pIDCategoria: number): Promise<any> {
+  getProductos(pIDTienda: number, pIDCategoria: number): Promise<any> {
     let parameters = new HttpParams();
     parameters = parameters.append('pIDTienda', String(pIDTienda));
     parameters = parameters.append('pIDCategoria', String(pIDCategoria));
@@ -59,7 +59,30 @@ export class ProductoService {
         Status: 1,
         Message: [],
       }).subscribe((res: any) => {
-        debugger;
+        this._errorService.getResultMessage(res);
+        resolve(res);
+      }, reject);
+    });
+  }
+
+  /**
+   * get Productos
+   * @param pIDTienda
+   * @param pIDCategoria
+   * @returns {Promise<any>}
+   */
+   getProducto(pIDTienda: number, pIDCategoria: number, pIDProducto: number): Promise<any> {
+    let parameters = new HttpParams();
+    parameters = parameters.append('pIDTienda', String(pIDTienda));
+    parameters = parameters.append('pIDCategoria', String(pIDCategoria));
+
+    return new Promise((resolve, reject) => {
+      // this._dataService.execGetJson(this.methodGetAllURL, parameters)
+      of({
+        Data: TableDataProducto.map((Productoo) => new Producto(Productoo)).filter(x => x.IDTienda == pIDTienda && x.IDCategoria == pIDCategoria && x.IDProducto == pIDProducto),
+        Status: 1,
+        Message: [],
+      }).subscribe((res: any) => {
         this._errorService.getResultMessage(res);
         resolve(res);
       }, reject);

@@ -4,6 +4,7 @@ import { Theme } from './component/chat/core/theme.enum';
 import { DemoAdapter } from './component/chat/shared/demo-adapter';
 import { ContentComponent } from './content/content.component';
 import { CONSTANT } from './shared/service';
+import { SessionInfo } from './shared/session/session.service';
 
 @Component({
   selector: 'app-layout',
@@ -19,7 +20,9 @@ export class LayoutComponent implements OnInit {
   theme: Theme = Theme.Dark;
   public adapter: ChatAdapter = new DemoAdapter();
 
-  constructor() {}
+  constructor(
+    private _SessionInfo: SessionInfo
+  ) {}
 
   ngOnInit(): void {
     console.log('layout');
@@ -36,14 +39,14 @@ export class LayoutComponent implements OnInit {
   showProductsByCategoryID(CategoryID: number): void {
     console.log('app-layout - ' + CategoryID);
     this.contentComponent.onProductsByCategoryID(
-      CONSTANT.IDTienda.tiendaUno,
+      this._SessionInfo.getCodTienda(),
       CategoryID
     );
   }
 
   onSearchProducts(pFiltro: string){
     this.contentComponent.onProductsBySearch(
-      CONSTANT.IDTienda.tiendaUno,
+      this._SessionInfo.getCodTienda(),
       pFiltro
     );
   }

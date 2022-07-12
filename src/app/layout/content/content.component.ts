@@ -1,10 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
-import { TableDataProducto } from 'src/app/data/producto.data';
 import { IProducto } from 'src/app/interfaces/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 import { CONSTANT } from '../shared/service';
+import { SessionInfo } from '../shared/session/session.service';
 import { ContentService } from './content.service';
 
 @Component({
@@ -37,12 +36,13 @@ export class ContentComponent implements OnInit {
 
   constructor(
     private _contentService: ContentService,
-    private _productoService: ProductoService
+    private _productoService: ProductoService,
+    private _sessionInfo: SessionInfo
   ) {}
 
   ngOnInit(): void {
     this.CategoryID = 1; //TODO se selecciona el primero por defecto
-    this.onProductsByCategoryID(CONSTANT.IDTienda.tiendaUno, this.CategoryID);
+    this.onProductsByCategoryID(this._sessionInfo.getCodTienda(), this.CategoryID);
   }
 
   onClearOutlet(): void {
@@ -85,9 +85,8 @@ export class ContentComponent implements OnInit {
    */
   loadProductos(pIDTienda: number, pIDCategoria: number): void {
     this._productoService
-      .getProducto(pIDTienda, pIDCategoria)
+      .getProductos(pIDTienda, pIDCategoria)
       .then((res) => {
-        //debugger;
         this.productos = res.Data;
       })
       .catch(() => {
@@ -101,7 +100,6 @@ export class ContentComponent implements OnInit {
     this._productoService
       .getProductoSearch(pIDTienda, pFiltro)
       .then((res) => {
-        debugger;
         this.productos = res.Data;
       })
       .catch(() => {

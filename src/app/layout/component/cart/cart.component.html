@@ -1,22 +1,25 @@
 <div class="mb-2 " class="car_button_float">
-    <button pButton pRipple type="button"
-        class="p-button-rounded p-button-lg p-button-raised button_cart"
-        [ngClass]="{
+  <button pButton pRipple type="button" class="p-button-rounded p-button-lg p-button-raised button_cart" [ngClass]="{
             'p-button-secondary p-button-text whitebackground': !buttonActive ,
             'p-button-help '     : buttonActive,
             'p-button-secondary':  true
         }" icon="material-icons-outlined" (click)="op.show($event); buttonActive = !buttonActive;">
-        <i class="material-icons-outlined">shopping_cart</i>
-    </button>
+    <i class="material-icons-outlined" pBadge value="{{pedido && pedido.PedidoDetalle.length}}">shopping_cart</i>
+  </button>
 
-    <p-overlayPanel id="panel" #op class="overlayPanel_cart" [ngClass]="{'overlayPanel_cart': true}" [style]="{ width: '300px', padding: '0',borderRadius: '10px'}">
-        <ng-template pTemplate style="width: 0px">
-            <app-cart-summary [scroll]=true></app-cart-summary>
-            <div class="flex justify-content-center background bottom_card">
-                <button pButton pRipple type="button" class="p-button-text text-xs p-button-rounded p-button-secondary font-bold mb-3 btn_card" style="color: #9C27B0;" (click)="openSideBag()">
-                    Ir a bolsa de compras
-                </button>
-            </div>
-        </ng-template>
-    </p-overlayPanel>
+  <!-- <i class="pi pi-bell mr-4 p-text-secondary" pBadge style="font-size: 2rem" value="2"></i> -->
+  <!-- badge="8" badgeClass="p-badge-danger" -->
+
+  <p-overlayPanel id="panel" #op class="overlayPanel_cart" [ngClass]="{'overlayPanel_cart': true}" [style]="{ width: '300px', padding: '0',borderRadius: '10px'}">
+    <ng-template pTemplate style="width: 0px">
+      <app-cart-summary [scroll]=true [pedido]="pedido"></app-cart-summary>
+      <div class="flex justify-content-center background bottom_card">
+        <button pButton pRipple type="button"
+          class="p-button-text text-xs p-button-rounded p-button-secondary font-bold mb-3 btn_card"
+          style="color: #9C27B0;" (click)="openSideBag()">
+          Ir a bolsa de compras
+        </button>
+      </div>
+    </ng-template>
+  </p-overlayPanel>
 </div>

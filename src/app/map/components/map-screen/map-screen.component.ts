@@ -70,7 +70,7 @@ export class MapScreenComponent implements AfterViewInit {
       padding: 5px !important;
       margin: 5px;
       object-fit: contain;
-      " 
+      "
       src="../../../../assets/perfil-tiendi-icono-invertido.png"/>
       `;
 
@@ -93,12 +93,12 @@ export class MapScreenComponent implements AfterViewInit {
         new mapboxgl.Popup({ offset: 25 }).setHTML(`
       <div class = "bg-white">
     <div class = "flex flex-row">
-      <img 
+      <img
       class = "m-3"
-      src = "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" 
+      src = "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg"
       style = "height: 3.5rem !important;
       width: 3.5rem !important;
-      border-radius: 9999px !important; 
+      border-radius: 9999px !important;
       ">
       <div class = "flex flex-column m-3">
         <div class = "font-bold text-base text-900">Nombre de la tienda</div>
@@ -147,7 +147,7 @@ export class MapScreenComponent implements AfterViewInit {
   }
 
   leerLocalStorage() {
-    if (!localStorage.getIte('markers')) {
+    if (!localStorage.getItem('markers')) {
       return;
     }
 

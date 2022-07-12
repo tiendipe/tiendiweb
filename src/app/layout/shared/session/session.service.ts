@@ -7,6 +7,7 @@ import { Session } from './session.model';
 export class SessionInfo {
   private keySession: string = 'HdataUserZ2HSession';
   private keyUser: string = 'HdataUserZ2HUser';
+  private keyTienda: string = 'HdataUserZ2HTienda';
   private session: Session;
 
   getAudit(): Session {
@@ -24,5 +25,11 @@ export class SessionInfo {
     let user = JSON.parse(localStorage.getItem(this.keyUser));
     if (user) return user;
     else return 'Héctor';
+  }
+
+  getCodTienda(): number {
+    let tienda = JSON.parse(localStorage.getItem(this.keyTienda));
+    if (tienda) return tienda;
+    else return 1;
   }
 }

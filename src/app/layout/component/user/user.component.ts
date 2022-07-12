@@ -40,7 +40,7 @@ export class UserComponent implements OnInit {
 
   loadPedidos(pIDComprador: number): void {
     this._pedidoService
-      .getPedido(pIDComprador, 4)
+      .getPedidos(pIDComprador, 4)
       .then((res) => {
         this.pedidos = res.Data;
       })

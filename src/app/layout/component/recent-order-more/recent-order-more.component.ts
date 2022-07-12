@@ -47,10 +47,9 @@ export class RecentOrderMoreComponent implements OnInit {
 
   loadPedidos(pIDComprador: number, pFiler: string = ""): void {
     this._pedidoService
-      .getPedido(pIDComprador, this.limit, pFiler)
+      .getPedidos(pIDComprador, this.limit, pFiler)
       .then((res) => {
         this.pedidos = res.Data;
-        //debugger;
         if( this.limit < res.NumberOfRecords)
           this.showOrderMore = true;
         else

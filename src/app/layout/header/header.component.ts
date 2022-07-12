@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ICategoria } from 'src/app/interfaces/categoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
 import { CONSTANT } from '../shared/service';
+import { SessionInfo } from '../shared/session/session.service';
 
 @Component({
   selector: 'app-header',
@@ -14,10 +15,10 @@ export class HeaderComponent implements OnInit {
   @Output() onEmitSearchProducts: EventEmitter<any> = new EventEmitter();
   categorias: ICategoria[];
 
-  constructor(private _categoriaService: CategoriaService) {}
+  constructor(private _categoriaService: CategoriaService, private _SessionInfo: SessionInfo) {}
 
   ngOnInit(): void {
-    this.loadCategoria(CONSTANT.IDTienda.tiendaUno);
+    this.loadCategoria(this._SessionInfo.getCodTienda());
   }
 
   openSideRecentOrderMore(): void {
