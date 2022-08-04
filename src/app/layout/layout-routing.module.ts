@@ -13,6 +13,7 @@ import { TermsAndConditionsComponent } from './component/terms-and-conditions/te
 import { CartSummaryComponent } from './component/cart-summary/cart-summary.component';
 import { PaymentAndDeliveryComponent } from './component/payment-and-delivery/payment-and-delivery.component';
 import { RecentOrderMoreComponent } from './component/recent-order-more/recent-order-more.component';
+import { BagSummaryComponent } from './component/bag-summary/bag-summary.component';
 
 const routes: Routes = [
     {
@@ -42,8 +43,8 @@ const routes: Routes = [
             {
                 path: 'sideproducts',
                 outlet: 'bag',
-                component: CartSummaryComponent,
-                loadChildren: () => import('./component/cart-summary/cart-summary.module').then((m) => m.CartSummaryModule)
+                component: BagSummaryComponent,
+                //loadChildren: () => import('./component/cart-summary/cart-summary.module').then((m) => m.CartSummaryModule)
             },
             {
                 path: 'sidepaymentanddelivery',

@@ -1,0 +1,15 @@
+.summary-bag-box{
+	::ng-deep.p-card{
+		border-radius: 10px;
+		margin-bottom: 10px;
+	    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+	}
+	.btn_sum{
+		background-color: #eceff1;
+		border: none;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

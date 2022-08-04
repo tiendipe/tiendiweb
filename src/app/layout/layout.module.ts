@@ -16,10 +16,12 @@ import { DetailModule } from './detail/detail.module';
 import { NgChatTiendiModule } from './component/chat/ng-chat-tiendi/ng-chat-tiendi.module';
 import { DataService, ErrorService, NotificationService } from './shared/service';
 import { MessageService } from 'primeng/api';
+import { BagSummaryComponent } from './component/bag-summary/bag-summary.component';
 
 @NgModule({
     declarations: [
         LayoutComponent,
+        BagSummaryComponent,
     ],
     imports: [
         CommonModule,

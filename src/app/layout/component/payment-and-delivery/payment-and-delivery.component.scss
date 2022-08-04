@@ -3,3 +3,35 @@ i {
     width: unset;
     font-size: 30px;
 }
+.form_btn_style{
+	background-color: #ECEFF1;
+	border: none;
+	padding: 10px 50px;
+	border-radius: 5px;
+	span{
+		color: #607D8B;
+	}
+	&.selected{
+		background-color: #607D8B;
+		span{
+			color: #FFF;
+		}
+	}
+	&.small_bt{
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+}
+.resume-bag-box{
+	::ng-deep.p-card{
+		border-radius: 10px;
+		margin-bottom: 10px;
+	    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+	}
+	.resume-item{
+		border-bottom: 1px solid rgba(224,224,224,1);
+	}
+	.border-b{
+		border-bottom: 1px solid rgba(224,224,224,1);	
+	}
+}

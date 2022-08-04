@@ -1,33 +1,39 @@
 
 <!-- LISTA DE TIENDAS -->
 <div id="ng-chat-shop-list">
-	<div class="chat-container absolute bottom-0 right-0 border-round">
-		<span class="message-title">Mensajes</span>
-		<div class="chat-shop-message-container" (click)="onChatInfoSelected('tiendi', ChatShopWindowsEnum.ngChatInfo)">
-			<img src="../../../assets/perfil-tiendi-icono-invertido.png" alt="tiendi">
-			<div class="shop-message-container">
-				<div class="message-container">
-					<span class="message">Quieres vender en Tiendi?</span>
-					<span class="message-det">Descubre más...</span>
+	<div class="chat-container absolute bottom-0 right-0">
+		<div class="message-title gray text-base pb-3">Mensajes</div>
+		<div class="chat-shop-message-wrap">
+			<div class="chat-shop-message-container" (click)="onChatInfoSelected('tiendi', ChatShopWindowsEnum.ngChatInfo)">
+				<div class="img-user-chat">
+					<img src="../../../assets/perfil-tiendi-icono-invertido.png" alt="tiendi">
 				</div>
-			</div>
-			<div class="shop-message-container-i">
-				<i class="pi pi-chevron-right"></i>
-			</div>
-		</div>
-		<div *ngFor="let user of sortedParticipants" class="chat-shop-message-container" (click)="onChatShopSelected(user, ChatShopWindowsEnum.ngChatShop)">
-			<img src="../../../assets/perfil-tiendi-icono.png" alt="tiendi">
-			<div class="shop-message-container">
-				<div class="message-container">
-					<div class="message-con">
-						<span class="message">{{user.participant.displayName}}</span>
-						<div *ngIf="user.metadata.totalUnreadMessages > 0" class="circulo"></div>
+				<div class="shop-message-container flex-grow-1">
+					<div class="message-container">
+						<span class="message text-sm mb-1">Quieres vender en Tiendi?</span>
+						<span class="message-det text-xs">Descubre más...</span>
 					</div>
-					<span class="message-det">Pedido Nro. {{user.participant.ordernum}}</span>
+				</div>
+				<div class="shop-message-container-i">
+					<i class="pi pi-chevron-right gray"></i>
 				</div>
 			</div>
-			<div class="shop-message-container-i">
-				<i class="pi pi-chevron-right"></i>
+			<div *ngFor="let user of sortedParticipants" class="chat-shop-message-container" (click)="onChatShopSelected(user, ChatShopWindowsEnum.ngChatShop)">
+				<div class="img-user-chat">
+					<img src="../../../assets/perfil-tiendi-icono.png" alt="tiendi">
+				</div>
+				<div class="shop-message-container flex-grow-1">
+					<div class="message-container">
+						<div class="message-container flex align-items-center">
+							<span class="message text-sm mb-1">{{user.participant.displayName}}</span>
+							<div *ngIf="user.metadata.totalUnreadMessages > 0" class="circulo"></div>
+						</div>
+						<span class="message-det text-xs">Pedido Nro. {{user.participant.ordernum}}</span>
+					</div>
+				</div>
+				<div class="shop-message-container-i">
+					<i class="pi pi-chevron-right gray"></i>
+				</div>
 			</div>
 		</div>
 	</div>
