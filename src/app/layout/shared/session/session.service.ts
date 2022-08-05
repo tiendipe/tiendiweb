@@ -8,6 +8,7 @@ export class SessionInfo {
   private keySession: string = 'HdataUserZ2HSession';
   private keyUser: string = 'HdataUserZ2HUser';
   private keyTienda: string = 'HdataUserZ2HTienda';
+  private keyComprador: string = 'HdataUserZ2HComprador';
   private session: Session;
 
   getAudit(): Session {
@@ -29,6 +30,12 @@ export class SessionInfo {
 
   getCodTienda(): number {
     let tienda = JSON.parse(localStorage.getItem(this.keyTienda));
+    if (tienda) return tienda;
+    else return 1;
+  }
+
+  getCodComprador(): number {
+    let tienda = JSON.parse(localStorage.getItem(this.keyComprador));
     if (tienda) return tienda;
     else return 1;
   }

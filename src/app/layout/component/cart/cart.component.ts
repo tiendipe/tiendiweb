@@ -24,9 +24,10 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    debugger;
     this.loadPedidosActual(
       this._sessionInfo.getCodTienda(),
-      this._sessionInfo.getCodUser()
+      this._sessionInfo.getCodComprador()
     );
     this.currentRoute = this._router.url;
     console.log(this._router.url);
@@ -47,9 +48,10 @@ export class CartComponent implements OnInit {
       .getPedidoActual(
         pIDTienda,
         pIDComprador,
-        Number(String(pIDTienda) + String(pIDComprador))
+        Number(String(pIDTienda) + Number(String(pIDComprador)))
       )
       .then((res) => {
+        debugger;
         this.pedido = res.Data;
       })
       .catch(() => {

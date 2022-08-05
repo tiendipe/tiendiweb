@@ -59,14 +59,16 @@ export class PedidoService {
    * @returns {Promise<any>}
    */
    getPedidoActual(pIDTienda: number, pIDComprador: number, pIDPedido: number): Promise<any> {
+    debugger;
+
     let parameters = new HttpParams();
     parameters = parameters.append('pIDTienda', String(pIDTienda));
     parameters = parameters.append('pIDComprador', String(pIDComprador));
     parameters = parameters.append('pIDPedido', String(pIDPedido));
     let PedidoActual: any;
 
-    PedidoActual = JSON.parse(localStorage.getItem(this.keySession));
-    if(PedidoActual != null){
+    if(localStorage.getItem(this.keySession) != "{}"){
+      PedidoActual = JSON.parse(localStorage.getItem(this.keySession));
       return new Promise((resolve, reject) => {
         resolve(PedidoActual);
       });
@@ -81,6 +83,7 @@ export class PedidoService {
         Status: 1,
         Message: []
       }).subscribe((res: any) => {
+        debugger;
         this._errorService.getResultMessage(res);
         this.pedido = res.Data;
         localStorage.setItem(this.keySession, JSON.stringify({Data: this.pedido}));

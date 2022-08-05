@@ -1,69 +1,64 @@
 <div class="flex flex-column base-sumary p-0" style="background-color: #f8faf9">
-    <div class="font-bold text-base py-3 px-3 bg-white top-card-order">
-        Tienes {{ pedido.PedidoDetalle.length }} productos
-    </div>
-    <div class="flex flex-column py-3 px-3" *ngIf="pedido" [ngClass]="{ 'overflow-y-scroll max': (pedido.PedidoDetalle.length > 3 && scroll) }">
-        <p-card class="mb-2 sumary_card" *ngFor="let pedidoDetalle of pedido.PedidoDetalle; let i = index">
-            <div class="px-2">
-                <div class="flex flex-row align-items-center">
-                    <img class="h-3rem w-3rem mx-2 mb-2" src="../../../../assets/perfil-tiendi-icono-invertido.png"
-                        alt="" />
-                    <div class="flex flex-column w-full">
-                        <div class="cuttext w-12 mb-2 text-sm pt-2">
-                            <b>{{ pedidoDetalle.Nombre }}</b>
-                            <span class="block">
-                              {{ pedidoDetalle.Descripcion }}
-                            </span>
-                        </div>
-                        <div class="flex flex-row">
-                            <div class="text-left text-xs gray">{{ pedidoDetalle.MarcaDes }}</div>
-                            <div class="flex flex-column justify-content-end text-right w-full">
-                                <div class="font-bold text-base">{{ pedidoDetalle.Descuento }}</div>
-                                <div class="text-xs gray line-through">
-                                    {{ pedidoDetalle.Precio }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <button pButton pRipple type="button" icon="pi pi-minus" class="
-              p-button-rounded p-button-help p-button-text p-button-sm
-              mr-2
-            " (click)="restOrDelete(i)"></button>
-                    <p class="w-3 p-input text-xs text-center btn_sum p-0" type="text" pInputText >
-                        {{ product.quantity }} unid
-                    </p>
-
-                    <button pButton pRipple type="button" icon="pi pi-plus" class="
-              p-button-rounded p-button-help p-button-text p-button-sm
-              ml-2
-            " (click)="product.quantity = product.quantity + 1"></button>
-                    <button pButton pRipple type="button" icon="pi pi-times" class="
-              p-button-rounded p-button-secondary p-button-text p-button-sm
-              ml-auto
-            " (click)="deleteItem(i)"></button>
+  <div class="font-bold text-base py-3 px-3 bg-white top-card-order">
+    Tienes {{ pedido.PedidoDetalle.length }} productos
+  </div>
+  <div class="flex flex-column py-3 px-3" *ngIf="pedido"
+    [ngClass]="{ 'overflow-y-scroll max': (pedido.PedidoDetalle.length > 3 && scroll) }">
+    <p-card class="mb-2 sumary_card" *ngFor="let pedidoDetalle of pedido.PedidoDetalle; let i = index">
+      <div class="px-2">
+        <div class="flex flex-row align-items-center">
+          <img class="h-3rem w-3rem mx-2 mb-2" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
+          <div class="flex flex-column w-full">
+            <div class="cuttext w-12 mb-2 text-sm pt-2">
+              <b>{{ pedidoDetalle.Nombre }}</b>
+              <span class="block">
+                {{ pedidoDetalle.Descripcion }}
+              </span>
+            </div>
+            <div class="flex flex-row">
+              <div class="text-left text-xs gray">{{ pedidoDetalle.MarcaDes }}</div>
+              <div class="flex flex-column justify-content-end text-right w-full">
+                <div class="font-bold text-base">{{ pedidoDetalle.Descuento }}</div>
+                <div class="text-xs gray line-through">
+                  {{ pedidoDetalle.Precio }}
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- <div class="flex flex-row">
+          <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-help p-button-text p-button-sm mr-2"
+          (click)="restOrDelete(i)"></button>
+          <p class="w-3 p-input text-xs text-center btn_sum p-0" type="text" pInputText>
+            {{ product.quantity }} unid
+          </p>
+
+          <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-text p-button-sm ml-2"
+          (click)="product.quantity = product.quantity + 1"></button>
+          <button pButton pRipple type="button" icon="pi pi-times" class="
+              p-button-rounded p-button-secondary p-button-text p-button-sm
+              ml-auto
+            " (click)="deleteItem(i)"></button>
+        </div> -->
         <div class="flex flex-row">
           <button pButton pRipple type="button" icon="pi pi-minus" class="
-              p-button-rounded p-button-help p-button-text p-button-sm mr-2" (click)="restOrDelete(i)"></button>
+                    p-button-rounded p-button-help p-button-text p-button-sm mr-2" (click)="restOrDelete(i)"></button>
           <p class="w-3 p-input text-xs text-center btn_sum p-0" type="text" pInputText>
             {{ pedidoDetalle.Cantidad }} unid
           </p>
 
-          <button pButton pRipple type="button" icon="pi pi-plus" class="
-              p-button-rounded p-button-help p-button-text p-button-sm ml-2"
+          <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-text p-button-sm ml-2"
             (click)="pedidoDetalle.Cantidad = pedidoDetalle.Cantidad + 1"></button>
-          <button pButton pRipple type="button" icon="pi pi-times" class="
-              p-button-rounded p-button-secondary p-button-text p-button-sm ml-auto" (click)="deleteItem(i)"></button>
+          <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-secondary p-button-text p-button-sm ml-auto"
+            (click)="deleteItem(i)"></button>
         </div>
       </div>
     </p-card>
   </div>
+
+
+
+
 
   <div class="text-base font-bold px-5 pt-3 flex flex-row">
     <div class="text-left w-6 text-base">Sub total</div>
@@ -81,9 +76,9 @@
       Ir a bolsa de compras
     </button> -->
   </div>
-</div>
 
-<!-- <p-overlayPanel id = "panel" #op [style]="{ width: '300px', padding: 'unset' }">
+
+  <!-- <p-overlayPanel id = "panel" #op [style]="{ width: '300px', padding: 'unset' }">
   <ng-template pTemplate style="width: 0px">
     <app-cart-summary></app-cart-summary>
   </ng-template>
