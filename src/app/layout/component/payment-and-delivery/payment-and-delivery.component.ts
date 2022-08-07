@@ -14,6 +14,7 @@ export class PaymentAndDeliveryComponent implements OnInit {
   groupPayment: any[];
   groupDeliverySelected: string;
   groupPaymentSelected: string;
+
   constructor(
     private _pedidoService: PedidoService
   ) {}

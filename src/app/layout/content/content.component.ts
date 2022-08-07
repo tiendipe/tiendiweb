@@ -1,13 +1,6 @@
-import {
-  Component,
-  EventEmitter,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
-import { Sidebar } from 'primeng/sidebar';
 import { IProducto } from 'src/app/interfaces/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 import { CONSTANT } from '../shared/service';
@@ -21,13 +14,14 @@ import { ContentService } from './content.service';
 })
 export class ContentComponent implements OnInit {
   @Output() onEmitProductID: EventEmitter<number> = new EventEmitter();
-
+  visibleTermns: boolean = false;
   visibleSideBarLeft: boolean = false;
   visibleSideBarRight: boolean = false;
   visibleSideBag: boolean = false;
   showProductList: boolean = false;
   CategoryID: number;
   url: string;
+  valueProgress: number;
 
   public items: MenuItem[] = [
     {
@@ -88,7 +82,9 @@ export class ContentComponent implements OnInit {
     this.onClearOutlet();
   }
 
-  closeSideBag() {
+  onCloseSideBag() {
+    debugger;
+    this.valueProgress = 50;
     this.visibleSideBag = false;
     this.onClearOutlet();
   }
@@ -105,7 +101,17 @@ export class ContentComponent implements OnInit {
   }
 
   public onOpenSideBag(): void {
+    this.valueProgress = 50;
     this.visibleSideBag = true;
+    this.visibleTermns = false;
+  }
+
+  public showTermsSideBag(): void {
+    this.visibleTermns = true;
+  }
+
+  public hideTermsSideBag(): void {
+    this.visibleTermns = false;
   }
 
   emitProductID(ProductID: number): void {
@@ -131,6 +137,12 @@ export class ContentComponent implements OnInit {
       });
   }
 
+  /**
+   * Filtra los productos listados
+   * @param pIDTienda
+   * @param pFiltro
+   * @memberof ContentComponent
+   */
   loadProductosSearch(pIDTienda: number, pFiltro: string): void {
     this._productoService
       .getProductoSearch(pIDTienda, pFiltro)

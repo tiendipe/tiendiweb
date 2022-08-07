@@ -10,6 +10,7 @@ import { BagModule } from '../component/bag/bag.module';
 import { ProductoService } from 'src/app/services/producto.service';
 // import { PrimengModule } from 'src/app/primeng/primeng.module';
 import { PrimengModule } from './shared/primeng.module';
+import { TermsAndConditionsModule } from '../component/terms-and-conditions/terms-and-conditions.module';
 
 @NgModule({
   declarations: [ContentComponent],
@@ -21,7 +22,8 @@ import { PrimengModule } from './shared/primeng.module';
     SlidemenuModule,
     BagModule,
     CarouselModule,
-    PrimengModule
+    PrimengModule,
+    TermsAndConditionsModule
   ],
   exports: [ContentComponent],
   providers: [ProductoService],

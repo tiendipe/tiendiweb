@@ -8,6 +8,6 @@ export class ContentService {
   constructor(private _router: Router){}
 
   navigateToList(){
-    this._router.navigate(['/ecommerce/'], { skipLocationChange: true });
+    this._router.navigate(['/ecommerce/'], { skipLocationChange: false });
   }
 }

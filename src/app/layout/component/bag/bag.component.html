@@ -9,16 +9,6 @@
     </div>
   </div>
 
-  <!-- <div class="flex flex-row mt-1" style="background-color: white" *ngIf="termsandcond()">
-    <div class="flex flex-column w-1 pl-3">
-      <button pButton pRipple type="button" icon="pi pi-arrow-left"
-        class="p-button-rounded p-button-secondary p-button-text" (click)="prevStep()"></button>
-    </div>
-    <div class="pl-2 pb-4 text-2xl font-bold text-900">
-      Términos y condiciones
-    </div>
-  </div> -->
-
   <div class="pb-4">
     <p-progressBar class="customProgress" [value]="valueProgress"
       [style]="{ height: '3px', background: '#9C27B0', color: '#ffffff' }"></p-progressBar>
@@ -26,8 +16,6 @@
 
   <p-steps [model]="itemsSteps" [readonly]="false" class="stepsBag" (activeIndexChange)="onActiveIndexChange($event)">
   </p-steps>
-
-
 
   <div class="w-full min-h-full h-full background">
     <div class="mb-4">
@@ -39,23 +27,12 @@
         class="p-button-rounded p-button-help mr-5 ml-auto" (click)="nextStep()"></button>
     </div>
 
-    <!-- <button (click)="nextStep()" *ngIf="termsandcond()" pButton pRipple type="button" label="Volver"
-        class="w-3 p-button-rounded p-button-secondary mr-auto p-button-outlined ml-5"
-        style="background-color: #eceff1"></button>
-      <button (click)="nextStep()" *ngIf="termsandcond()" pButton pRipple type="button" label="Aceptar"
-        class="w-3 p-button-rounded p-button-help ml-auto mr-5"></button>
-
-      <button *ngIf="paymentanddelivery()" pButton pRipple type="button" label="Enviar pedido"
-        class="p-button-rounded p-button-secondary px-3 ml-auto mr-5"></button> -->
-
     <div class="flex flex-row background pb-2">
       <div class="px-5" *ngIf="valueProgress==100">
-        <p-checkbox name="groupname"></p-checkbox>
-        <label class="pl-3" for="terms">Texto con los <a class="purple font-bold cursor-pointer" (click)="navigateTerms()">términos y
-          condiciones</a> para realizar el pedido</label>
-
+        <p-checkbox [(ngModel)]="termsValue" [binary]="true"></p-checkbox>
+        <label class="pl-3" for="terms">Texto con los <a class="purple font-bold cursor-pointer" (click)="navigateTerms()">términos y condiciones</a> para realizar el pedidoooo</label>
         <button pButton pRipple type="button" label="Enviar pedido"
-          class="p-button-rounded p-button-secondary px-3 ml-auto mr-5 pt-2"></button>
+          class="p-button-rounded px-3 ml-auto mr-5 pt-2" [disabled]="!termsValue" (click)="sendPedido()"></button>
       </div>
     </div>
   </div>

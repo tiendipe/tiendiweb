@@ -1,51 +1,65 @@
-.p-steps, .p-steps-item, .p-steps .p-steps-item .p-menuitem-link {
-    background-color: red !important;
+.p-steps,
+.p-steps-item,
+.p-steps .p-steps-item .p-menuitem-link {
+  background-color: red !important;
 }
 
 .ui-progressbar.ui-widget-content {
-    background-color:#9C27B0;
-    background-image:none;
+  background-color: #9c27b0;
+  background-image: none;
 }
-.stepsBag{
-	::ng-deep.p-steps{
-		background-color: #f8faf9;
-		.p-steps-item{
-			.p-menuitem-link{
-				background-color: transparent;
-				outline: none;
-				.p-steps-title{
-					color: #C9CAC9;	
-					font-size: 14px;
-				}
-			}
-			.p-steps-number{
-				background-color: #f8faf9;
-				border-color: #D8DAD9;
-				color: #C9CAC9;
-				font-size: 14px;
-			}
-			&::before{
-				width: 50%;
-				left: 50%;
-				border-color: #D8DAD9;
-			}
-			&:last-child{
-				&::before{
-					left: 0;
-				}
-			}
-			.p-menuitem-link-active{
-				&:parent{
-					background-color: red !important;
-				}
-				.p-steps-number{
-					border-color: #9C27B0;
-					color: #9C27B0;
-				}
-				.p-steps-title{
-					color: #9C27B0;
-				}
-			}
-		}
-	}
+.stepsBag {
+  ::ng-deep.p-steps {
+    background-color: #f8faf9;
+    .p-steps-item {
+      .p-menuitem-link {
+        background-color: transparent;
+        outline: none;
+        .p-steps-title {
+          color: #c9cac9;
+          font-size: 14px;
+        }
+      }
+      .p-steps-number {
+        background-color: #f8faf9;
+        border-color: #d8dad9;
+        color: #c9cac9;
+        font-size: 14px;
+      }
+      &::before {
+        width: 50%;
+        left: 50%;
+        border-color: #d8dad9;
+      }
+      &:last-child {
+        &::before {
+          left: 0;
+        }
+      }
+      .p-menuitem-link-active {
+        &:parent {
+          background-color: red !important;
+        }
+        .p-steps-number {
+          border-color: #9c27b0;
+          color: #9c27b0;
+        }
+        .p-steps-title {
+          color: #9c27b0;
+        }
+      }
+    }
+  }
+}
+
+button {
+  min-width: 10rem;
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 960px) {
+  button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
 }

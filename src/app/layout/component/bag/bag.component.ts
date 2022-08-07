@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuItem, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-bag',
@@ -9,8 +9,8 @@ import { MenuItem } from 'primeng/api';
 })
 export class BagComponent implements OnInit {
   @Output() onCloseSideBag: EventEmitter<any> = new EventEmitter();
-  valueProgress: number = 0;
-  // selectedValues: string[] = ['val1', 'val2'];
+  @Output() onShowTermsSideBag: EventEmitter<any> = new EventEmitter();
+  @Input() valueProgress: number = 50;
   itemsSteps: MenuItem[] = [
     {
       label: 'Productos',
@@ -26,25 +26,15 @@ export class BagComponent implements OnInit {
       skipLocationChange: false,
     },
   ];
+  termsValue: boolean = false;
 
-  constructor(public _router: Router, private route: ActivatedRoute) {}
-
-  // currentRoute: string = '';
+  constructor(public _router: Router, private messageService: MessageService) {}
 
   ngOnInit(): void {
     this.valueProgress = 50;
-    // this.summary();
-    // this.currentRoute = this._router.url;
-    // console.log(this._router.url);
-    // this._router.navigate(
-    //     ['/ecommerce/', { outlets: { bag: ['products'] } }],
-    //     { skipLocationChange: true }
-    // );
-    // this._router.navigate(['/ecommerce/', { outlets: { bag: ['sideproducts'] } }], {skipLocationChange: false});
-    // console.log(this._router.url);
   }
 
-  onActiveIndexChange(index: number){
+  onActiveIndexChange(index: number) {
     switch (index) {
       case 0:
         this.valueProgress = 50;
@@ -59,12 +49,6 @@ export class BagComponent implements OnInit {
 
   nextStep() {
     this.valueProgress += 50;
-    // this._router.navigate([`${this._router.url}/paymentanddelivery`])
-    // this._router.navigate(['/ecommerce/list', {outlets: {bag: ['paymentanddelivery']}}], {skipLocationChange: true});
-    // this._router.navigate(
-    //     [`${this.currentRoute}`, { outlets: { bag: ['sidepaymentanddelivery'] } }],
-    //     { skipLocationChange: true }
-    // );
     this._router.navigate(
       ['/ecommerce/', { outlets: { bag: ['sidepaymentanddelivery'] } }],
       { skipLocationChange: false }
@@ -73,12 +57,6 @@ export class BagComponent implements OnInit {
 
   prevStep() {
     this.valueProgress -= 50;
-    // this._router.navigate([`${this._router.url}/products`])
-    // this._router.navigate(['/ecommerce/list', {outlets: {bag: ['products']}}], {skipLocationChange: true});
-    // this._router.navigate(
-    //     [`${this.currentRoute}`, { outlets: { bag: ['sideproducts'] } }],
-    //     { skipLocationChange: true }
-    // );
     this._router.navigate(
       ['/ecommerce/', { outlets: { bag: ['sideproducts'] } }],
       { skipLocationChange: false }
@@ -86,34 +64,23 @@ export class BagComponent implements OnInit {
   }
 
   navigateTerms() {
-    // this._router.navigate(
-    //     [`${this.currentRoute}`, { outlets: { bag: ['sidetermsandconditions'] } }],
-    //     { skipLocationChange: true, relativeTo: this.route }
-    // );
-    this._router.navigate(
-      ['/ecommerce/', { outlets: { bag: ['sidetermsandconditions'] } }],
-      { skipLocationChange: false }
-    );
+    this.onShowTermsSideBag.emit();
   }
-
-  // termsandcond() {
-  //   if (this._router.url.includes('/(bag:sidetermsandconditions)')) return true;
-  //   else return false;
-  // }
-
-  // paymentanddelivery() {
-  //   if (this._router.url.includes('/(bag:sidepaymentanddelivery)')) return true;
-  //   else return false;
-  // }
-
-  // summary() {
-  //   console.log(this._router.url);
-  //   if (this._router.url.includes('/(bag:sideproducts)')) return true;
-  //   else return false;
-  // }
 
   closeSideBag() {
     this.onCloseSideBag.emit();
     this._router.navigate(['/ecommerce/'], { skipLocationChange: false });
+  }
+
+  sendPedido() {
+    this.closeSideBag();
+
+    this.messageService.add({
+      key: 'mgsBR',
+      severity: 'success',
+      summary: 'Pedido enviado',
+      detail: 'Lorem ipsum successful message',
+      sticky: true
+    });
   }
 }

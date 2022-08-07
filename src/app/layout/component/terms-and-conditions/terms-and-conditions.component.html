@@ -1,22 +1,42 @@
+<div class="flex flex-row mt-1" style="background-color: white">
+  <div class="flex flex-column w-1 pl-3">
+    <button pButton pRipple type="button" icon="pi pi-arrow-left"
+      class="p-button-rounded p-button-secondary p-button-text" (click)="navigateBag()"></button>
+  </div>
+  <div class="pl-2 pb-4 text-2xl font-bold text-900">
+    Términos y condiciones
+  </div>
+</div>
+
 <div class="background min-h-screen px-6">
-    <div class="pb-2 pt-6 font-bold text-900">Lorem Ipsum</div>
-    <div class="">
-        <p class="line-height-3 mb-2 text-900">
-            Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            suscipit tortor eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget
-            felis porttitor volutpat. Donec sollicitudin molestie malesuada. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
-            Vivamus suscipit tortor eget felis porttitor volutpat. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar
-            a. Sed porttitor lectus nibh.    
-        </p>
-        <P class="line-height-3 mb-2 text-900">
-            Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Curabitur arcu erat, accumsan id
-            imperdiet et, porttitor at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur
-            arcu erat, accumsan id imperdiet et, porttitor at sem.
-        </P>
-        <P class="line-height-3 mb-2 text-900">            
-            Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Donec rutrum congue leo eget malesuada. Donec sollicitudin molestie malesuada.
-        </P>
+  <div class="pb-2 pt-6 font-bold text-900">Lorem Ipsum</div>
+  <div class="">
+    <p class="line-height-3 mb-2 text-900">
+      Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+      suscipit tortor eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget
+      felis porttitor volutpat. Donec sollicitudin molestie malesuada. Praesent sapien massa, convallis a pellentesque
+      nec, egestas non nisi.
+      Vivamus suscipit tortor eget felis porttitor volutpat. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar
+      a. Sed porttitor lectus nibh.
+    </p>
+    <P class="line-height-3 mb-2 text-900">
+      Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Curabitur arcu erat, accumsan id
+      imperdiet et, porttitor at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur
+      arcu erat, accumsan id imperdiet et, porttitor at sem.
+    </P>
+    <P class="line-height-3 mb-2 text-900">
+      Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus magna
+      justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ante ipsum primis in faucibus orci luctus et
+      ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
+      Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur arcu erat, accumsan id imperdiet
+      et, porttitor at sem. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet
+      quam id dui posuere blandit. Donec rutrum congue leo eget malesuada. Donec sollicitudin molestie malesuada.
+    </P>
+  </div>
 
-    </div>
-
+  <button pButton pRipple type="button" label="Volver"
+    class="w-3 p-button-rounded p-button-secondary mr-auto p-button-outlined ml-5"
+    style="background-color: #eceff1" (click)="navigateBag()"></button>
+  <button pButton pRipple type="button" label="Aceptar"
+    class="w-3 p-button-rounded p-button-help ml-auto mr-5" (click)="navigateBag()"></button>
 </div>

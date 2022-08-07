@@ -14,6 +14,7 @@ import { CartSummaryModule } from '../cart-summary/cart-summary.module';
 // import { Step2Module } from '../step2/step2.module';
 // import { Step3Module } from '../step3/step3.module';
 import { FormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 
 // const routes: Routes = [
@@ -40,6 +41,7 @@ import { FormsModule } from '@angular/forms';
     ],
     exports: [
         BagComponent
-    ]
+    ],
+    providers: [MessageService]
 })
 export class BagModule { }
