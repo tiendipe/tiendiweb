@@ -11,7 +11,6 @@ import { SessionInfo } from '../../shared/session/session.service';
   styleUrls: ['./recent-order-more.component.scss'],
 })
 export class RecentOrderMoreComponent implements OnInit {
-  @Output() onOpenSideMyOrders: EventEmitter<any> = new EventEmitter();
   @Input() pedidos: Pedido[];
   showOrderMore: boolean = false;
   limit: number;
@@ -32,7 +31,12 @@ export class RecentOrderMoreComponent implements OnInit {
       ['/ecommerce/', { outlets: { right: ['sideordersummary', IDPedido] } }],
       { skipLocationChange: true }
     );
-    console.log(this._router.url);
+  }
+
+  closeSideOrder(): void {
+    this._router.navigate(['/ecommerce/', { outlets: { right: null } }], {
+      skipLocationChange: true,
+    });
   }
 
   onAddRecentOrder(): void {
@@ -41,19 +45,17 @@ export class RecentOrderMoreComponent implements OnInit {
   }
 
   onSearchRecentOrder(event: any): void {
-    if(event.key == 'Enter')
+    if (event.key == 'Enter')
       this.loadPedidos(this._sessionInfo.getCodUser(), event.target.value);
   }
 
-  loadPedidos(pIDComprador: number, pFiler: string = ""): void {
+  loadPedidos(pIDComprador: number, pFiler: string = ''): void {
     this._pedidoService
       .getPedidos(pIDComprador, this.limit, pFiler)
       .then((res) => {
         this.pedidos = res.Data;
-        if( this.limit < res.NumberOfRecords)
-          this.showOrderMore = true;
-        else
-          this.showOrderMore = false;
+        if (this.limit < res.NumberOfRecords) this.showOrderMore = true;
+        else this.showOrderMore = false;
       })
       .catch(() => {
         this._pedidoService.showMessageError(

@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   }
 
   emitCategoryID(CategoryID: number): void {
-    console.log(CategoryID);
+    // console.log(CategoryID);
     this.onEmitCategoryID.emit(CategoryID);
   }
 
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
       .getCategoria(pIDTienda)
       .then((res) => {
         this.categorias = res.Data;
-        console.log('app-header - ' + this.categorias);
+        // console.log('app-header - ' + this.categorias);
       })
       .catch(() => {
         this._categoriaService.showMessageError(

@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log('list');
+    // console.log('list');
   }
 
   products: IProducto[] = TableDataProducto;

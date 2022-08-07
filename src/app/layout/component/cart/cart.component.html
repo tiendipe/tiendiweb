@@ -3,7 +3,7 @@
             'p-button-secondary p-button-text whitebackground': !buttonActive ,
             'p-button-help '     : buttonActive,
             'p-button-secondary':  true
-        }" icon="material-icons-outlined" (click)="op.show($event); buttonActive = !buttonActive;">
+        }" icon="material-icons-outlined" (click)="op.show($event)">
     <i class="material-icons-outlined" pBadge value="{{pedido && pedido.PedidoDetalle.length}}">shopping_cart</i>
   </button>
 

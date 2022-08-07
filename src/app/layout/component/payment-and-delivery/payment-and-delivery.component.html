@@ -1,159 +1,124 @@
 <div class="background">
-    <h3 class="px-5 text-900 text-base">Forma de despacho</h3>
-    <div class="px-5">
-        <p-card>
-            <div class="flex justify-content-between p-4 pt-0 pb-0">
-                <button pButton pRipple type="button" class="form_btn_style selected">
-                    <span class="text-sm font-bold">
-                        Recojo en tienda
-                    </span>
-                </button>
-                <button pButton pRipple type="button" class="form_btn_style">
-                    <span class="text-sm font-bold">
-                        Despacho a domicilioaa
-                    </span>
-                </button>
-            </div>
+  <h3 class="px-5 text-900 text-base">Forma de despacho</h3>
+  <div class="px-5">
+    <p-card>
+      <div class="flex justify-content-between p-4 pt-0 pb-0">
+        <!-- <button pButton pRipple type="button" class="form_btn_style selected">
+          <span class="text-sm font-bold">
+            Recojo en tienda
+          </span>
+        </button>
+        <button pButton pRipple type="button" class="form_btn_style">
+          <span class="text-sm font-bold">
+            Despacho a domicilioaa
+          </span>
+        </button> -->
+        <p-selectButton [options]="groupDelivery" [(ngModel)]="groupDeliverySelected" optionLabel="label"
+          optionValue="value"></p-selectButton>
+      </div>
 
-            <div class="flex flex-row align-items-center pt-3 px-3">
-                <i class="material-icons-outlined purple w-1"> place </i>
-                <div class="flex flex-column w-11">
-                    <div class="text-sm font-bold">Dirección de recojo</div>
-                    <div class="text-base">Some Direction</div>
-                </div>
-            </div>
-        </p-card>
-    </div>
-    <h3 class="px-5 text-900 text-base">Medio de pago</h3>
-    <div class="px-5">
-        <p-card>
-            <div class="flex justify-content-between p-4 pt-0 pb-0">
-                <button pButton pRipple type="button" class="form_btn_style selected small_bt">
-                    <span class="text-sm font-bold">
-                        Efectivo
-                    </span>
-                </button>
-                <button pButton pRipple type="button" class="form_btn_style small_bt">
-                    <span class="text-sm font-bold">
-                        Transferencia
-                    </span>
-                </button>
-                <button pButton pRipple type="button" class="form_btn_style small_bt">
-                    <span class="text-sm font-bold">
-                        Pago con tarjeta
-                    </span>
-                </button>
-            </div>
-            <div class="font-italic px-4 pt-4 pb-2 text-900">Mensaje informativo</div>
-        </p-card>
-    </div>
-    <div class="resume-bag-box pl-4 pr-4">
-        <div class="summary-bag-box-title pt-4 pb-4">
-            <span class="font-bold text-base text-900">Resumen del pedido: </span>
-            <span class="font-bold text-base text-900">3 productos selecionados</span>
+      <div class="flex flex-row align-items-center pt-3 px-3">
+        <i class="material-icons-outlined purple w-1"> place </i>
+        <div class="flex flex-column w-11">
+          <div class="text-sm font-bold">Dirección de recojo</div>
+          <div class="text-base">Some Direction</div>
         </div>
-        <p-card>
-            <div class="pl-4 pr-4">
-                <div class="resume-item-wrap">
-                    <div class="resume-item col flex mb-2">
-                        <div>
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="col flex flex-column pt-0">
-                            <span class="font-bold text-xs gray">Marca</span>
-                            <span class="text-sm block mt-1 mb-1">Nombre / descripción del producto</span>
-                            <span class="text-xs gray">2 und.</span>
-                            
-                        </div>
-                         <div class="col-3 price-st flex justify-content-end">
-                            <div class="flex flex-column justify-content-end">
-                                <span class="font-bold text-base">S/ 999.00</span>
-                                <span class="text-xs gray line-through flex justify-content-end block mt-1">S/ 1000</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="resume-item col flex mb-2">
-                        <div>
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="col flex flex-column pt-0">
-                            <span class="font-bold text-xs gray">Marca</span>
-                            <span class="text-sm block mt-1 mb-1">Nombre / descripción del producto</span>
-                            <span class="text-xs gray">2 und.</span>
-                            
-                        </div>
-                         <div class="col-3 price-st flex justify-content-end">
-                            <div class="flex flex-column justify-content-end">
-                                <span class="font-bold text-base">S/ 999.00</span>
-                                <span class="text-xs gray line-through flex justify-content-end block mt-1">S/ 1000</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="resume-item col flex mb-2">
-                        <div>
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="col flex flex-column pt-0">
-                            <span class="font-bold text-xs gray">Marca</span>
-                            <span class="text-sm block mt-1 mb-1">Nombre / descripción del producto</span>
-                            <span class="text-xs gray">2 und.</span>
-                            
-                        </div>
-                         <div class="col-3 price-st flex justify-content-end">
-                            <div class="flex flex-column justify-content-end">
-                                <span class="font-bold text-base">S/ 999.00</span>
-                                <span class="text-xs gray line-through flex justify-content-end block mt-1">S/ 1000</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="resume-price">
-                    <div class="border-b">
-                        <div class="flex pb-1">
-                            <div class="col flex justify-content-end">
-                                <span class="font-bold text-base"> Sub Total </span>
-                            </div>
-                            <div class="col-3 pr-3">
-                                <div class="flex justify-content-end">
-                                    <span class="font-bold text-base">S/ 4999.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-b">
-                        <div class="flex pb-1 pt-1">
-                            <div class="col flex justify-content-end">
-                                <span class="font-bold text-base"> Concepto </span>
-                            </div>
-                            <div class="col-3 pr-3">
-                                <div class="flex justify-content-end">
-                                    <span class="font-bold text-base">S/ 4999.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="flex pb-1 pt-1">
-                            <div class="col flex justify-content-end">
-                                <span class="font-bold text-base purple"> Total </span>
-                            </div>
-                            <div class="col-3 pr-3">
-                                <div class="flex justify-content-end">
-                                    <span class="font-bold text-base purple">S/ 4999.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </p-card>
-
+      </div>
+    </p-card>
+  </div>
+  <h3 class="px-5 text-900 text-base">Medio de pago</h3>
+  <div class="px-5">
+    <p-card>
+      <div class="flex justify-content-between p-4 pt-0 pb-0">
+        <!-- <button pButton pRipple type="button" class="form_btn_style selected small_bt">
+          <span class="text-sm font-bold">
+            Efectivo
+          </span>
+        </button>
+        <button pButton pRipple type="button" class="form_btn_style small_bt">
+          <span class="text-sm font-bold">
+            Transferencia
+          </span>
+        </button>
+        <button pButton pRipple type="button" class="form_btn_style small_bt">
+          <span class="text-sm font-bold">
+            Pago con tarjeta
+          </span>
+        </button> -->
+        <p-selectButton [options]="groupPayment" [(ngModel)]="groupPaymentSelected" optionLabel="label"
+          optionValue="value"></p-selectButton>
+      </div>
+      <div class="font-italic px-4 pt-4 pb-2 text-900">Mensaje informativo</div>
+    </p-card>
+  </div>
+  <div class="resume-bag-box pl-4 pr-4">
+    <div class="summary-bag-box-title pt-4 pb-4">
+      <span class="font-bold text-base text-900">Resumen del pedido: </span>
+      <span class="font-bold text-base text-900">{{pedido.PedidoDetalle.length}} productos selecionados</span>
     </div>
-    <!-- <app-recent-order-detail></app-recent-order-detail> -->
+    <p-card>
+      <div class="pl-4 pr-4">
+        <div class="resume-item-wrap">
+          <div class="resume-item col flex mb-2" *ngFor="let pedidoDetalle of pedido.PedidoDetalle; let i = index">
+            <div>
+              <div class="pl-2 pr-2 pt-0 pb-0">
+                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
+              </div>
+            </div>
+            <div class="col flex flex-column pt-0">
+              <span class="font-bold text-xs gray">{{ pedidoDetalle.MarcaDes }}</span>
+              <span class="text-sm block mt-1 mb-1">{{ pedidoDetalle.Nombre }} / {{ pedidoDetalle.Descripcion }}</span>
+              <span class="text-xs gray">{{ pedidoDetalle.Cantidad }} und.</span>
+
+            </div>
+            <div class="col-3 price-st flex justify-content-end">
+              <div class="flex flex-column justify-content-end">
+                <span class="font-bold text-base">S/ {{ pedidoDetalle.Descuento }}</span>
+                <span class="text-xs gray line-through flex justify-content-end block mt-1">S/ {{ pedidoDetalle.Precio
+                  }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="resume-price">
+          <div class="border-b">
+            <div class="flex pb-1">
+              <div class="col flex justify-content-end">
+                <span class="font-bold text-base"> Sub Total </span>
+              </div>
+              <div class="col-3 pr-3">
+                <div class="flex justify-content-end">
+                  <span class="font-bold text-base">S/ {{pedido.SubTotal}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="border-b">
+            <div class="flex pb-1 pt-1">
+              <div class="col flex justify-content-end">
+                <span class="font-bold text-base"> IGV </span>
+              </div>
+              <div class="col-3 pr-3">
+                <div class="flex justify-content-end">
+                  <span class="font-bold text-base">S/ {{pedido.IGV}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex pb-1 pt-1">
+            <div class="col flex justify-content-end">
+              <span class="font-bold text-base purple"> Total </span>
+            </div>
+            <div class="col-3 pr-3">
+              <div class="flex justify-content-end">
+                <span class="font-bold text-base purple">S/ {{pedido.Total}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-card>
+
+  </div>
+  <!-- <app-recent-order-detail></app-recent-order-detail> -->
 </div>

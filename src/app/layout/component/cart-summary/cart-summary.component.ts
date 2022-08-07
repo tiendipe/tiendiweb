@@ -1,21 +1,13 @@
 import {
   Component,
   Input,
-  OnChanges,
   OnInit,
-  SimpleChanges,
 } from '@angular/core';
-import { IPedido } from 'src/app/interfaces/pedido';
-// import { IProducto } from 'src/app/interfaces/producto';
+import { IPedido, Pedido } from 'src/app/interfaces/pedido';
+import { PedidoDetalle } from 'src/app/interfaces/pedido-detalle';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { CONSTANT } from '../../shared/service';
 import { SessionInfo } from '../../shared/session/session.service';
-
-// interface productSummary {
-//   name: string;
-//   price: number;
-//   quantity: number;
-// }
 
 @Component({
   selector: 'app-cart-summary',
@@ -27,18 +19,39 @@ export class CartSummaryComponent implements OnInit {
   @Input() scroll: boolean = false;
   @Input() pedido: IPedido;
 
-  constructor() {}
+  constructor(private _pedidoService: PedidoService) {}
 
-  ngOnInit(): void {}
-
-  restOrDelete(i: number) {
-    // TODO: revisar
-    // if (this.products[i].quantity == 1) this.products.splice(i, 1);
-    // else this.products[i].quantity -= 1;
+  ngOnInit(): void {
+    this.calculateTotal();
   }
 
-  deleteItem(i: number) {
-    // TODO: revisar
-    // this.products.splice(i, 1);
+  plusQuantity(pedidoDetalle: PedidoDetalle) {
+    if (pedidoDetalle.Cantidad < 99) {
+      pedidoDetalle.Cantidad += 1;
+      this.calculateTotal();
+    }
+  }
+
+  lessQuantity(pedidoDetalle: PedidoDetalle) {
+    if (pedidoDetalle.Cantidad > 1) {
+      pedidoDetalle.Cantidad -= 1;
+      this.calculateTotal();
+    }
+  }
+
+  deleteItem(pedidoDetalle: PedidoDetalle) {
+    this.pedido.PedidoDetalle.splice(
+      this.pedido.PedidoDetalle.indexOf(pedidoDetalle),
+      1
+    );
+
+    this._pedidoService.setPedidoActual(this.pedido);
+    this.calculateTotal();
+  }
+
+  calculateTotal(){
+    let total: number = 0;
+    this.pedido.PedidoDetalle.forEach(pedidoDetalle => total += pedidoDetalle.Cantidad * pedidoDetalle.Descuento)
+    this.pedido.SubTotal = total;
   }
 }

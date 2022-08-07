@@ -1,24 +1,17 @@
-
 <app-breadcrumb [items]="items" class="hidden"></app-breadcrumb>
 <app-carousel [productos]="productos" (onEmitProductID)="emitProductID($event)"></app-carousel>
-<!-- <div class="flex flex-row" *ngIf="showProductList">
-    <div class="w-3 p-3">
-        <app-slidemenu [items]="items"></app-slidemenu>
-    </div>
-    <div class="w-9 p-3">
-        <app-products-filter></app-products-filter>
-        <app-products-list [products]="productos"></app-products-list>
-    </div>
-</div> -->
 
-<p-sidebar [(visible)]="visibleSideBag" (onHide)="onClearOutlet()" position="right" [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
-    <app-bag *ngIf="visibleSideBag"></app-bag>
+<p-sidebar [(visible)]="visibleSideBag" (onHide)="onClearOutlet()" position="right" [showCloseIcon]="false"
+  [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
+  <app-bag *ngIf="visibleSideBag" (onCloseSideBag)="closeSideBag()"></app-bag>
 </p-sidebar>
 
-<p-sidebar [(visible)]="visibleSideBarLeft" (onHide)="onClearOutlet()" position="left" [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
-    <router-outlet name='left'></router-outlet>
+<p-sidebar [(visible)]="visibleSideBarLeft" (onHide)="onClearOutlet()" position="left" [showCloseIcon]="false"
+  [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
+  <router-outlet name='left' (activate)="onOpenSidebarLeft()" (deactivate)="onCloseSidebarLeft()"></router-outlet>
 </p-sidebar>
 
-<p-sidebar [(visible)]="visibleSideBarRight" (onHide)="onClearOutlet()" position="right" [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
-    <router-outlet name='right'></router-outlet>
+<p-sidebar [(visible)]="visibleSideBarRight" (onHide)="onClearOutlet()" position="right" [showCloseIcon]="false"
+  [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
+  <router-outlet name='right' (activate)="onOpenSidebarRight()" (deactivate)="onCloseSidebarRight()"></router-outlet>
 </p-sidebar>

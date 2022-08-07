@@ -32,7 +32,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 100.00,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -46,7 +46,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 100.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -90,7 +90,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 100.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -104,7 +104,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 50.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -148,7 +148,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 100.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -192,7 +192,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 180.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -236,7 +236,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 180.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -280,7 +280,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 180.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -324,7 +324,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 180.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -368,7 +368,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 180.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00
@@ -412,7 +412,7 @@ export const TableDataPedido: IPedido[] = [
         Precio: 180.0,
         Comentario: '',
         Nombre: 'Nombre',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 10.00

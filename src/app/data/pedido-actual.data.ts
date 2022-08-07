@@ -32,7 +32,7 @@ export const TableDataPedidoActual: IPedido[] = [
         Precio: 100.00,
         Comentario: '',
         Nombre: 'Nombre Prod.',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 90.00
@@ -46,8 +46,22 @@ export const TableDataPedidoActual: IPedido[] = [
         Precio: 120.0,
         Comentario: '',
         Nombre: 'Nombre prod 2',
-        Descripcion: 'Descrioción',
+        Descripcion: 'Descripción',
         MarcaDes: 'Marca Des',
+        UnidadMedidaDes: 'Unidad Des',
+        Descuento: 110.00
+      },
+      {
+        IDPedidoDetalle: 3,
+        IDPedido: 1,
+        IDProducto: 3,
+        IDUnidad: 1,
+        Cantidad: 4.0,
+        Precio: 120.0,
+        Comentario: '',
+        Nombre: 'Nombre prod 3',
+        Descripcion: 'Descripción3',
+        MarcaDes: 'Marca Des 3',
         UnidadMedidaDes: 'Unidad Des',
         Descuento: 110.00
       },

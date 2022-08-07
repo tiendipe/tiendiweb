@@ -11,7 +11,6 @@ import { TiendiUtil } from '../../shared/util';
   styleUrls: ['./order-summary.component.scss'],
 })
 export class OrderSummaryComponent implements OnInit {
-  pedidos$: Observable<IPedido[]> = this._pedidoService.pedidos$.asObservable();
   pedidos: IPedido[] = this._pedidoService.pedidos;
   IDPedido: number;
   pedido: IPedido;
@@ -30,8 +29,7 @@ export class OrderSummaryComponent implements OnInit {
   onBackRecentOrderMore(): void {
     this._router.navigate(
       ['/ecommerce/', { outlets: { right: ['siderecentordermore'] } }],
-      { skipLocationChange: true }
+      { skipLocationChange: false }
     );
-    console.log(this._router.url);
   }
 }

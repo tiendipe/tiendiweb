@@ -1,5 +1,13 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { Sidebar } from 'primeng/sidebar';
 import { IProducto } from 'src/app/interfaces/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 import { CONSTANT } from '../shared/service';
@@ -13,11 +21,13 @@ import { ContentService } from './content.service';
 })
 export class ContentComponent implements OnInit {
   @Output() onEmitProductID: EventEmitter<number> = new EventEmitter();
+
   visibleSideBarLeft: boolean = false;
   visibleSideBarRight: boolean = false;
   visibleSideBag: boolean = false;
   showProductList: boolean = false;
   CategoryID: number;
+  url: string;
 
   public items: MenuItem[] = [
     {
@@ -37,40 +47,65 @@ export class ContentComponent implements OnInit {
   constructor(
     private _contentService: ContentService,
     private _productoService: ProductoService,
-    private _sessionInfo: SessionInfo
+    private _sessionInfo: SessionInfo,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
     this.CategoryID = 1; //TODO se selecciona el primero por defecto
-    this.onProductsByCategoryID(this._sessionInfo.getCodTienda(), this.CategoryID);
+    this.onProductsByCategoryID(
+      this._sessionInfo.getCodTienda(),
+      this.CategoryID
+    );
   }
 
   onClearOutlet(): void {
     this._contentService.navigateToList();
   }
 
-  public onOpenSideBarLeft(): void {
-    this.visibleSideBarLeft = true;
-  }
-
-  public onOpenSideBarRight(): void {
+  onOpenSidebarRight() {
     this.visibleSideBarRight = true;
   }
 
-  public onOpenSideBag(): void {
-    this.visibleSideBag = true;
+  onOpenSidebarLeft() {
+    this.visibleSideBarLeft = true;
+  }
+
+  onCloseSidebarRight() {
+    debugger;
+    this.url = this._router.url;
+    if (
+      !this.url.includes('right:sideordersummary') &&
+      !this.url.includes('right:siderecentordermore')
+    ) {
+      this.visibleSideBarRight = false;
+      this.onClearOutlet();
+    }
+  }
+
+  onCloseSidebarLeft() {
+    this.visibleSideBarLeft = false;
+    this.onClearOutlet();
+  }
+
+  closeSideBag() {
+    this.visibleSideBag = false;
+    this.onClearOutlet();
   }
 
   public onProductsByCategoryID(pTiendaID: number, pCategoryID: number): void {
     if (pCategoryID > 0) {
       this.showProductList = false;
       this.loadProductos(pTiendaID, pCategoryID);
-    }
-    else this.showProductList = true;
+    } else this.showProductList = true;
   }
 
   public onProductsBySearch(pTiendaID: number, pFiltro: string): void {
-      this.loadProductosSearch(pTiendaID, pFiltro);
+    this.loadProductosSearch(pTiendaID, pFiltro);
+  }
+
+  public onOpenSideBag(): void {
+    this.visibleSideBag = true;
   }
 
   emitProductID(ProductID: number): void {

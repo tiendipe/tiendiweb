@@ -8,10 +8,10 @@ import { DataService, ErrorService } from '../layout/shared/service';
 
 @Injectable()
 export class PedidoService {
-  pedidos$: BehaviorSubject<IPedido[]>;
+  // pedidos$: BehaviorSubject<IPedido[]>;
   pedidos: IPedido[];
   pedido: IPedido;
-  private keySession: string = 'HdataUserZ2HPedido';
+  private keySession: string = 'HdataTiendiPedido';
   // methodGetAllURL: string = 'Pedido/GetAll';
 
   /**
@@ -23,7 +23,7 @@ export class PedidoService {
     private _dataService: DataService,
     private _errorService: ErrorService
   ) {
-    this.pedidos$ = new  BehaviorSubject<IPedido[]>([]);
+    // this.pedidos$ = new  BehaviorSubject<IPedido[]>([]);
   }
 
   /**
@@ -46,7 +46,7 @@ export class PedidoService {
         NumberOfRecords: 8
       }).subscribe((res: any) => {
         this._errorService.getResultMessage(res);
-        this.pedidos$.next(res.Data);
+        // this.pedidos$.next(res.Data);
         this.pedidos = res.Data;
         resolve(res);
       }, reject);
@@ -59,17 +59,16 @@ export class PedidoService {
    * @returns {Promise<any>}
    */
    getPedidoActual(pIDTienda: number, pIDComprador: number, pIDPedido: number): Promise<any> {
-    debugger;
-
     let parameters = new HttpParams();
     parameters = parameters.append('pIDTienda', String(pIDTienda));
     parameters = parameters.append('pIDComprador', String(pIDComprador));
     parameters = parameters.append('pIDPedido', String(pIDPedido));
     let PedidoActual: any;
 
-    if(localStorage.getItem(this.keySession) != "{}"){
+    if(localStorage.getItem(this.keySession) != null){
       PedidoActual = JSON.parse(localStorage.getItem(this.keySession));
       return new Promise((resolve, reject) => {
+        this.pedido = PedidoActual.Data;
         resolve(PedidoActual);
       });
     }
@@ -78,27 +77,26 @@ export class PedidoService {
       // this._dataService.execGetJson(this.methodGetAllURL, parameters)
       of({
         Data: TableDataPedidoActual.map((pedido) => new Pedido(pedido)).find(
-          (x) => x.IDTienda == pIDTienda && x.IDComprador == pIDComprador && x.IDPedido == pIDPedido
+          (pedido) => pedido.IDTienda == pIDTienda && pedido.IDComprador == pIDComprador && pedido.IDPedido == pIDPedido
         ),
         Status: 1,
         Message: []
       }).subscribe((res: any) => {
-        debugger;
         this._errorService.getResultMessage(res);
         this.pedido = res.Data;
-        localStorage.setItem(this.keySession, JSON.stringify({Data: this.pedido}));
+        this.setPedidoActual(this.pedido);
         resolve(res);
       }, reject);
     });
   }
 
-  // getPedidoStorage(): Promise<any> {
-  //   let PedidoActual: any;
-  //   PedidoActual = JSON.parse(localStorage.getItem(this.keySession));
-  //   return new Promise((resolve, reject) => {
-  //     resolve(PedidoActual);
-  //   });
-  // }
+  /**
+   * Set Pedido Actual
+   * @param pPedido
+   */
+  setPedidoActual(pPedido: IPedido){
+    localStorage.setItem(this.keySession, JSON.stringify({Data: pPedido}));
+  }
 
   /**
    * Show Message Error

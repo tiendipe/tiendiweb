@@ -25,11 +25,11 @@ export class LayoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('layout');
+    // console.log('layout');
   }
 
   openSideBarRight(): void {
-    this.contentComponent.onOpenSideBarRight();
+    // this.contentComponent.onOpenSideBarRight();
   }
 
   openSideBag(): void {
@@ -37,7 +37,7 @@ export class LayoutComponent implements OnInit {
   }
 
   showProductsByCategoryID(CategoryID: number): void {
-    console.log('app-layout - ' + CategoryID);
+    // console.log('app-layout - ' + CategoryID);
     this.contentComponent.onProductsByCategoryID(
       this._SessionInfo.getCodTienda(),
       CategoryID

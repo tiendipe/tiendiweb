@@ -1,5 +1,12 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { OverlayPanel } from 'primeng/overlaypanel';
 import { IPedido } from 'src/app/interfaces/pedido';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { CONSTANT } from '../../shared/service';
@@ -15,7 +22,7 @@ export class CartComponent implements OnInit {
   @Output() onOpenSideBag: EventEmitter<any> = new EventEmitter();
   pedido: IPedido;
   buttonActive: boolean = false;
-  currentRoute: string = '';
+  currentRoute: string;
 
   constructor(
     private _router: Router,
@@ -24,23 +31,27 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
+    // this.currentRoute = this._router.url;
     this.loadPedidosActual(
       this._sessionInfo.getCodTienda(),
       this._sessionInfo.getCodComprador()
     );
-    this.currentRoute = this._router.url;
-    console.log(this._router.url);
   }
 
-  //TODO: hacer que abra desde la url
   openSideBag() {
+    // this.overlayPanel.hide();
     this.onOpenSideBag.emit();
     this._router.navigate(
-      [`${this.currentRoute}`, { outlets: { bag: ['sideproducts'] } }],
-      { skipLocationChange: true }
+      ['/ecommerce/', { outlets: { bag: ['sideproducts'] } }],
+      { skipLocationChange: false }
     );
-    console.log(this._router.url);
+
+    // this.onOpenSideBag.emit();
+    // this._router.navigate(
+    //   [`${this.currentRoute}`, { outlets: { right: ['sidebag'] } }],
+    //   { skipLocationChange: false }
+    // );
+    // console.log(this._router.url);
   }
 
   loadPedidosActual(pIDTienda: number, pIDComprador: number): void {
@@ -51,7 +62,6 @@ export class CartComponent implements OnInit {
         Number(String(pIDTienda) + Number(String(pIDComprador)))
       )
       .then((res) => {
-        debugger;
         this.pedido = res.Data;
       })
       .catch(() => {

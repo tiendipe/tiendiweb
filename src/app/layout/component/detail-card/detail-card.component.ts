@@ -12,8 +12,8 @@ export class DetailCardComponent implements OnInit {
     constructor(private _router: Router, private route:ActivatedRoute) { }
 
     ngOnInit(): void {
-        console.log(this._router.url)
-        console.log(this.route)
+        // console.log(this._router.url)
+        // console.log(this.route)
     }
 
 }

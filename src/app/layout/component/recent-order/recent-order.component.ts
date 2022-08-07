@@ -27,9 +27,8 @@ export class RecentOrderComponent implements OnInit {
     this.onOpenSideRecentOrderMore.emit();
     this._router.navigate(
       ['/ecommerce/', { outlets: { right: ['siderecentordermore'] } }],
-      { skipLocationChange: true }
+      { skipLocationChange: false }
     );
-    console.log(this._router.url);
   }
 
 }

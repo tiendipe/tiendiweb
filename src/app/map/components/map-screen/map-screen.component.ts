@@ -22,7 +22,7 @@ export class MapScreenComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit(): void {
-    console.log(this.center);
+    // console.log(this.center);
 
     this.mapa = new mapboxgl.Map({
       container: this.divMap.nativeElement,
@@ -35,17 +35,17 @@ export class MapScreenComponent implements AfterViewInit {
 
     this.mapa.on('moveend', () => {
       this.center = [this.mapa.getCenter().lng, this.mapa.getCenter().lat];
-      console.log(this.center);
+      // console.log(this.center);
     });
 
     // this.startTestMarkers('#abcdef')
     // this.startTestMarkers('#fedcba')
 
-    console.log(this.center);
+    // console.log(this.center);
   }
 
   setMarker() {
-    console.log(this.center);
+    // console.log(this.center);
     const color = '#xxxxxx'.replace(/x/g, (y) =>
       ((Math.random() * 16) | 0).toString(16)
     );
@@ -127,7 +127,7 @@ export class MapScreenComponent implements AfterViewInit {
       marker: newMarker,
     });
 
-    console.log('marcador puesto');
+    // console.log('marcador puesto');
   }
 
   guardarmarkersLocalStorage() {

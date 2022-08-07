@@ -1,323 +1,62 @@
-
-<div class="" style="background-color: #f8faf9">
-    <div *ngIf="termsandcond() == false" class="px-7 pb-4 text-2xl font-bold text-900">
-        Bolsa de compras
+<div style="background-color: #f8faf9">
+  <div class="flex flex-row mt-1" style="background-color: white">
+    <div class="flex flex-column w-1 pl-3">
+      <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-secondary p-button-text"
+        (click)="closeSideBag()"></button>
     </div>
-    <div class="flex flex-row mt-1" style="background-color: white" *ngIf="termsandcond()">
-        <div class="flex flex-column w-1 pl-3">
-            <button pButton pRipple type="button" icon="pi pi-arrow-left"
-                class="p-button-rounded p-button-secondary p-button-text" (click)="prev()"></button>
-        </div>
-        <div class="pl-2 pb-4 text-2xl font-bold text-900">
-            Términos y condiciones
-        </div>
+    <div class="pl-2 pb-4 text-2xl font-bold text-900">
+      Bolsa de compras
     </div>
-    <div *ngIf="termsandcond() == false" class="pb-4">
-        <p-progressBar class="customProgress" [value]="value"
-            [style]="{ height: '3px', background: '#9C27B0', color: '#ffffff' }"></p-progressBar>
+  </div>
+
+  <!-- <div class="flex flex-row mt-1" style="background-color: white" *ngIf="termsandcond()">
+    <div class="flex flex-column w-1 pl-3">
+      <button pButton pRipple type="button" icon="pi pi-arrow-left"
+        class="p-button-rounded p-button-secondary p-button-text" (click)="prevStep()"></button>
     </div>
-    <p-steps *ngIf="termsandcond() == false" [model]="items" [readonly]="false" class="stepsBag"></p-steps>
-        <!-- <app-bag-summary></app-bag-summary> -->
-    <!-- <div class="summary-bag-box mt-3 pl-4 pr-4">
-        <div class="py-3 px-3 summary-bag-box-title">
-            <span class="font-bold text-base">Bolsa de compras: </span>
-            <span class="text-base">Tienes 3 productos</span>
-            
-        </div>
-        <div class="summary-bag-item-wrap pb-2">
-            <div class="summary-bag-item">
-                <p-card class="mb-2 sumary_card">
-                    <div class="flex col-12 pt-0 pb-0">
-                        <div class="">
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="flex-grow-1">
-                            <div class="card-info-section">
-                                <div>
-                                    <span class="text-sm">Nombre /</span>
-                                    <span class="text-sm">descripción del producto</span>
-                                </div>
-                                <div class="mt-1">
-                                    <div class="text-left text-xs gray">Marca</div>
-                                </div>
-                            </div>
-                            <div class="card-add-item col-12 p-0">
-                                <div class="flex flex-row align-items-center">
-                                    <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-help p-button-text p-button-sm mr-2"></button>
-                                    <p class="w-3 p-input text-xs text-center btn_sum p-0" type="text" pInputText >
-                                        2 unid
-                                    </p>
-
-                                    <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-text p-button-sm ml-2"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-st flex flex-column justify-content-between">
-                            <div class="flex flex-column justify-content-between">
-                                <span class="font-bold text-base">100</span>
-                                <span class="text-xs gray line-through">50</span>
-                            </div>
-                            <div>
-                                <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-secondary p-button-text p-button-sm ml-auto"></button>                                
-                            </div>
-                        </div>
-                    </div>
-                </p-card>
-                <p-card class="mb-2 sumary_card">
-                    <div class="flex col-12 pt-0 pb-0 mb">
-                        <div class="">
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="flex-grow-1">
-                            <div class="card-info-section">
-                                <div>
-                                    <span class="text-sm">Nombre /</span>
-                                    <span class="text-sm">descripción del producto</span>
-                                </div>
-                                <div class="mt-1">
-                                    <div class="text-left text-xs gray">Marca</div>
-                                </div>
-                            </div>
-                            <div class="card-add-item col-12 p-0">
-                                <div class="flex flex-row align-items-center">
-                                    <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-help p-button-text p-button-sm mr-2"></button>
-                                    <p class="w-3 p-input text-xs text-center btn_sum p-0" type="text" pInputText >
-                                        2 unid
-                                    </p>
-
-                                    <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-text p-button-sm ml-2"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-st flex flex-column justify-content-between">
-                            <div class="flex flex-column justify-content-between">
-                                <span class="font-bold text-base">100</span>
-                                <span class="text-xs gray line-through">50</span>
-                            </div>
-                            <div>
-                                <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-secondary p-button-text p-button-sm ml-auto"></button>                                
-                            </div>
-                        </div>
-                    </div>
-                </p-card>
-                <p-card class="mb-2 sumary_card">
-                    <div class="flex col-12 pt-0 pb-0">
-                        <div class="">
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="flex-grow-1">
-                            <div class="card-info-section">
-                                <div>
-                                    <span class="text-sm">Nombre /</span>
-                                    <span class="text-sm">descripción del producto</span>
-                                </div>
-                                <div class="mt-1">
-                                    <div class="text-left text-xs gray">Marca</div>
-                                </div>
-                            </div>
-                            <div class="card-add-item col-12 p-0">
-                                <div class="flex flex-row align-items-center">
-                                    <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-help p-button-text p-button-sm mr-2"></button>
-                                    <p class="w-3 p-input text-xs text-center btn_sum p-0" type="text" pInputText >
-                                        2 unid
-                                    </p>
-
-                                    <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-text p-button-sm ml-2"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-st flex flex-column justify-content-between">
-                            <div class="flex flex-column justify-content-between">
-                                <span class="font-bold text-base">100</span>
-                                <span class="text-xs gray line-through">50</span>
-                            </div>
-                            <div>
-                                <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-secondary p-button-text p-button-sm ml-auto"></button>                                
-                            </div>
-                        </div>
-                    </div>
-                </p-card>
-                <p-card class="mb-2 sumary_card">
-                    <div class="flex col-12 pt-0 pb-0 mb">
-                        <div class="">
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="flex-grow-1">
-                            <div class="card-info-section">
-                                <div>
-                                    <span class="text-sm">Nombre /</span>
-                                    <span class="text-sm">descripción del producto</span>
-                                </div>
-                                <div class="mt-1">
-                                    <div class="text-left text-xs gray">Marca</div>
-                                </div>
-                            </div>
-                            <div class="card-add-item col-12 p-0">
-                                <div class="flex flex-row align-items-center">
-                                    <button pButton pRipple type="button" icon="pi pi-minus" class="p-button-rounded p-button-help p-button-text p-button-sm mr-2"></button>
-                                    <p class="w-3 p-input text-xs text-center btn_sum p-0" type="text" pInputText >
-                                        2 unid
-                                    </p>
-
-                                    <button pButton pRipple type="button" icon="pi pi-plus" class="p-button-rounded p-button-help p-button-text p-button-sm ml-2"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="price-st flex flex-column justify-content-between">
-                            <div class="flex flex-column justify-content-between">
-                                <span class="font-bold text-base">100</span>
-                                <span class="text-xs gray line-through">50</span>
-                            </div>
-                            <div>
-                                <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-secondary p-button-text p-button-sm ml-auto"></button>                                
-                            </div>
-                        </div>
-                    </div>
-                </p-card>
-            </div>
-        </div>
-
-
-    </div> -->
-   <!--  <div class="resume-bag-box pl-4 pr-4">
-        <div class="summary-bag-box-title pt-4 pb-4">
-            <span class="font-bold text-base">Resumen del pedido: </span>
-            <span class="font-bold text-base">3 productos selecionados</span>
-        </div>
-        <p-card>
-            <div class="pl-4 pr-4">
-                <div class="resume-item-wrap">
-                    <div class="resume-item col flex mb-2">
-                        <div>
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="col flex flex-column pt-0">
-                            <span class="font-bold text-xs gray">Marca</span>
-                            <span class="text-sm block mt-1 mb-1">Nombre / descripción del producto</span>
-                            <span class="text-xs gray">2 und.</span>
-                            
-                        </div>
-                         <div class="col-3 price-st flex justify-content-end">
-                            <div class="flex flex-column justify-content-end">
-                                <span class="font-bold text-base">S/ 999.00</span>
-                                <span class="text-xs gray line-through flex justify-content-end block mt-1">S/ 1000</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="resume-item col flex mb-2">
-                        <div>
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="col flex flex-column pt-0">
-                            <span class="font-bold text-xs gray">Marca</span>
-                            <span class="text-sm block mt-1 mb-1">Nombre / descripción del producto</span>
-                            <span class="text-xs gray">2 und.</span>
-                            
-                        </div>
-                         <div class="col-3 price-st flex justify-content-end">
-                            <div class="flex flex-column justify-content-end">
-                                <span class="font-bold text-base">S/ 999.00</span>
-                                <span class="text-xs gray line-through flex justify-content-end block mt-1">S/ 1000</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="resume-item col flex mb-2">
-                        <div>
-                            <div class="pl-2 pr-2 pt-0 pb-0">
-                                <img class="h-3rem w-3rem" src="../../../../assets/perfil-tiendi-icono-invertido.png" alt="" />
-                            </div>
-                        </div>
-                        <div class="col flex flex-column pt-0">
-                            <span class="font-bold text-xs gray">Marca</span>
-                            <span class="text-sm block mt-1 mb-1">Nombre / descripción del producto</span>
-                            <span class="text-xs gray">2 und.</span>
-                            
-                        </div>
-                         <div class="col-3 price-st flex justify-content-end">
-                            <div class="flex flex-column justify-content-end">
-                                <span class="font-bold text-base">S/ 999.00</span>
-                                <span class="text-xs gray line-through flex justify-content-end block mt-1">S/ 1000</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="resume-price">
-                    <div class="border-b">
-                        <div class="flex pb-1">
-                            <div class="col flex justify-content-end">
-                                <span class="font-bold text-base"> Sub Total </span>
-                            </div>
-                            <div class="col-3 pr-3">
-                                <div class="flex justify-content-end">
-                                    <span class="font-bold text-base">S/ 4999.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-b">
-                        <div class="flex pb-1 pt-1">
-                            <div class="col flex justify-content-end">
-                                <span class="font-bold text-base"> Concepto </span>
-                            </div>
-                            <div class="col-3 pr-3">
-                                <div class="flex justify-content-end">
-                                    <span class="font-bold text-base">S/ 4999.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="flex pb-1 pt-1">
-                            <div class="col flex justify-content-end">
-                                <span class="font-bold text-base purple"> Total </span>
-                            </div>
-                            <div class="col-3 pr-3">
-                                <div class="flex justify-content-end">
-                                    <span class="font-bold text-base purple">S/ 4999.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </p-card>
-
-    </div> -->
-    <div class="w-full min-h-full h-full background">
-        <div class="mb-4">
-            <router-outlet name="bag"></router-outlet>
-        </div>
-
-        <div class="px-5" *ngIf="paymentanddelivery()">
-            <p-checkbox name="groupname" value="val1" [(ngModel)]="selectedValues" inputId="terms"></p-checkbox>
-            <label class="pl-3" for="terms">Texto con los
-                <a class="purple font-bold cursor-pointer" (click)="navigateTerms()">términos y condiciones</a>
-                para realizar el pedido</label>
-        </div>
-
-        <div class="flex pt-5 pb-2 flex flex-row background">
-            <button (click)="next()" *ngIf="termsandcond()" pButton pRipple type="button" label="Volver"
-                class="w-3 p-button-rounded p-button-secondary mr-auto p-button-outlined ml-5"
-                style="background-color: #eceff1"></button>
-            <button (click)="next()" *ngIf="termsandcond()" pButton pRipple type="button" label="Aceptar"
-                class="w-3 p-button-rounded p-button-help ml-auto mr-5"></button>
-            <button *ngIf="summary()" pButton pRipple type="button" label="Continuar"
-                class="p-button-rounded p-button-help mr-5 ml-auto" (click)="next()"></button>
-            <button *ngIf="paymentanddelivery()" pButton pRipple type="button" label="Enviar pedido"
-                class="p-button-rounded p-button-secondary px-3 ml-auto mr-5"></button>
-        </div>
-
+    <div class="pl-2 pb-4 text-2xl font-bold text-900">
+      Términos y condiciones
     </div>
+  </div> -->
+
+  <div class="pb-4">
+    <p-progressBar class="customProgress" [value]="valueProgress"
+      [style]="{ height: '3px', background: '#9C27B0', color: '#ffffff' }"></p-progressBar>
+  </div>
+
+  <p-steps [model]="itemsSteps" [readonly]="false" class="stepsBag" (activeIndexChange)="onActiveIndexChange($event)">
+  </p-steps>
+
+
+
+  <div class="w-full min-h-full h-full background">
+    <div class="mb-4">
+      <router-outlet name="bag"></router-outlet>
+    </div>
+
+    <div class="flex flex-row background">
+      <button pButton pRipple type="button" label="Continuar" *ngIf="valueProgress==50"
+        class="p-button-rounded p-button-help mr-5 ml-auto" (click)="nextStep()"></button>
+    </div>
+
+    <!-- <button (click)="nextStep()" *ngIf="termsandcond()" pButton pRipple type="button" label="Volver"
+        class="w-3 p-button-rounded p-button-secondary mr-auto p-button-outlined ml-5"
+        style="background-color: #eceff1"></button>
+      <button (click)="nextStep()" *ngIf="termsandcond()" pButton pRipple type="button" label="Aceptar"
+        class="w-3 p-button-rounded p-button-help ml-auto mr-5"></button>
+
+      <button *ngIf="paymentanddelivery()" pButton pRipple type="button" label="Enviar pedido"
+        class="p-button-rounded p-button-secondary px-3 ml-auto mr-5"></button> -->
+
+    <div class="flex flex-row background pb-2">
+      <div class="px-5" *ngIf="valueProgress==100">
+        <p-checkbox name="groupname"></p-checkbox>
+        <label class="pl-3" for="terms">Texto con los <a class="purple font-bold cursor-pointer" (click)="navigateTerms()">términos y
+          condiciones</a> para realizar el pedido</label>
+
+        <button pButton pRipple type="button" label="Enviar pedido"
+          class="p-button-rounded p-button-secondary px-3 ml-auto mr-5 pt-2"></button>
+      </div>
+    </div>
+  </div>
 </div>

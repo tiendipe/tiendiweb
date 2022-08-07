@@ -5,10 +5,10 @@ import { Session } from './session.model';
   providedIn: 'root',
 })
 export class SessionInfo {
-  private keySession: string = 'HdataUserZ2HSession';
-  private keyUser: string = 'HdataUserZ2HUser';
-  private keyTienda: string = 'HdataUserZ2HTienda';
-  private keyComprador: string = 'HdataUserZ2HComprador';
+  private keySession: string = 'HdataTiendiSession';
+  private keyUser: string = 'HdataTiendiUser';
+  private keyTienda: string = 'HdataTiendiTienda';
+  private keyComprador: string = 'HdataTiendiComprador';
   private session: Session;
 
   getAudit(): Session {
