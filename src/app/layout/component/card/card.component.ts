@@ -6,6 +6,8 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
+import { IPedido } from 'src/app/interfaces/pedido';
+import { PedidoService } from 'src/app/services/pedido.service';
 import { IProducto } from '../../../interfaces/producto';
 
 @Component({
@@ -25,7 +27,7 @@ export class CardComponent implements OnInit {
   classAdd: string = '';
   quantity: number = 0;
 
-  constructor() {}
+  constructor(private _pedidoService: PedidoService) {}
 
   ngOnInit(): void {
     this.labelAdd = 'Agregar';
@@ -38,23 +40,32 @@ export class CardComponent implements OnInit {
     this.onEmitProductID.emit(ProductID);
   }
 
-  onAdd(): void {
+  /**
+   * Create new DetallePedido to Pedido in localStorage
+   * @param {IProducto} producto
+   * @memberof CardComponent
+   */
+  onAdd(producto: IProducto): void {
     if (!this.aggregated) {
       this.labelAdd = 'Agregado';
       this.iconAdd = 'pi pi-check';
       this.classAdd = 'selected-product';
+      this.aggregated = true;
+
+      this._pedidoService.addProductoPedidoActual(producto, this.quantity);
     }
-    this.aggregated = true;
   }
 
-  onRemove(): void {
+  onRemove(producto: IProducto): void {
     if (this.aggregated) {
       this.labelAdd = 'Agregar';
       this.iconAdd = '';
       this.classAdd = '';
       this.quantity = 1;
+      this.aggregated = false;
     }
-    this.aggregated = false;
+
+    this._pedidoService.removeProductoPedidoActual(producto);
   }
 
   onMoreUnid() {

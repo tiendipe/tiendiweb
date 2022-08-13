@@ -20,8 +20,10 @@ export const CONSTANT = {
     errorMaxFileLoad: 'Solo se pueden cargar un máximo de 6 imágenes',
   },
 
-  // IDTienda: {
-  //   tiendaUno: 1,
-
-  // }
+  ESTADOPEDIDO: {
+    ENTREGADO: 1,
+    CONFIRMADO: 2,
+    SINENVIAR: 3,
+    RECHAZADO: 4
+  },
 };

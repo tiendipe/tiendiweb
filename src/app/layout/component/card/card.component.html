@@ -31,9 +31,9 @@
           class="p-button-rounded p-button-help p-button-text p-button-sm ml-auto" (click)="onMoreUnid()"></button>
       </div>
       <div class="pt-3 flex justify-content-center">
-        <i class="pi pi-shopping-cart w-2 shopping-icon" *ngIf="aggregated" (click)="onRemove()"></i>
+        <i class="pi pi-shopping-cart w-2 shopping-icon" *ngIf="aggregated" (click)="onRemove(producto)"></i>
         <button pButton pRipple type="button" [icon]="iconAdd" [label]="labelAdd" [ngClass]="classAdd"
-          class="p-button-outlined p-button-help w-full" (click)="onAdd()"></button>
+          class="p-button-outlined p-button-help w-full" (click)="onAdd(producto)"></button>
       </div>
     </div>
   </p-card>

@@ -17,11 +17,15 @@ export class BagSummaryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    debugger;
     this.loadPedidosActual();
+    this._pedidoService.pedidoActual$.subscribe((pedido)=>{
+      this.pedido = pedido
+    });
   }
 
   loadPedidosActual(): void {
-    this.pedido = this._pedidoService.pedido;
+    // this.pedido = this._pedidoService.pedido;
     this.countProducts = this.pedido.PedidoDetalle.length;
   }
 

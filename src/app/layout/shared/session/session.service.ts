@@ -34,6 +34,12 @@ export class SessionInfo {
     else return 1;
   }
 
+  getNameTienda(): string {
+    let tienda = JSON.parse(localStorage.getItem(this.keyTienda));
+    if (tienda) return tienda;
+    else return 'Tiendi';
+  }
+
   getCodComprador(): number {
     let tienda = JSON.parse(localStorage.getItem(this.keyComprador));
     if (tienda) return tienda;

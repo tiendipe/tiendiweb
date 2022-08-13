@@ -1,8 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IPedido, Pedido } from 'src/app/interfaces/pedido';
 import { PedidoDetalle } from 'src/app/interfaces/pedido-detalle';
 import { PedidoService } from 'src/app/services/pedido.service';
@@ -49,9 +45,12 @@ export class CartSummaryComponent implements OnInit {
     this.calculateTotal();
   }
 
-  calculateTotal(){
+  calculateTotal() {
     let total: number = 0;
-    this.pedido.PedidoDetalle.forEach(pedidoDetalle => total += pedidoDetalle.Cantidad * pedidoDetalle.Descuento)
+    this.pedido.PedidoDetalle.forEach(
+      (pedidoDetalle) =>
+        (total += pedidoDetalle.Cantidad * pedidoDetalle.Descuento)
+    );
     this.pedido.SubTotal = total;
   }
 }

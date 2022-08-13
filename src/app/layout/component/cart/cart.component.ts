@@ -32,6 +32,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     // this.currentRoute = this._router.url;
+    this._pedidoService.pedidoActual$.subscribe((pedido)=>{
+      this.pedido = pedido
+    });
+
     this.loadPedidosActual(
       this._sessionInfo.getCodTienda(),
       this._sessionInfo.getCodComprador()

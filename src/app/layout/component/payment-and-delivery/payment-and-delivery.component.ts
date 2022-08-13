@@ -20,7 +20,11 @@ export class PaymentAndDeliveryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.pedido = this._pedidoService.pedido;
+    // this.pedido = this._pedidoService.pedido;
+    this._pedidoService.pedidoActual$.subscribe((pedido)=>{
+      this.pedido = pedido
+    });
+
     this.groupDeliverySelected = '1';
     this.groupPaymentSelected = '1';
 
