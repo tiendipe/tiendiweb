@@ -1,5 +1,5 @@
 <div class="mb-2 " class="car_button_float">
-  <div class="pedido_prev" *ngIf="pedido.PedidoDetalle.length > 0">
+  <div class="pedido_prev" *ngIf="pedido != null && pedido.PedidoDetalle && pedido.PedidoDetalle.length > 0">
     <span>{{pedido.PedidoDetalle.length}}</span>
   </div>
   <button pButton pRipple type="button" class="p-button-rounded p-button-lg p-button-raised button_cart" [ngClass]="{
