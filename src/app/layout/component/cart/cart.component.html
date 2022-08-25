@@ -1,10 +1,13 @@
 <div class="mb-2 " class="car_button_float">
+  <div class="pedido_prev" *ngIf="pedido.PedidoDetalle.length > 0">
+    <span>{{pedido.PedidoDetalle.length}}</span>
+  </div>
   <button pButton pRipple type="button" class="p-button-rounded p-button-lg p-button-raised button_cart" [ngClass]="{
             'p-button-secondary p-button-text whitebackground': !buttonActive ,
             'p-button-help '     : buttonActive,
             'p-button-secondary':  true
         }" icon="material-icons-outlined" (click)="op.show($event)">
-    <i class="material-icons-outlined" pBadge value="{{pedido && pedido.PedidoDetalle.length}}">shopping_cart</i>
+    <i class="material-icons-outlined" >shopping_cart</i>
   </button>
 
   <!-- <i class="pi pi-bell mr-4 p-text-secondary" pBadge style="font-size: 2rem" value="2"></i> -->

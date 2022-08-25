@@ -1,9 +1,9 @@
-<div class="pt-3">
+<div class="pt-3 header_top_wrap">
   <app-header (onOpenSideRecentOrderMore)="openSideBarRight()" (onEmitCategoryID)="showProductsByCategoryID($event)"
     (onEmitSearchProducts)="onSearchProducts($event)"></app-header>
-</div>
-<div class="flex justify-content-end w-full pr-6 absolute" style="top: 5.5rem">
-  <app-cart (onOpenSideBag)="openSideBag()"></app-cart>
+    <div class="flex justify-content-end pr-6 cart_buttom_wrap">
+      <app-cart (onOpenSideBag)="openSideBag()"></app-cart>
+    </div>
 </div>
 <app-content [hidden]="showProductDetail" (onEmitProductID)="onShowDetailProduct($event)"></app-content>
 

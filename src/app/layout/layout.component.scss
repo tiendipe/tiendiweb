@@ -1,0 +1,9 @@
+.header_top_wrap{
+    position: relative;
+    .cart_buttom_wrap{
+        z-index: 1;
+        position: absolute;
+        top: 83%;
+        right: 0;
+    }
+}

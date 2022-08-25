@@ -173,7 +173,7 @@ export class PedidoService {
 
     this.pedido.PedidoDetalle.push(pedidoDetalle);
 
-    debugger;
+    // debugger;
     this.setPedidoActual(this.pedido);
   }
 
@@ -185,7 +185,7 @@ export class PedidoService {
       pedido.Nombre == pProducto.Nombre
     ));
 
-    debugger;
+    // debugger;
     this.pedido.PedidoDetalle.splice(index, 1)
   }
 

@@ -27,8 +27,25 @@ i {
 }
 .car_button_float{
 	position: relative;
-	top: 30px;
 }
 .btn_card{
 	background-color: #ecf0f0 !important;
+}
+.pedido_prev{
+    position: absolute;
+    background-color: #f44336;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    top: -2px;
+    right: -2px;
+    span{
+        font-size: 11px;
+        font-weight: bold;
+        color: #fff;
+    }
 }
