@@ -58,7 +58,7 @@ export class PedidoService {
         NumberOfRecords: 8,
       }).subscribe((res: any) => {
         this._errorService.getResultMessage(res);
-        this.pedidoActual$.next(res.Data);
+        // this.pedidoActual$.next(res.Data);
         this.pedidos = res.Data;
         resolve(res);
       }, reject);
@@ -116,7 +116,8 @@ export class PedidoService {
       IDPedidoDetalle: 0,
       IDPedido: 0,
       IDProducto: pProducto.IDProducto,
-      IDUnidad: pProducto.IDUnidadMedida,
+      IDUnidad: pProducto.IDUnidad,
+      IDMarca: pProducto.IDMarca,
       Cantidad: pQuantity,
       Precio: pProducto.Precio,
       Comentario: '',
@@ -181,12 +182,14 @@ export class PedidoService {
     let index: number = -1;
     index = this.pedido.PedidoDetalle.indexOf(this.pedido.PedidoDetalle.find(
       pedido => pedido.IDProducto == pProducto.IDProducto &&
-      pedido.IDUnidad == pProducto.IDUnidadMedida &&
+      pedido.IDUnidad == pProducto.IDUnidad &&
       pedido.Nombre == pProducto.Nombre
     ));
 
     // debugger;
     this.pedido.PedidoDetalle.splice(index, 1)
+
+    this.setPedidoActual(this.pedido);
   }
 
   /**

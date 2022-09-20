@@ -2,7 +2,8 @@ import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { TableDataProducto } from '../data/producto.data';
-import { Producto } from '../interfaces/producto';
+import { IPedido } from '../interfaces';
+import { IProducto, Producto } from '../interfaces/producto';
 import { DataService, ErrorService } from '../layout/shared/service';
 
 @Injectable()
@@ -34,7 +35,7 @@ export class ProductoService {
     return new Promise((resolve, reject) => {
       // this._dataService.execGetJson(this.methodGetAllURL, parameters)
       of({
-        Data: TableDataProducto.map((Productoo) => new Producto(Productoo)).filter(x => x.IDTienda == pIDTienda && x.IDCategoria == pIDCategoria),
+        Data: TableDataProducto.map((producto) => new Producto(producto)).filter(x => x.IDTienda == pIDTienda && x.IDCategoria == pIDCategoria),
         Status: 1,
         Message: [],
       }).subscribe((res: any) => {
@@ -42,6 +43,24 @@ export class ProductoService {
         resolve(res);
       }, reject);
     });
+  }
+
+  checkProductCart(productos: IProducto[], pedido: IPedido): IProducto[]{
+    debugger;
+
+    productos.forEach(producto =>
+      producto.Aggregated = false
+    );
+
+    pedido.PedidoDetalle.forEach(pedidoDetalle =>
+      productos.find(x =>
+        x.IDProducto == pedidoDetalle.IDProducto &&
+        x.IDUnidad == pedidoDetalle.IDUnidad &&
+        x.IDMarca == pedidoDetalle.IDMarca
+      ).Aggregated = true
+    )
+
+    return productos;
   }
 
   getProductoSearch(pIDTienda: number, pFiltro: string): Promise<any> {

@@ -6,7 +6,7 @@ export interface IFavorito {
   IDProducto: number;
 }
 
-export class Tienda implements IFavorito {
+export class Favorito implements IFavorito {
   IDTienda: number;
   IDComprador: number;
   IDCategoria: number;

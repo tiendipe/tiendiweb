@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
-import { IProducto } from 'src/app/interfaces/producto';
-import { ProductoService } from 'src/app/services/producto.service';
+import { Pedido, IProducto, IPedido } from 'src/app/interfaces';
+import { PedidoService, ProductoService } from 'src/app/services';
 import { CONSTANT } from '../shared/service';
 import { SessionInfo } from '../shared/session/session.service';
 import { ContentService } from './content.service';
@@ -37,19 +37,25 @@ export class ContentComponent implements OnInit {
   ];
 
   productos: IProducto[];
+  pedido: IPedido;
 
   constructor(
     private _contentService: ContentService,
     private _productoService: ProductoService,
+    private _pedidoService: PedidoService,
     private _sessionInfo: SessionInfo,
     private _router: Router
   ) {}
 
   ngOnInit(): void {
-    this.CategoryID = 1; //TODO se selecciona el primero por defecto
+    this.CategoryID = 1; //TODO: se selecciona el primero por defecto
     this.onProductsByCategoryID(
       this._sessionInfo.getCodTienda(),
       this.CategoryID
+    );
+    this.loadPedidosActual(
+      this._sessionInfo.getCodTienda(),
+      this._sessionInfo.getCodComprador()
     );
   }
 
@@ -152,6 +158,30 @@ export class ContentComponent implements OnInit {
       .catch(() => {
         this._productoService.showMessageError(
           CONSTANT.MESSAGE.errorListar + ' Productos'
+        );
+      });
+  }
+
+  /**
+   * Carga el pedido actual
+   * @param {number} pIDTienda
+   * @param {number} pIDComprador
+   * @memberof ContentComponent
+   */
+  loadPedidosActual(pIDTienda: number, pIDComprador: number): void {
+    this._pedidoService
+      .getPedidoActual(
+        pIDTienda,
+        pIDComprador,
+        Number(String(pIDTienda) + Number(String(pIDComprador)))
+      )
+      .then((res) => {
+        this.pedido = res.Data;
+        this._productoService.checkProductCart(this.productos, this.pedido);
+      })
+      .catch(() => {
+        this._pedidoService.showMessageError(
+          CONSTANT.MESSAGE.errorListar + ' Pedidos Recientes'
         );
       });
   }

@@ -37,7 +37,6 @@ export class LayoutComponent implements OnInit {
   }
 
   showProductsByCategoryID(CategoryID: number): void {
-    // console.log('app-layout - ' + CategoryID);
     this.contentComponent.onProductsByCategoryID(
       this._SessionInfo.getCodTienda(),
       CategoryID

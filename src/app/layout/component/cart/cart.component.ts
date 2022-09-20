@@ -23,6 +23,7 @@ export class CartComponent implements OnInit {
   pedido: IPedido;
   buttonActive: boolean = false;
   currentRoute: string;
+  countPedidoDetalle: number = 0;
 
   constructor(
     private _router: Router,
@@ -31,7 +32,6 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.currentRoute = this._router.url;
     this._pedidoService.pedidoActual$.subscribe((pedido)=>{
       this.pedido = pedido
     });
@@ -43,19 +43,12 @@ export class CartComponent implements OnInit {
   }
 
   openSideBag() {
-    // this.overlayPanel.hide();
     this.onOpenSideBag.emit();
     this._router.navigate(
       ['/ecommerce/', { outlets: { bag: ['sideproducts'] } }],
       { skipLocationChange: false }
     );
 
-    // this.onOpenSideBag.emit();
-    // this._router.navigate(
-    //   [`${this.currentRoute}`, { outlets: { right: ['sidebag'] } }],
-    //   { skipLocationChange: false }
-    // );
-    // console.log(this._router.url);
   }
 
   loadPedidosActual(pIDTienda: number, pIDComprador: number): void {
@@ -67,6 +60,7 @@ export class CartComponent implements OnInit {
       )
       .then((res) => {
         this.pedido = res.Data;
+        this.countPedidoDetalle = this.pedido.PedidoDetalle.length;
       })
       .catch(() => {
         this._pedidoService.showMessageError(

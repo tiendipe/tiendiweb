@@ -6,9 +6,8 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { IPedido } from 'src/app/interfaces/pedido';
+import { IPedido, IProducto } from 'src/app/interfaces';
 import { PedidoService } from 'src/app/services/pedido.service';
-import { IProducto } from '../../../interfaces/producto';
 
 @Component({
   selector: 'app-card',
@@ -19,9 +18,9 @@ import { IProducto } from '../../../interfaces/producto';
 export class CardComponent implements OnInit {
   @Output() onEmitProductID: EventEmitter<number> = new EventEmitter();
   @Input() producto: IProducto;
+  pedido: IPedido;
 
   favorite: boolean = false;
-  aggregated: boolean = false;
   labelAdd: string = '';
   iconAdd: string = '';
   classAdd: string = '';
@@ -34,6 +33,33 @@ export class CardComponent implements OnInit {
     this.iconAdd = '';
     this.classAdd = '';
     this.quantity = 1;
+
+    if(this.producto.Aggregated) {
+      this.labelAdd = 'Agregado';
+      this.iconAdd = 'pi pi-check';
+      this.classAdd = 'selected-product';
+    }
+
+    this._pedidoService.pedidoActual$.subscribe((pedido)=>{
+      if(pedido.PedidoDetalle){
+        if(pedido.PedidoDetalle.find(pedido =>
+          pedido.IDProducto == this.producto.IDProducto &&
+          pedido.IDUnidad == this.producto.IDUnidad &&
+          pedido.IDMarca == this.producto.IDMarca
+        )){
+          this.producto.Aggregated = true;
+          this.labelAdd = 'Agregado';
+          this.iconAdd = 'pi pi-check';
+          this.classAdd = 'selected-product';
+        } else{
+          this.producto.Aggregated = false;
+          this.labelAdd = 'Agregar';
+          this.iconAdd = '';
+          this.classAdd = '';
+          this.quantity = 1;
+        }
+      }
+    });
   }
 
   emitProductID(ProductID: number): void {
@@ -46,33 +72,56 @@ export class CardComponent implements OnInit {
    * @memberof CardComponent
    */
   onAdd(producto: IProducto): void {
-    if (!this.aggregated) {
-      this.labelAdd = 'Agregado';
-      this.iconAdd = 'pi pi-check';
-      this.classAdd = 'selected-product';
-      this.aggregated = true;
+    this.labelAdd = 'Agregado';
+    this.iconAdd = 'pi pi-check';
+    this.classAdd = 'selected-product';
+    producto.Aggregated = true;
 
-      this._pedidoService.addProductoPedidoActual(producto, this.quantity);
-    }
+    this._pedidoService.addProductoPedidoActual(producto, this.quantity);
   }
 
   onRemove(producto: IProducto): void {
-    if (this.aggregated) {
-      this.labelAdd = 'Agregar';
-      this.iconAdd = '';
-      this.classAdd = '';
-      this.quantity = 1;
-      this.aggregated = false;
-    }
+    this.labelAdd = 'Agregar';
+    this.iconAdd = '';
+    this.classAdd = '';
+    this.quantity = 1;
+    producto.Aggregated = false;
 
     this._pedidoService.removeProductoPedidoActual(producto);
   }
 
   onMoreUnid() {
+    debugger;
     this.quantity = this.quantity + 1;
+
+    this.pedido = this._pedidoService.pedidoActual$.getValue();
+
+    if(this.pedido){
+      this.pedido.PedidoDetalle.find(pedido =>
+        pedido.IDProducto == this.producto.IDProducto &&
+        pedido.IDMarca == this.producto.IDMarca &&
+        pedido.IDUnidad == this.producto.IDUnidad
+      ).Cantidad = this.quantity;
+
+      this._pedidoService.setPedidoActual(this.pedido);
+    }
   }
 
   onLessUnid() {
-    if (this.quantity > 1) this.quantity = this.quantity - 1;
+    if (this.quantity > 1) {
+      this.quantity = this.quantity - 1;
+
+      this.pedido = this._pedidoService.pedidoActual$.getValue();
+
+      if(this.pedido){
+        this.pedido.PedidoDetalle.find(pedido =>
+          pedido.IDProducto == this.producto.IDProducto &&
+          pedido.IDMarca == this.producto.IDMarca &&
+          pedido.IDUnidad == this.producto.IDUnidad
+        ).Cantidad = this.quantity;
+
+        this._pedidoService.setPedidoActual(this.pedido);
+      }
+    }
   }
 }
