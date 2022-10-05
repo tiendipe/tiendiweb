@@ -41,7 +41,8 @@ export class CardComponent implements OnInit {
     }
 
     this._pedidoService.pedidoActual$.subscribe((pedido)=>{
-      if(pedido.PedidoDetalle){
+      debugger;
+      if(pedido && pedido.PedidoDetalle){
         if(pedido.PedidoDetalle.find(pedido =>
           pedido.IDProducto == this.producto.IDProducto &&
           pedido.IDUnidad == this.producto.IDUnidad &&

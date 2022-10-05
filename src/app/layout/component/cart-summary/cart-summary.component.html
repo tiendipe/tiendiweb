@@ -1,5 +1,5 @@
 <div class="flex flex-column base-sumary p-0" style="background-color: #f8faf9">
-  <div class="font-bold text-base py-3 px-3 bg-white top-card-order">
+  <div *ngIf="pedido" class="font-bold text-base py-3 px-3 bg-white top-card-order">
     Tienes {{ pedido.PedidoDetalle.length }} productos
   </div>
   <div class="flex flex-column py-3 px-3" *ngIf="pedido"

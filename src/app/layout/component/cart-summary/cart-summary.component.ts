@@ -47,10 +47,12 @@ export class CartSummaryComponent implements OnInit {
 
   calculateTotal() {
     let total: number = 0;
-    this.pedido.PedidoDetalle.forEach(
-      (pedidoDetalle) =>
-        (total += pedidoDetalle.Cantidad * pedidoDetalle.Descuento)
-    );
-    this.pedido.SubTotal = total;
+    if (this.pedido) {
+      this.pedido.PedidoDetalle.forEach(
+        (pedidoDetalle) =>
+          (total += pedidoDetalle.Cantidad * pedidoDetalle.Descuento)
+      );
+      this.pedido.SubTotal = total;
+    }
   }
 }
