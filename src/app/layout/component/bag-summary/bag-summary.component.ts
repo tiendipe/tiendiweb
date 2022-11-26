@@ -18,10 +18,10 @@ export class BagSummaryComponent implements OnInit {
 
   ngOnInit(): void {
     debugger;
-    this.loadPedidosActual();
     this._pedidoService.pedidoActual$.subscribe((pedido)=>{
       this.pedido = pedido
     });
+    this.loadPedidosActual();
   }
 
   loadPedidosActual(): void {
