@@ -72,7 +72,6 @@ export class ContentComponent implements OnInit {
   }
 
   onCloseSidebarRight() {
-    debugger;
     this.url = this._router.url;
     if (
       !this.url.includes('right:sideordersummary') &&
@@ -89,7 +88,6 @@ export class ContentComponent implements OnInit {
   }
 
   onCloseSideBag() {
-    debugger;
     this.valueProgress = 50;
     this.visibleSideBag = false;
     this.onClearOutlet();

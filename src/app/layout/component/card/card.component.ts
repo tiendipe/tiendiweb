@@ -6,7 +6,7 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { IPedido, IProducto } from 'src/app/interfaces';
+import { IPedido, IProducto, PedidoDetalle } from 'src/app/interfaces';
 import { PedidoService } from 'src/app/services/pedido.service';
 
 @Component({
@@ -40,18 +40,20 @@ export class CardComponent implements OnInit {
       this.classAdd = 'selected-product';
     }
 
-    this._pedidoService.pedidoActual$.subscribe((pedido)=>{
-      debugger;
-      if(pedido && pedido.PedidoDetalle){
-        if(pedido.PedidoDetalle.find(pedido =>
+    this._pedidoService.pedidoActual$.subscribe((pPedido)=>{
+      let pedidoDetalle: PedidoDetalle;
+      if(pPedido && pPedido.PedidoDetalle){
+        pedidoDetalle = pPedido.PedidoDetalle.find(pedido =>
           pedido.IDProducto == this.producto.IDProducto &&
           pedido.IDUnidad == this.producto.IDUnidad &&
           pedido.IDMarca == this.producto.IDMarca
-        )){
+        )
+        if(pedidoDetalle){
           this.producto.Aggregated = true;
           this.labelAdd = 'Agregado';
           this.iconAdd = 'pi pi-check';
           this.classAdd = 'selected-product';
+          this.quantity = pedidoDetalle.Cantidad;
         } else{
           this.producto.Aggregated = false;
           this.labelAdd = 'Agregar';
@@ -92,7 +94,6 @@ export class CardComponent implements OnInit {
   }
 
   onMoreUnid() {
-    debugger;
     this.quantity = this.quantity + 1;
 
     this.pedido = this._pedidoService.pedidoActual$.getValue();

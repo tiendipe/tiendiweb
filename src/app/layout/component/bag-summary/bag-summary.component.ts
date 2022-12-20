@@ -17,7 +17,6 @@ export class BagSummaryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    debugger;
     this._pedidoService.pedidoActual$.subscribe((pedido)=>{
       this.pedido = pedido
     });

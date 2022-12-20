@@ -4,6 +4,7 @@ export interface IFavorito {
   IDComprador: number;
   IDCategoria: number;
   IDProducto: number;
+  IDMarca: number;
 }
 
 export class Favorito implements IFavorito {
@@ -11,6 +12,7 @@ export class Favorito implements IFavorito {
   IDComprador: number;
   IDCategoria: number;
   IDProducto: number;
+  IDMarca: number;
 
   constructor(
     favorito?
@@ -19,5 +21,6 @@ export class Favorito implements IFavorito {
     this.IDComprador = favorito.IDComprador;
     this.IDCategoria = favorito.IDCategoria;
     this.IDProducto = favorito.IDProducto;
+    this.IDMarca = favorito.IDMarca;
   }
 }

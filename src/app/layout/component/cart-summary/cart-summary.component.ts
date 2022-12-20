@@ -24,14 +24,14 @@ export class CartSummaryComponent implements OnInit {
   plusQuantity(pedidoDetalle: PedidoDetalle) {
     if (pedidoDetalle.Cantidad < 99) {
       pedidoDetalle.Cantidad += 1;
-      this.calculateTotal();
+      this.calculateTotal(pedidoDetalle);
     }
   }
 
   lessQuantity(pedidoDetalle: PedidoDetalle) {
     if (pedidoDetalle.Cantidad > 1) {
       pedidoDetalle.Cantidad -= 1;
-      this.calculateTotal();
+      this.calculateTotal(pedidoDetalle);
     }
   }
 
@@ -41,18 +41,29 @@ export class CartSummaryComponent implements OnInit {
       1
     );
 
-    this._pedidoService.setPedidoActual(this.pedido);
     this.calculateTotal();
   }
 
-  calculateTotal() {
+  calculateTotal(pPedidoDetalle?: PedidoDetalle) {
     let total: number = 0;
     if (this.pedido) {
       this.pedido.PedidoDetalle.forEach(
-        (pedidoDetalle) =>
-          (total += pedidoDetalle.Cantidad * pedidoDetalle.Descuento)
+        (pedidoDetalle) => {
+          (total += Math.round(pedidoDetalle.Cantidad * pedidoDetalle.Descuento));
+        }
+
       );
       this.pedido.SubTotal = total;
+
+      if(pPedidoDetalle != null){
+        this.pedido.PedidoDetalle.find(pedidoDetalle =>
+          pedidoDetalle.IDProducto == pPedidoDetalle.IDProducto &&
+          pedidoDetalle.IDMarca == pPedidoDetalle.IDMarca &&
+          pedidoDetalle.IDUnidad == pPedidoDetalle.IDUnidad
+        ).Cantidad = pPedidoDetalle.Cantidad;
+        }
+
+        this._pedidoService.setPedidoActual(this.pedido);
     }
   }
 }

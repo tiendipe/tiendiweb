@@ -46,8 +46,6 @@ export class ProductoService {
   }
 
   checkProductCart(productos: IProducto[], pedido: IPedido): IProducto[]{
-    debugger;
-
     productos.forEach(producto =>
       producto.Aggregated = false
     );

@@ -6,8 +6,9 @@ export const environment = {
     production: false,
     mapboxKey: 'pk.eyJ1IjoidGllbmRpIiwiYSI6ImNrdG9oenF2ZzBjdmkycG8zY3RjeDh5c3AifQ.qBWsrq4l0eQvUxM_ICW-hA',
     // serviceApi  : 'http://tiendipe-001-site1.ftempurl.com/webapiz2h/v2/',
-    serviceApi  : 'http://tiendipe-001-site1.ftempurl.com/webapitiendi/v1/'
+    // serviceApi  : 'http://tiendipe-001-site1.ftempurl.com/webapitiendi/v1/'
     // serviceApi  : 'http://localhost:60198/webapitiendi/v1/',
+    serviceApi: ''
 };
 
 /*
