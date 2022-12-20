@@ -2,6 +2,7 @@ export interface IPedidoDetalle {
   IDPedidoDetalle: number;
   IDPedido: number;
   IDProducto: number;
+  IDCategoria: number;
   IDUnidad: number;
   IDMarca: number;
   Cantidad: number;
@@ -19,6 +20,7 @@ export class PedidoDetalle implements IPedidoDetalle {
   IDPedidoDetalle: number;
   IDPedido: number;
   IDProducto: number;
+  IDCategoria: number;
   IDUnidad: number;
   IDMarca: number;
   Cantidad: number;
@@ -35,6 +37,7 @@ export class PedidoDetalle implements IPedidoDetalle {
     this.IDPedidoDetalle = pedidodetalle.IDPedidoDetalle;
     this.IDPedido = pedidodetalle.IDPedido;
     this.IDProducto = pedidodetalle.IDProducto;
+    this.IDCategoria = pedidodetalle.IDCategoria;
     this.IDUnidad = pedidodetalle.IDUnidad;
     this.IDMarca = pedidodetalle.IDMarca;
     this.Cantidad = pedidodetalle.Cantidad;

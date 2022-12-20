@@ -116,6 +116,7 @@ export class PedidoService {
       IDPedidoDetalle: 0,
       IDPedido: 0,
       IDProducto: pProducto.IDProducto,
+      IDCategoria: pProducto.IDCategoria,
       IDUnidad: pProducto.IDUnidad,
       IDMarca: pProducto.IDMarca,
       Cantidad: pQuantity,
@@ -190,6 +191,10 @@ export class PedidoService {
     this.pedido.PedidoDetalle.splice(index, 1)
 
     this.setPedidoActual(this.pedido);
+  }
+
+  repeatPedidoSetActual(pedido: IPedido){
+    this.setPedidoActual(pedido);
   }
 
   /**
