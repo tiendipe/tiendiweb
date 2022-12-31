@@ -1,8 +1,8 @@
 <div class="background">
   <h3 class="px-5 text-900 text-base">Forma de despacho</h3>
   <div class="px-5">
-    <p-card>
-      <div class="flex justify-content-between p-4 pt-0 pb-0">
+    <p-card class="shadow_card">
+      <div class="flex justify-content-between p-4 pt-0 pb-0 select-button-box" [ngClass]="{'twoCols': groupDelivery.length === 2}">
         <!-- <button pButton pRipple type="button" class="form_btn_style selected">
           <span class="text-sm font-bold">
             Recojo en tienda
@@ -20,16 +20,16 @@
       <div class="flex flex-row align-items-center pt-3 px-3">
         <i class="material-icons-outlined purple w-1"> place </i>
         <div class="flex flex-column w-11">
-          <div class="text-sm font-bold">Dirección de recojo</div>
-          <div class="text-base">Some Direction</div>
+          <div class="text-sm font-bold text-900">Dirección de recojo</div>
+          <div class="text-sm text-900">Some Direction</div>
         </div>
       </div>
     </p-card>
   </div>
   <h3 class="px-5 text-900 text-base">Medio de pago</h3>
   <div class="px-5">
-    <p-card>
-      <div class="flex justify-content-between p-4 pt-0 pb-0">
+    <p-card class="shadow_card">
+      <div class="flex justify-content-between p-4 pt-0 pb-0 select-button-box" [ngClass]="{'threeCols': groupPayment.length === 3}">
         <!-- <button pButton pRipple type="button" class="form_btn_style selected small_bt">
           <span class="text-sm font-bold">
             Efectivo
@@ -48,7 +48,7 @@
         <p-selectButton [options]="groupPayment" [(ngModel)]="groupPaymentSelected" optionLabel="label"
           optionValue="value"></p-selectButton>
       </div>
-      <div class="font-italic px-4 pt-4 pb-2 text-900">Mensaje informativo</div>
+      <div class="font-italic px-4 pt-4 pb-2 text-sm text-900">Mensaje informativo</div>
     </p-card>
   </div>
   <div class="resume-bag-box pl-4 pr-4">
@@ -56,7 +56,7 @@
       <span class="font-bold text-base text-900">Resumen del pedido: </span>
       <span class="font-bold text-base text-900">{{pedido.PedidoDetalle.length}} productos selecionados</span>
     </div>
-    <p-card>
+    <p-card class="shadow_card">
       <div class="pl-4 pr-4">
         <div class="resume-item-wrap">
           <div class="resume-item col flex mb-2" *ngFor="let pedidoDetalle of pedido.PedidoDetalle; let i = index">
@@ -111,7 +111,7 @@
             </div>
             <div class="col-3 pr-3">
               <div class="flex justify-content-end">
-                <span class="font-bold text-base purple">S/ {{pedido.Total}}</span>
+                <span class="font-bold text-base purple">S/ {{ pedido.Total | number:'1.0-1' }}</span>
               </div>
             </div>
           </div>

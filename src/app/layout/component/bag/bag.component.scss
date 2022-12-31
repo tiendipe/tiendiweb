@@ -52,11 +52,19 @@
   }
 }
 
-button {
-  min-width: 10rem;
-  margin-right: 0.5rem;
-}
 
+.btn_envio_pedido{
+  background: #607d8b !important;
+  border-color: #607d8b !important;
+}
+.close_btn_style{
+  background-color: #f8faf9 !important;
+}
+::ng-deep .customProgress {
+  .p-progressbar-value{
+    background: #9c27b0 !important;
+  }
+}
 @media screen and (max-width: 960px) {
   button {
     width: 100%;

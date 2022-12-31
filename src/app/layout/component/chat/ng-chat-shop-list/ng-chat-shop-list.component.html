@@ -25,8 +25,8 @@
 				<div class="shop-message-container flex-grow-1">
 					<div class="message-container">
 						<div class="message-container flex align-items-center">
-							<span class="message text-sm mb-1">{{user.participant.displayName}}</span>
-							<div *ngIf="user.metadata.totalUnreadMessages > 0" class="circulo"></div>
+							<span class="message text-xs mb-1 font-bold">{{user.participant.displayName}}</span>
+							<div *ngIf="user.metadata.totalUnreadMessages > 0" class="circulo ml-1"></div>
 						</div>
 						<span class="message-det text-xs">Pedido Nro. {{user.participant.ordernum}}</span>
 					</div>

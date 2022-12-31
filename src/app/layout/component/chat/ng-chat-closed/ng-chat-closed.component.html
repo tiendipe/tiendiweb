@@ -1,9 +1,15 @@
 <!-- CHAT CERRADO -->
 <div id="ng-chat-closed" (click)="onToggleChat()">
     <div *ngIf="chatShopWindows == 0" class="chat-toogle absolute bottom-0 right-0 border-round">
-        <i class="pi pi-comments"></i>
+    	<span class="fake-circle absolute">
+    		<i class="material-icons-outlined">more_horiz</i>
+    	</span>
+        <i class="material-icons-outlined icon-base">contact_support</i>
     </div>
-    <div *ngIf="chatShopWindows != 0" class="chat-toogle absolute bottom-0 right-0 border-round">
-        <i class="pi pi-times"></i>
+    <div *ngIf="chatShopWindows != 0" class="chat-toogle close_ absolute bottom-0 right-0 border-round">
+    	<span class="fake-circle absolute">
+    		<i class="material-icons-outlined">close</i>
+    	</span>
+        <i class="material-icons-outlined icon-base">contact_support</i>
     </div>
 </div>

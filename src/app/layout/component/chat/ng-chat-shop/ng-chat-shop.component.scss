@@ -4,15 +4,14 @@
     font-size: 0.7rem;
 
     .chat-container {
-        width: 240px;
-        height: 360px;
-        border-width: 1px;
-        border-style: solid;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-        margin-right: 30px;
-        margin-bottom: 60px;
+        width: 280px;
+        height: 350px;
+        border: none !important;
+        margin-right: 70px;
+        margin-bottom: 90px;
         background-color: white;
-
+        box-shadow: 0 4px 8px rgb(0 0 0 / 25%);
+        border-radius: 10px !important;
         .chat-shop-message-container {
             display: flex;
             padding-left: 20px;
@@ -76,7 +75,7 @@
             padding-top: 10px;
             padding-bottom: 10px;
             height: 261px;
-            background-color: rgb(235, 255, 255);
+            background-color: #ebf6f6;
             overflow:auto;
 
             .chat-fecha-container {
@@ -172,4 +171,7 @@
 }
 #description {
     display: none;
+}
+.chat-container-box{
+
 }

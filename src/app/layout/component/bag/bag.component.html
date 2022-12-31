@@ -1,17 +1,19 @@
 <div style="background-color: #f8faf9">
-  <div class="flex flex-row mt-1" style="background-color: white">
+  <div class="flex flex-row mt-1 pt-2" style="background-color: white">
     <div class="flex flex-column w-1 pl-3">
-      <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-secondary p-button-text"
+      <button pButton pRipple type="button" icon="pi pi-times" class="close_btn_style p-button-rounded p-button-secondary p-button-text"
         (click)="closeSideBag()"></button>
     </div>
-    <div class="pl-2 pb-4 text-2xl font-bold text-900">
-      Bolsa de compras
+    <div class="pl-2 pb-4 pt-2">
+      <span class="font-bold text-lg text-900">
+        Bolsa de compras
+      </span>
     </div>
   </div>
 
   <div class="pb-4">
-    <p-progressBar class="customProgress" [value]="valueProgress"
-      [style]="{ height: '3px', background: '#9C27B0', color: '#ffffff' }"></p-progressBar>
+    <p-progressBar styleClass="customProgress" [value]="valueProgress"
+      [style]="{ height: '3px', background: '#bfcbd1', color: '#ffffff' }"></p-progressBar>
   </div>
 
   <p-steps [model]="itemsSteps" [readonly]="false" class="stepsBag" (activeIndexChange)="onActiveIndexChange($event)">
@@ -28,11 +30,15 @@
     </div>
 
     <div class="flex flex-row background pb-2">
-      <div class="px-5" *ngIf="valueProgress==100">
-        <p-checkbox [(ngModel)]="termsValue" [binary]="true"></p-checkbox>
-        <label class="pl-3" for="terms">Texto con los <a class="purple font-bold cursor-pointer" (click)="navigateTerms()">términos y condiciones</a> para realizar el pedidoooo</label>
-        <button pButton pRipple type="button" label="Enviar pedido"
-          class="p-button-rounded px-3 ml-auto mr-5 pt-2" [disabled]="!termsValue" (click)="sendPedido()"></button>
+      <div class="px-4 w-full" *ngIf="valueProgress==100">
+        <div class="mb-3">
+          <p-checkbox [(ngModel)]="termsValue" [binary]="true"></p-checkbox>
+          <label class="pl-3 text-sm" for="terms">Texto con los <a class="purple font-bold cursor-pointer" (click)="navigateTerms()">términos y condiciones</a> para realizar el pedido</label>
+        </div>
+        <div class="flex justify-content-end">
+          <button pButton pRipple type="button" label="Enviar pedido"
+            class="p-button-rounded px-3 mr-0 pt-2 btn_envio_pedido" [disabled]="!termsValue" (click)="sendPedido()"></button>
+        </div>
       </div>
     </div>
   </div>

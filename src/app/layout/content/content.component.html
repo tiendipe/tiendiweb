@@ -2,7 +2,7 @@
 <app-carousel [productos]="productos" (onEmitProductID)="emitProductID($event)"></app-carousel>
 
 <p-sidebar [(visible)]="visibleSideBag" (onHide)="onCloseSideBag()" position="right" [showCloseIcon]="false"
-  [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
+  [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2 sidebar_right">
   <app-bag *ngIf="visibleSideBag" [hidden]="visibleTermns" (onCloseSideBag)="onCloseSideBag()" (onShowTermsSideBag)="showTermsSideBag()" [valueProgress]="valueProgress"></app-bag>
   <app-terms-and-conditions [hidden]="!visibleTermns" (onHideTermsSideBag)="hideTermsSideBag()"></app-terms-and-conditions>
 </p-sidebar>
@@ -13,6 +13,6 @@
 </p-sidebar>
 
 <p-sidebar [(visible)]="visibleSideBarRight" (onHide)="onClearOutlet()" position="right" [showCloseIcon]="false"
-  [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2">
+  [baseZIndex]="10000" styleClass="p-sidebar-md" class="pt-2 sidebar_right">
   <router-outlet name='right' (activate)="onOpenSidebarRight()" (deactivate)="onCloseSidebarRight()"></router-outlet>
 </p-sidebar>

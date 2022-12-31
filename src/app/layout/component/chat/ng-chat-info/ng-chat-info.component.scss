@@ -4,15 +4,13 @@
     font-size: 0.7rem;
 
     .chat-container {
-        width: 240px;
-        height: 360px;
-        border-width: 1px;
-        border-style: solid;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-        margin-right: 30px;
-        margin-bottom: 60px;
+        width: 280px;
+        height: 350px;
+        margin-right: 66px;
+        margin-bottom: 85px;
         background-color: white;
-
+        box-shadow: 0 4px 8px rgb(0 0 0 / 25%);
+        border-radius: 10px !important;
         .chat-shop-message-container {
             display: flex;
             padding-left: 20px;
@@ -84,8 +82,27 @@
                 .p-col-12 {
                     padding: 5px;
 
-                    .p-inputgroup > input[type=text]{
-                        font-size: 12px;
+                    .p-inputgroup {
+                        input[type=text]{
+                            font-size: 12px;
+                            border-top-right-radius: 6px;
+                            border-bottom-right-radius: 6px;
+                            padding:7px 7px 7px 0;
+                            border-left: none;
+                            border-color: #dee2e6;
+                        }
+                        .p-inputgroup-addon{
+                            border-color: #dee2e6;
+                            background-color: #fff;
+                            border-top-left-radius: 6px;
+                            border-bottom-left-radius: 6px;
+                            padding-top:7px;
+                            padding-bottom: 7px;
+                            i{
+                                font-size: 18px;
+                                color: #607d8b;
+                            }
+                        }
                     }
 
                     p-togglebutton {
@@ -96,7 +113,18 @@
             }
         }
     }
-
+    ::ng-deep .info-chat-btn{
+        .p-togglebutton{
+            background-color: #ecf0f0;
+            color: #00695c;
+            font-size: .75rem;
+            padding: 15px 10px;
+            border-radius: 20px;
+            border: none !important;
+            width: 75%;
+            font-weight: bold;
+        }
+    }
     .chat-toogle {
         margin-right: 30px;
         margin-bottom: 30px;
@@ -110,7 +138,17 @@
 
     .message-det {
         font-size: 0.6rem;
-        color: rgb(33, 116, 39);
-        margin-top: 5px !important;
+        color: #008b8c;
+        margin-top: 0 !important;
+    }
+    .chat-shop-message-container-img{
+        height: 30px;
+        width: 30px;
+        overflow: hidden;
+        border-radius: 50%;
+        img{
+            width: 100%;
+            height: auto;
+        }
     }
 }

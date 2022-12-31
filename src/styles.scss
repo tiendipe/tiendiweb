@@ -106,8 +106,21 @@ html, body {
 
 .cyan {
     color: #45d0bd !important;
-}
-
+}fff
 .p-sidebar-header {
     padding: 10px 10px !important;
+}
+.sidebar_right .p-sidebar{
+    background-color: #f8faf9;
+}
+.sidebar_right .p-sidebar .p-sidebar-header{
+    background-color: #fff;
+    padding: 0 !important;
+}
+.close__btn {
+    border-radius: 50% !important;
+    background-color: #f8faf9 !important;
+}
+.close__btn .pi{
+    color: #0cc2a9
 }

@@ -35,3 +35,40 @@ i {
 		border-bottom: 1px solid rgba(224,224,224,1);	
 	}
 }
+.select-button-box {
+	p-selectbutton{
+		width: 100%;
+		.p-selectbutton{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.p-button{
+				border: none !important;
+				font-size: 0.75rem !important;
+				font-weight: bold !important;
+				border-radius: 6px !important;
+				height: 40px;
+				background: #eceff1 !important;
+				&.p-highlight{
+					background: #607d8b !important;
+				}
+			}
+		}	 
+	}
+	&.twoCols{
+		.p-button{
+			width: 48%;			
+		}
+	}
+	&.threeCols{
+		.p-button{
+			width: 31%;			
+		}
+	}
+}
+.shadow_card{
+	.p-card{
+		border-radius: 10px;
+	    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+	}
+}
