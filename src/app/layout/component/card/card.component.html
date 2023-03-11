@@ -34,7 +34,7 @@
       </div>
       <div class="pt-3 flex justify-content-center">
         <!-- <i class="pi pi-shopping-cart w-2 shopping-icon" *ngIf="producto.Aggregated" (click)="onRemove(producto)"></i> -->
-        <i class="material-icons-outlined w-2" *ngIf="producto.Aggregated" (click)="onRemove(producto)">remove_shopping_cart</i>
+        <i class="material-icons-outlined w-2 remove_cart_ico" *ngIf="producto.Aggregated" (click)="onRemove(producto)">remove_shopping_cart</i>
         <button pButton pRipple type="button" [icon]="iconAdd" [label]="labelAdd" [ngClass]="classAdd"
           class="p-button-outlined p-button-help w-full" (click)="onAdd(producto)"></button>
       </div>

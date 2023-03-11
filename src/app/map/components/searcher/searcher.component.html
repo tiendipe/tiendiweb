@@ -1,21 +1,23 @@
 <div
   style="background-color: white"
-  class="p-3 card border-round ml-7 mt-7 border-round"
+  class="p-4 card border-round ml-7 mt-7 map-card"
 >
-  <div class="text-900 font-medium line-height-2" style="font-size: 1.46rem">
-    Encuentra lo que estás buscando,<br><span class="font-bold"
-      >más cerca de lo que crees</span
+  <div class="text-xl font-medium line-height-2">
+    <span class="font-medium block">Encuentra lo que estás buscando,</span>
+    <span class="font-bold block">más cerca de lo que crees</span
     >
   </div>
-  <span class="p-input-icon-left w-full py-2 p-input-filled">
-    <i class="pi pi-search cyan"></i>
+  <div class="input-search-map my-3 flex py-2 align-items-center">
+    <span class="pl-4 pt-1 mr-2">
+      <i class="pi pi-search cyan text-sm"></i>
+    </span>
     <input
-      class="w-full noborder borderbutton p-inputtext-lg"
+      class="inline-block noborder borderbutton text-sm w-full"
       type="text"
       pInputText
-      placeholder="Search"
+      placeholder="¿Qué estas buscando?"
     />
-  </span>
+  </div>
   <div class="flex justify-content-center">
     <app-carousel-map [products]="products" [width]="350"></app-carousel-map>
   </div>
@@ -28,7 +30,7 @@
       pRipple
       type="button"
       label="Suscríbete"
-      class="p-button-text p-button-sm p-button-rounded"
+      class="p-button-text p-button-sm text-xs font-bold subscribe-btn p-button-rounded"
     ></button>
     <div *ngIf="subscribe && !email" class="flex flex-row w-full">
       <input
@@ -36,7 +38,7 @@
         type="text"
         pInputText
         placeholder="Ingresa tu correo electrónico"
-        class = "p-inputtext-sm w-8 mr-3"
+        class = "sus-input text-xs w-8 mr-3"
         [(ngModel)] = "textemail"
       />
       <button

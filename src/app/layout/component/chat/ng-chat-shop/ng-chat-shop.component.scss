@@ -68,6 +68,16 @@
                 }
             }
         }
+        .img-user-chat{
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
 
         .chat-shop-content-container {
             padding-left: 10px;
@@ -153,8 +163,8 @@
 
     .message-det {
         font-size: 0.6rem;
-        color: rgb(33, 116, 39);
-        margin-top: 5px !important;
+        color: #008b8c;
+        margin-top: 0 !important;
     }
 }
 
@@ -174,4 +184,7 @@
 }
 .chat-container-box{
 
+}
+.btn-color{
+ color: #00695c;   
 }

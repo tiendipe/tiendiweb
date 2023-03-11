@@ -5,7 +5,9 @@
 			<div class="shop-message-container-i" (click)="onBackChatShopList()">
 				<i class="pi pi-chevron-left"></i>
 			</div>
-			<img src="../../../assets/perfil-tiendi-icono-invertido.png" alt="tiendi" />
+			<div class="img-user-chat">
+				<img src="../../../assets/perfil-tiendi-icono-invertido.png" alt="tiendi" />
+			</div>
 			<div class="shop-message-container">
 				<div class="message-container">
 					<span class="message">Mini Market</span>
@@ -39,14 +41,14 @@
 
 		<div class="chat-shop-send-container">
 			<div class="p-inputgroup">
-				<input type="text" pInputText class="p-inputtext-sm"
+				<input type="text" pInputText class="p-inputtext-sm text-xs"
 					[ngModel]="window.newMessage | emojify:emojisEnabled"
 					(ngModelChange)="window.newMessage=$event"
 					placeholder="Escribe un mensaje"
 					(keydown)="onChatInputTyped($event)"
                 />
 				<button pButton type="button" label="Enviar"
-					class="p-button-success p-button-text p-button-sm"></button>
+					class="p-button-text p-button-sm font-bold btn-color text-xs"></button>
 			</div>
 		</div>
 	</div>

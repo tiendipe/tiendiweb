@@ -16,3 +16,22 @@
     background-color: #45d0bd !important;
     border-color: #45d0bd !important;
 }
+.map-card{
+	border-radius: 10px !important;
+	box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+	.input-search-map{
+		box-shadow: 0 3px 6px rgb(0 0 0 / 15%) !important;
+		border-radius: 30px;
+	}
+	.subscribe-btn{
+
+		color: #636464 !important
+	}
+	.sus-input{
+		border-radius: 5px;
+		outline: none !important;
+		&:focus{
+			box-shadow: none !important;
+		}
+	}
+}
